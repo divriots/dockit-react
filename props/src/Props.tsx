@@ -32,6 +32,12 @@ type PropsProps = {
   of: ComponentWithDocGenInfo
 };
 
+const styles = {
+  code: {
+    fontFamily: 'monospace',
+    fontSize: '1.23rem',
+  }
+}
 
 /**
   React component used for listing the props details of a React component.
@@ -62,7 +68,9 @@ export const Props = ({ of }: PropsProps) => {
               <tr key={name}>
                 <td>{name}</td>
                 <td>{prop.description}</td>
-                <td>{getType(prop)}</td>
+                <td style={styles.code}>
+                  {getType(prop)}
+                </td>
                 <td>{prop.defaultValue?.value}</td>
                 <td>{prop.required.toString()}</td>
               </tr>

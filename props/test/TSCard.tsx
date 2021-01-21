@@ -11,7 +11,7 @@ type CardProps = {
 }
 
 /**
-  A typescript type component.
+  A typescript test Card component.
 */
 export const TSCard = ({ title, paragraph }: CardProps) =>  (
   <div>

@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { Props } from "./index";
-import { JSCard } from './JSCard';
-import { TSCard } from './TSCard';
-
-
+import { JSCard, TSCard } from '../test';
 
 export default {
   parameters: {

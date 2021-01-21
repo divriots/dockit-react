@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 /**
-  A card component, with javascript.
+  A test card component, with javascript.
 */
 const JSCard = ({ title, paragraph }) =>  (
   <div>

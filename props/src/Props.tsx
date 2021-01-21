@@ -1,4 +1,4 @@
-import React,  { ComponentType } from 'react';
+import React, { ComponentType } from 'react';
 
 export interface PropType {
   name: string;
@@ -7,7 +7,7 @@ export interface PropType {
   computed?: boolean;
 }
 
-export interface Prop {
+interface Prop {
   required: boolean;
   description?: string;
   type?: PropType;
@@ -18,48 +18,57 @@ export interface Prop {
   };
 }
 
-export type ComponentWithDocGenInfo = ComponentType & {
+type ComponentWithDocGenInfo = ComponentType & {
   __docgenInfo: {
     description?: string,
     props?: Record<string, Prop>
   }
 }
 
-export type PropsProps = {
+type PropsProps = {
+  /**
+    Component with documentation info for which to list the props details.
+  */
   of: ComponentWithDocGenInfo
 };
 
+
+/**
+  React component used for listing the props details of a React component.
+*/
 export const Props = ({ of }: PropsProps) => {
-  const { description, props } = of.__docgenInfo;
+  const { props } = of.__docgenInfo;
 
   const getType = (prop: Prop) => {
     const type = prop.type || prop.tsType;
-    return type.name  === 'union' ? type.raw : type.name;
+    return ['union', 'intersection'].includes(type.name) ? type.raw : type.name;
   }
 
   return (
     <div>
-      <h3>{description}</h3>
-      <h2>Properties</h2>
       <table>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Type(s)</th>
-          <th>Default</th>
-          <th>Required</th>
-        </tr>
-        {
-          Object.entries(props).map(([name, prop]) =>(
-            <tr>
-              <td>{name}</td>
-              <td>{prop.description}</td>
-              <td>{getType(prop)}</td>
-              <td>{prop.defaultValue?.value}</td>
-              <td>{prop.required.toString()}</td>
-            </tr>
-          ))
-        }
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type(s)</th>
+            <th>Default</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            Object.entries(props).map(([name, prop]) =>(
+              <tr key={name}>
+                <td>{name}</td>
+                <td>{prop.description}</td>
+                <td>{getType(prop)}</td>
+                <td>{prop.defaultValue?.value}</td>
+                <td>{prop.required.toString()}</td>
+              </tr>
+            ))
+          }
+        </tbody>
       </table>
     </div>
   );

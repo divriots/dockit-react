@@ -34,7 +34,7 @@ type PropsProps = {
 
 
 /**
-  React component used for listing the props details of a React component.
+  Used for listing the props details of a React component.
 */
 export const Props = ({ of }: PropsProps) => {
   const { props } = of.__docgenInfo;
@@ -62,7 +62,9 @@ export const Props = ({ of }: PropsProps) => {
               <tr key={name}>
                 <td>{name}</td>
                 <td>{prop.description}</td>
-                <td>{getType(prop)}</td>
+                <td>
+                  <code>{getType(prop)}</code>
+                </td>
                 <td>{prop.defaultValue?.value}</td>
                 <td>{prop.required.toString()}</td>
               </tr>

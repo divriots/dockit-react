@@ -1,0 +1,41 @@
+import { mdx } from '@mdx-js/react';
+import { Props, Description } from '~/props/dist/index';
+import { SystemUIShowcases } from '../dist';
+import theme from '../dist/primer-theme';
+
+# SystemUIShowcases Component
+
+<Description of={SystemUIShowcases} />
+
+## Usage
+
+```
+import { SystemUIShowcases } from '@divriots/dockit-react';
+import theme from './theme';
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderRadius"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    bg: 'green.6'
+  }}
+/>
+```
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderRadius"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    bg: 'green.6'
+  }}
+/>
+
+## Props
+<Props of={SystemUIShowcases} />
+

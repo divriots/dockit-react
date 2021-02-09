@@ -1,0 +1,31 @@
+import { mdx } from '@mdx-js/react';
+import { Props, Description } from '~/props/dist/index';
+import { TailwindShowcases } from '../dist';
+import theme from 'tailwindcss/defaultTheme.js';
+
+# TailwindShowcases Component
+
+<Description of={TailwindShowcases} />
+
+## Usage
+
+```
+import { TailwindShowcases } from '@divriots/dockit-react';
+import theme from 'tailwindcss/defaultTheme.js';
+
+<TailwindShowcases
+  theme={theme}
+  showcaseKey="opacity"
+  componentProps={{ className: "shadow-xl h-32 w-32 bg-blue-700" }}
+/>
+```
+
+<TailwindShowcases
+  theme={theme}
+  showcaseKey="opacity"
+  componentProps={{ className: "shadow-xl h-32 w-32 bg-blue-700" }}
+/>
+
+## Props
+<Props of={TailwindShowcases} />
+

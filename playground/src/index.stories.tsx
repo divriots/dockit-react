@@ -1,5 +1,6 @@
 import React from 'react';
-import { Playground, Button } from "./index";
+import { Playground } from './index';
+import { Button } from '../test';
 
 export default {
   parameters: {
@@ -8,8 +9,9 @@ export default {
 };
 
 export const Button_doc_with_playground = () => (
-  <Playground
-    scope={{ Button}}
-    code={`<Button>Button</Button>`}
-  />
+  <Playground scope={{ Button }} code={`
+<Button>Button</Button> 
+<Button primary>Primary</Button> 
+<Button danger>Danger</Button> 
+  `} />
 );

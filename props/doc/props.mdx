@@ -1,9 +1,25 @@
 import { mdx } from "@mdx-js/react";
-import { Box, Heading, Text } from 'rebass';
 import { Props, Description } from '../dist';
+import { Button } from '../test';
 
-# Props
+# Props Component
+
 <Description of={Props} />
 
+It requires the [babel react docgen plugin](https://www.npmjs.com/package/babel-plugin-react-docgen).
+
+### Example: Props of `Button` component
+<Props of={Button} />
+
+## Usage
+
+```
+import { Button } from './Button';
+import { Props } from '@divriots/dockit-react';
+
+<Props of={Button} />
+```
+
+## Props
 <Props of={Props} />
 

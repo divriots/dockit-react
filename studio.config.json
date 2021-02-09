@@ -1,0 +1,37 @@
+{
+  "packages": {
+    "dir": "",
+    "menu": [
+      "readme",
+      [
+        "Tokens System-UI",
+        [
+          "system-ui-showcases"
+        ]
+      ],
+      [
+        "Tokens Tailwind CSS",
+        [
+          "tailwind-showcases"
+        ]
+      ],
+      [
+        "Components",
+        [
+          "space",
+          "props",
+          "playground",
+          "showcases"
+        ]
+      ],
+      [
+        "Tools",
+        [
+          "caption",
+          "box",
+          "text"
+        ]
+      ]
+    ]
+  }
+}

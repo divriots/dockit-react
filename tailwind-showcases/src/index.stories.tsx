@@ -1,9 +1,8 @@
 import React from 'react';
-import { TailwindShowcases } from './index';
+import { TailwindShowcases, ZIndexShowcases } from './index';
 import 'twind/shim';
 import twTheme from 'tailwindcss/defaultTheme.js';
 import { Space } from '~/space';
-import { extractClassSuffixes } from './theme-helpers';
 
 export const bg_color = () => (
   <TailwindShowcases
@@ -95,23 +94,7 @@ export const text_color = () => (
   <TailwindShowcases theme={twTheme} showcaseKey="textColor" />
 );
 
-
-export const z_index = () => {
-  const classes = extractClassSuffixes('zIndex', twTheme).map(s => `z${s}`);
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'row-reverse', justifyContent: 'center' }}>
-      {classes.map((cls, i) => (
-        <div
-          className={`${cls} h-32 w-32 -ml-10 rounded-md bg-indigo-500 shadow-2xl`}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: i*10 }}
-        >
-          <div className="text-white">{cls}</div>
-        </div>
-      ))}
-    </div>
-  )
-};
+export const z_index = () => <ZIndexShowcases theme={twTheme} />;
 
 export const spacing = () => (
   <Space scale={twTheme.spacing} />

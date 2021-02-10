@@ -1,7 +1,10 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import * as path from "path";
-import { Playground } from "@divriots/dockit-react/playground/dist/index.js";
+import { Playground } from "../../playground/dist/index.js";
+import { Props } from '../../props/dist/index.js';
+import { Showcases } from '../../showcases/dist/index.js';
+import { Space } from '../../space/dist/index.js';
 import "@divriots/markdown-github/dist/index.css";
 
 const navItemStyle = {
@@ -72,7 +75,7 @@ const NavBar = ({ pages, packages }) => {
 export default ({ __staticProps, ...props }) => {
   const navbarProps = { ...__staticProps, ...props };
   return (
-    <MDXProvider components={{ Playground }}>
+    <MDXProvider components={{ Playground,Props,Showcases,Space }}>
       <div
         style={{ display: "flex", boxSizing: "border-box" }}
         className="markdown-body"

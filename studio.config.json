@@ -31,6 +31,12 @@
           "box",
           "text"
         ]
+      ],
+      [
+        "Layouts",
+        [
+          "mdx-layout"
+        ]
       ]
     ]
   }

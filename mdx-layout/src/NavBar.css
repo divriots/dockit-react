@@ -1,0 +1,21 @@
+.navitem {
+  display: flex;
+  padding: ".5rem 2rem .5rem 0";
+  margin: 0;
+  text-transform: "capitalize";
+}
+
+a.navitem {
+  color: currentColor;
+  user-select: none;
+}
+
+span.navitem {
+  opacity: 0.3;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

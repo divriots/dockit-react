@@ -1,4 +1,4 @@
-import "@divriots/markdown-github/dist/index.css";
+import "./markdown-github.scss";
 import { NavBar } from "./NavBar";
 import { MDXProvider } from "@mdx-js/react";
 import { Playground } from "../../playground/src/Playground";

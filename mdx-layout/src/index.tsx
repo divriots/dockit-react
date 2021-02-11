@@ -1,85 +1,11 @@
 import "@divriots/markdown-github/dist/index.css";
-import React from "react";
+import { NavBar } from "./NavBar";
 import { MDXProvider } from "@mdx-js/react";
-import * as path from "path";
-import { Playground } from "../../playground/dist/index.js";
-import { Props } from "../../props/dist/index.js";
-import { Showcases } from "../../showcases/dist/index.js";
-import { Space } from "../../space/dist/index.js";
-
-const navItemStyle = {
-  display: "flex",
-  padding: ".5rem 2rem .5rem 0",
-  margin: 0,
-  textTransform: "capitalize",
-} as any;
-
-export const relativeUrl = (url: string) =>
-  path.join(
-    Array(url.split("/").length - 1)
-      .fill("..")
-      .join("/"),
-    url
-  );
-
-export const NavHeading = ({ children }) => (
-  <h4 style={navItemStyle}>{children}</h4>
-);
-
-const NavLink = ({ pkg, ...props }) => {
-  const { pages, packages = {} } = props;
-  const page = pages.find(
-    (p) =>
-      p.url === pkg ||
-      p.url.startsWith(`${path.join(packages.dir || "", pkg, "doc")}`)
-  );
-  return page ? (
-    <a
-      style={{ ...navItemStyle, color: "currentcolor", userSelect: "none" }}
-      href={relativeUrl(page.url)}
-    >
-      {page.slug || pkg}
-    </a>
-  ) : (
-    <span style={{ ...navItemStyle, opacity: ".3" }}>{pkg}</span>
-  );
-};
-
-export const NavList = ({ children }) => (
-  <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>{children}</ul>
-);
-
-export const NavGroup = ({ items, ...props }) => {
-  return (
-    <div>
-      {props.group ? <NavHeading>{props.group}</NavHeading> : ""}
-      <NavList>
-        {items.map((pkg: string) => (
-          <li key={pkg} style={{ padding: 0, margin: 0 }}>
-            <NavLink pkg={pkg} {...props} />
-          </li>
-        ))}
-      </NavList>
-    </div>
-  );
-};
-
-const NavBar = ({ pages, packages }) => {
-  const childrenProps = { pages, packages };
-  return packages?.menu ? (
-    <div>
-      {packages.menu.map((i: any) =>
-        typeof i === "string" ? (
-          <NavLink key={i} pkg={i} {...childrenProps} />
-        ) : (
-          <NavGroup key={i} group={i[0]} items={i[1]} {...childrenProps} />
-        )
-      )}
-    </div>
-  ) : (
-    <NavGroup items={pages.map((p) => p.url)} {...childrenProps} />
-  );
-};
+import { Playground } from "../../playground/src/Playground";
+import { Props } from "../../props/src/Props";
+import { Showcases } from "../../showcases/src/Showcases";
+import { Space } from "../../space/src/Space";
+import React from "react";
 
 export const Layout = ({ __staticProps, children, ...props }) => {
   const navbarProps = { ...__staticProps, ...props };

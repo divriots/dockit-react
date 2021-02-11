@@ -1,6 +1,7 @@
 import React from 'react';
 import { Showcases } from '~/showcases';
 import { extractClassSuffixes } from './theme-helpers';
+import resolveConfig from 'tailwindcss/resolveConfig';
 
 const styles = {
   error: {
@@ -97,11 +98,13 @@ const getClassNames = (suffixes: Record<string, string[]>) => ({
   the tailwindcss theme.
 */
 export const TailwindShowcases = ({
-  theme = {},
+  theme: partialTheme = {},
   showcaseKey,
   componentProps = {},
   gap,
 }: TailwindShowcasesProps) => {
+  const { theme } = resolveConfig({ theme: partialTheme });
+
   const classSuffixes = getClassSuffixes(theme);
   const classNames = getClassNames(classSuffixes);
 

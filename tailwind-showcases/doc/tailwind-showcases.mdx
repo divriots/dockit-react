@@ -1,8 +1,6 @@
 import { mdx } from '@mdx-js/react';
-import 'twind/shim';
 import { Props, Description } from '~/props/dist/index';
 import { TailwindShowcases } from '../dist';
-import theme from 'tailwindcss/defaultTheme.js';
 
 # TailwindShowcases Component
 
@@ -12,17 +10,25 @@ import theme from 'tailwindcss/defaultTheme.js';
 
 ```
 import { TailwindShowcases } from '@divriots/dockit-react';
-import theme from 'tailwindcss/defaultTheme.js';
+
+const partialTheme = {
+  extend: {
+    colors: {
+      primary: '#E43530',
+      ...
+    }
+  }
+};
 
 <TailwindShowcases
-  theme={theme}
+  theme={partialTheme}
   showcaseKey="opacity"
   componentProps={{ className: "shadow-xl h-32 w-32 bg-blue-700" }}
 />
 ```
 
 <TailwindShowcases
-  theme={theme}
+  theme={{}}
   showcaseKey="opacity"
   componentProps={{ className: 'shadow-xl h-32 w-32 bg-blue-700' }}
 />

@@ -17,10 +17,13 @@ export const NavLink = ({ pkg, ...props }) => {
       p.url.startsWith(`${path.join(packages.dir || "", pkg, "doc")}`)
   );
   return page ? (
-    <a className="navitem" href={relativeUrl(page.url)}>
+    <a
+      className={location.href.endsWith(page.url) ? "selected" : ""}
+      href={relativeUrl(page.url)}
+    >
       {page.slug || pkg}
     </a>
   ) : (
-    <span className="navitem">{pkg}</span>
+    <span>pkg</span>
   );
 };

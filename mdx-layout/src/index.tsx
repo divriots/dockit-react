@@ -11,13 +11,10 @@ export const Layout = ({ __staticProps, children, ...props }) => {
   const navbarProps = { ...__staticProps, ...props };
   return (
     <MDXProvider components={{ Playground, Props, Showcases, Space }}>
-      <div
-        style={{ display: "flex", boxSizing: "border-box" }}
-        className="markdown-body"
-      >
+      <main style={{ display: "flex" }} className="markdown-body">
         <NavBar {...navbarProps} />
-        <main>{children}</main>
-      </div>
+        <div role="document">{children}</div>
+      </main>
     </MDXProvider>
   );
 };

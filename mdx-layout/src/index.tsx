@@ -19,7 +19,7 @@ export const NavHeading = ({ children }) => (
 );
 
 const NavLink = ({ pkg, ...props }) => {
-  const { pages, packages } = props;
+  const { pages, packages = {} } = props;
   const page = pages.find(
     (p) =>
       p.url === pkg ||
@@ -28,9 +28,14 @@ const NavLink = ({ pkg, ...props }) => {
   return page ? (
     <a
       style={{ ...navItemStyle, color: "currentcolor", userSelect: "none" }}
-      href={path.join(path.relative(page.url, packages.dir), page.url)}
+      href={path.join(
+        Array(page.url.split("/").length - 1)
+          .fill("..")
+          .join("/"),
+        page.url
+      )}
     >
-      {pkg}
+      {page.slug || pkg}
     </a>
   ) : (
     <span style={{ ...navItemStyle, opacity: ".3" }}>{pkg}</span>
@@ -41,11 +46,10 @@ export const NavList = ({ children }) => (
   <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>{children}</ul>
 );
 
-export const NavGroup = ({ pkg, ...props }) => {
-  const [group, items] = pkg;
+export const NavGroup = ({ items, ...props }) => {
   return (
     <div>
-      <NavHeading>{group}</NavHeading>
+      {props.group ? <NavHeading>{props.group}</NavHeading> : ""}
       <NavList>
         {items.map((pkg: string) => (
           <li key={pkg} style={{ padding: 0, margin: 0 }}>
@@ -59,16 +63,18 @@ export const NavGroup = ({ pkg, ...props }) => {
 
 const NavBar = ({ pages, packages }) => {
   const childrenProps = { pages, packages };
-  return (
+  return packages?.menu ? (
     <div>
-      {packages.menu?.map((i: any) =>
+      {packages.menu.map((i: any) =>
         typeof i === "string" ? (
           <NavLink key={i} pkg={i} {...childrenProps} />
         ) : (
-          <NavGroup key={i} pkg={i} {...childrenProps} />
+          <NavGroup key={i} group={i[0]} items={i[1]} {...childrenProps} />
         )
       )}
     </div>
+  ) : (
+    <NavGroup items={pages.map((p) => p.url)} {...childrenProps} />
   );
 };
 

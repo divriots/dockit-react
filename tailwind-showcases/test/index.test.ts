@@ -2,8 +2,6 @@ import chai from 'chai/chai.js';
 import { extractClassSuffixes } from '../src/theme-helpers';
 const expect = chai.expect;
 
-
-
 describe('Class names', function () {
   it('should extract correct color class suffixes', function () {
     const theme = JSON.parse(`
@@ -30,7 +28,7 @@ describe('Class names', function () {
       '-gray-50',
       '-gray-100',
       '-red-800',
-      '-red-900'
+      '-red-900',
     ]);
   });
 });

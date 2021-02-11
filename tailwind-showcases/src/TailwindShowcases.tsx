@@ -1,5 +1,4 @@
 import React from 'react';
-import 'twind/shim';
 import { Showcases } from '~/showcases';
 import defaultTheme from 'tailwindcss/defaultTheme.js';
 import { extractClassSuffixes } from './theme-helpers';
@@ -8,7 +7,7 @@ const styles = {
   error: {
     color: 'red',
   },
-}
+};
 
 interface TailwindShowcasesProps {
   /**
@@ -27,8 +26,8 @@ interface TailwindShowcasesProps {
   /**
     Specifies the distance between rendered components, to adjust the layout.
   */
-  gap?: { horizontal?: number, vertical?: number },
-};
+  gap?: { horizontal?: number; vertical?: number };
+}
 
 const getClassSuffixes = (theme: Record<string, any>) => ({
   colors: extractClassSuffixes('colors', theme),
@@ -44,18 +43,54 @@ const getClassSuffixes = (theme: Record<string, any>) => ({
 });
 
 const getClassNames = (suffixes: Record<string, string[]>) => ({
-  backgroundColor: { component: 'box', classes: suffixes.colors.map(s => `bg${s}`) },
-  opacity: { component: 'box', classes: suffixes.opacity.map(s => `opacity${s}`) },
-  shadow: { component: 'box', classes: suffixes.boxShadow.map(s => `shadow${s}`) },
-  borderRadius: { component: 'box', classes: suffixes.borderRadius.map(s => `rounded${s}`) },
-  borderWidth: { component: 'box', classes: suffixes.borderWidth.map(s => `border${  s}`) },
-  borderColor: { component: 'box', classes: suffixes.colors.map(s => `border${s}`) },
-  fontFamily: { component: 'text', classes: suffixes.fontFamily.map(s => `font${s}`) },
-  fontSize: { component: 'text', classes: suffixes.fontSize.map(s => `text${s}`) },
-  fontWeight: { component: 'text', classes: suffixes.fontWeight.map(s => `font${s}`) },
-  textColor: { component: 'text', classes: suffixes.colors.map(s => `text${s}`) },
-  letterSpacing: { component: 'text', classes: suffixes.letterSpacing.map(s => `tracking${s}`) },
-  lineHeight: { component: 'text', classes: suffixes.lineHeight.map(s => `leading${s}`) },
+  backgroundColor: {
+    component: 'box',
+    classes: suffixes.colors.map((s) => `bg${s}`),
+  },
+  opacity: {
+    component: 'box',
+    classes: suffixes.opacity.map((s) => `opacity${s}`),
+  },
+  shadow: {
+    component: 'box',
+    classes: suffixes.boxShadow.map((s) => `shadow${s}`),
+  },
+  borderRadius: {
+    component: 'box',
+    classes: suffixes.borderRadius.map((s) => `rounded${s}`),
+  },
+  borderWidth: {
+    component: 'box',
+    classes: suffixes.borderWidth.map((s) => `border${s}`),
+  },
+  borderColor: {
+    component: 'box',
+    classes: suffixes.colors.map((s) => `border${s}`),
+  },
+  fontFamily: {
+    component: 'text',
+    classes: suffixes.fontFamily.map((s) => `font${s}`),
+  },
+  fontSize: {
+    component: 'text',
+    classes: suffixes.fontSize.map((s) => `text${s}`),
+  },
+  fontWeight: {
+    component: 'text',
+    classes: suffixes.fontWeight.map((s) => `font${s}`),
+  },
+  textColor: {
+    component: 'text',
+    classes: suffixes.colors.map((s) => `text${s}`),
+  },
+  letterSpacing: {
+    component: 'text',
+    classes: suffixes.letterSpacing.map((s) => `tracking${s}`),
+  },
+  lineHeight: {
+    component: 'text',
+    classes: suffixes.lineHeight.map((s) => `leading${s}`),
+  },
 });
 
 /**
@@ -63,27 +98,29 @@ const getClassNames = (suffixes: Record<string, string[]>) => ({
   the tailwindcss theme.
 */
 export const TailwindShowcases = ({
-    theme = defaultTheme, 
-    showcaseKey,
-    componentProps = {},
-    gap,
-  }: TailwindShowcasesProps ) => {
-  
+  theme = defaultTheme,
+  showcaseKey,
+  componentProps = {},
+  gap,
+}: TailwindShowcasesProps) => {
   const classSuffixes = getClassSuffixes(theme);
   const classNames = getClassNames(classSuffixes);
 
   const supportedKeys = Object.keys(classNames);
-  if (!supportedKeys.includes(showcaseKey)) return (
-    <p style={styles.error}>
-      {`Other keys than ${supportedKeys.join(', ')} are not yet supported`}
-    </p>
-  );
+  if (!supportedKeys.includes(showcaseKey))
+    return (
+      <p style={styles.error}>
+        {`Other keys than ${supportedKeys.join(', ')} are not yet supported`}
+      </p>
+    );
 
   const { classes, component } = classNames[showcaseKey];
-  return <Showcases
-    showcaseComponent={component}
-    showcaseClasses={classes}
-    componentProps={componentProps}
-    gap={gap}
-  />;
-}
+  return (
+    <Showcases
+      showcaseComponent={component}
+      showcaseClasses={classes}
+      componentProps={componentProps}
+      gap={gap}
+    />
+  );
+};

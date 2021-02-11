@@ -1,11 +1,11 @@
+import "@divriots/markdown-github/dist/index.css";
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import * as path from "path";
 import { Playground } from "../../playground/dist/index.js";
-import { Props } from '../../props/dist/index.js';
-import { Showcases } from '../../showcases/dist/index.js';
-import { Space } from '../../space/dist/index.js';
-import "@divriots/markdown-github/dist/index.css";
+import { Props } from "../../props/dist/index.js";
+import { Showcases } from "../../showcases/dist/index.js";
+import { Space } from "../../space/dist/index.js";
 
 const navItemStyle = {
   display: "flex",
@@ -13,6 +13,14 @@ const navItemStyle = {
   margin: 0,
   textTransform: "capitalize",
 } as any;
+
+export const relativeUrl = (url: string) =>
+  path.join(
+    Array(url.split("/").length - 1)
+      .fill("..")
+      .join("/"),
+    url
+  );
 
 export const NavHeading = ({ children }) => (
   <h4 style={navItemStyle}>{children}</h4>
@@ -28,12 +36,7 @@ const NavLink = ({ pkg, ...props }) => {
   return page ? (
     <a
       style={{ ...navItemStyle, color: "currentcolor", userSelect: "none" }}
-      href={path.join(
-        Array(page.url.split("/").length - 1)
-          .fill("..")
-          .join("/"),
-        page.url
-      )}
+      href={relativeUrl(page.url)}
     >
       {page.slug || pkg}
     </a>
@@ -78,16 +81,16 @@ const NavBar = ({ pages, packages }) => {
   );
 };
 
-export default ({ __staticProps, ...props }) => {
+export const Layout = ({ __staticProps, children, ...props }) => {
   const navbarProps = { ...__staticProps, ...props };
   return (
-    <MDXProvider components={{ Playground,Props,Showcases,Space }}>
+    <MDXProvider components={{ Playground, Props, Showcases, Space }}>
       <div
         style={{ display: "flex", boxSizing: "border-box" }}
         className="markdown-body"
       >
         <NavBar {...navbarProps} />
-        <main>{props.children}</main>
+        <main>{children}</main>
       </div>
     </MDXProvider>
   );

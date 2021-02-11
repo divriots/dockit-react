@@ -1,6 +1,5 @@
 import React from 'react';
 import { Showcases } from '~/showcases';
-import defaultTheme from 'tailwindcss/defaultTheme.js';
 import { extractClassSuffixes } from './theme-helpers';
 
 const styles = {
@@ -98,7 +97,7 @@ const getClassNames = (suffixes: Record<string, string[]>) => ({
   the tailwindcss theme.
 */
 export const TailwindShowcases = ({
-  theme = defaultTheme,
+  theme = {},
   showcaseKey,
   componentProps = {},
   gap,

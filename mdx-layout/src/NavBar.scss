@@ -1,23 +1,33 @@
-nav {
-  .navitem {
-    display: flex;
-    padding: 0.5rem 2rem 0.5rem 0!important;
-    margin: 0!important;
-    text-transform: capitalize;
-  }
-
-  a.navitem {
-    color: currentColor;
-    user-select: none;
-  }
-
-  span.navitem {
-    opacity: 0.3;
-  }
-
-  ul.navlist {
+nav.menu {
+  padding-right: 2rem;
+  ul {
     list-style: none;
+    margin:0;
     padding: 0;
-    margin: 0;
+    li > :not(ul) {
+      display: flex;
+      padding:.25rem .5rem;
+      border-radius: .25rem;
+    }
+    h5 {
+      text-transform :uppercase
+    }
+    .navitem{
+      margin: 0;
+      text-transform: capitalize;
+      a {
+        color: currentColor;
+        user-select: none;
+        &.selected{
+          background: #f1f1f1;
+        }
+        &:hover{
+          background: #eee;
+        }
+      }
+      span{
+        opacity: 0.3;
+      }
+    } 
   }
 }

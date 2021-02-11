@@ -2,14 +2,18 @@ import React from "react";
 import { NavLink } from "./NavLink";
 
 export const NavGroup = ({ items, ...props }) => (
-  <div>
-    {props.group ? <h4 className="navitem">{props.group}</h4> : ""}
-    <ul className="navlist">
-      {items.map((pkg: string) => (
-        <li key={pkg} style={{ padding: 0, margin: 0 }}>
-          <NavLink pkg={pkg} {...props} />
+  <ul className="navgroup">
+    {items.map((i: string) =>
+      typeof i === "string" ? (
+        <li key={i} className="navitem">
+          <NavLink pkg={i} {...props} />
         </li>
-      ))}
-    </ul>
-  </div>
+      ) : (
+        <li key={i}>
+          <h4>{i[0]}</h4>
+          <NavGroup group={i[0]} items={i[1]} {...props} />
+        </li>
+      )
+    )}
+  </ul>
 );

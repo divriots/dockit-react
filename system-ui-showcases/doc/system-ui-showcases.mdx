@@ -1,7 +1,7 @@
 import { mdx } from '@mdx-js/react';
 import { Props, Description } from '~/props/dist/index';
 import { SystemUIShowcases } from '../dist';
-import theme from '../dist/primer-theme';
+import { defaultTheme as theme } from '../dist/default-theme';
 
 # SystemUIShowcases Component
 
@@ -32,10 +32,10 @@ import theme from './theme';
     width: '8rem',
     height: '8rem',
     boxShadow: 'large',
-    bg: 'green.6'
+    bg: 'green.6',
   }}
 />
 
 ## Props
-<Props of={SystemUIShowcases} />
 
+<Props of={SystemUIShowcases} />

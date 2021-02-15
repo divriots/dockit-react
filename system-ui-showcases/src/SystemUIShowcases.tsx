@@ -1,15 +1,24 @@
 import React from 'react';
+import merge from 'deepmerge';
 import styled, { ThemeProvider } from 'styled-components';
-import { space, layout, color, border, shadow, typography } from 'styled-system';
+import {
+  space,
+  layout,
+  color,
+  border,
+  shadow,
+  typography,
+} from 'styled-system';
 import { Caption } from '~/caption';
 import { shortText, longText } from '~/text';
-import { getVariations } from './theme-helper'
+import { getVariations } from './theme-helper';
+import { defaultTheme } from './default-theme';
 
 interface SystemUIShowcasesProps {
   /**
     A theme object that minds the System UI theme spec
   */
-  theme: Record<string, any>;
+  theme?: Record<string, any>;
   /**
     The key from the theme for which to showcase the variations.
   */
@@ -22,7 +31,7 @@ interface SystemUIShowcasesProps {
   /**
     Specifies the distance between rendered components, used to adjust the layout.
   */
-  gap?: { horizontal?: string, vertical?: string };
+  gap?: { horizontal?: string; vertical?: string };
 }
 
 const Box = styled.div`
@@ -49,11 +58,8 @@ const TextContainer = styled.div`
 `;
 
 const Text = ({ useLongText = false, ...rest }) => (
-  <TextContainer {...rest}>
-    {useLongText ? longText : shortText}
-  </TextContainer>
-)
-
+  <TextContainer {...rest}>{useLongText ? longText : shortText}</TextContainer>
+);
 
 const Container = styled.div`
   display: flex;
@@ -61,11 +67,11 @@ const Container = styled.div`
 `;
 
 const ComponentContainer = styled.div`
-  margin-right: ${props => props.gap?.horizontal};
-  margin-bottom: ${props => props.gap?.vertical};
-  min-width: ${props => props.minWidth};
+  margin-right: ${(props) => props.gap?.horizontal};
+  margin-bottom: ${(props) => props.gap?.vertical};
+  min-width: ${(props) => props.minWidth};
   display: flex;
-  flex-direction: ${props => props.usedForText ? 'row-reverse' : 'column'};
+  flex-direction: ${(props) => (props.usedForText ? 'row-reverse' : 'column')};
 `;
 
 const Error = styled.div`
@@ -74,74 +80,92 @@ const Error = styled.div`
 
 interface ShowcaseComponentProps {
   componentProps?: Record<string, any>;
-  gap?: { horizontal?: string, vertical?: string };
+  gap?: { horizontal?: string; vertical?: string };
   caption: string;
   minWidth: string;
   type: 'box' | 'text';
   useLongText: boolean;
 }
 
-const ShowcaseComponent = (
-  { componentProps, caption, gap, minWidth, type, useLongText } : ShowcaseComponentProps
-  ) => (
-  <ComponentContainer gap={gap} minWidth={minWidth} usedForText={type === 'text'}>
-    {type === 'text'
-      ? <Text {...componentProps} useLongText={useLongText} />
-      : <Box {...componentProps} />
-    }
-    <Caption text={caption} width={minWidth}/>
+const ShowcaseComponent = ({
+  componentProps,
+  caption,
+  gap,
+  minWidth,
+  type,
+  useLongText,
+}: ShowcaseComponentProps) => (
+  <ComponentContainer
+    gap={gap}
+    minWidth={minWidth}
+    usedForText={type === 'text'}
+  >
+    {type === 'text' ? (
+      <Text {...componentProps} useLongText={useLongText} />
+    ) : (
+      <Box {...componentProps} />
+    )}
+    <Caption text={caption} width={minWidth} />
   </ComponentContainer>
 );
 
 const keyDetails = {
-    bg: { themeProp: 'colors', componentType: 'box' },
-    boxShadow: { themeProp: 'shadows', componentType: 'box' },
-    width: { themeProp: 'sizes', componentType: 'box' },
-    height: { themeProp: 'sizes', componentType: 'box' },
-    borderRadius: { themeProp: 'radii', componentType: 'box' },
-    borderWidth: { themeProp: 'borderWidths', componentType: 'box' },
-    borderColor: { themeProp: 'colors', componentType: 'box' },
-    fontSize: { themeProp: 'fontSizes', componentType: 'text' },
-    fontFamily: { themeProp: 'fonts', componentType: 'text' },
-    fontWeight: { themeProp: 'fontWeights', componentType: 'text' },
-    lineHeight: { themeProp: 'lineHeights', componentType: 'text', useLongText: true },
-    letterSpacing: { themeProp: 'letterSpacings', componentType: 'text', useLongText: true },
-    color: { themeProp: 'colors', componentType: 'text' },
-  };
+  bg: { themeProp: 'colors', componentType: 'box' },
+  boxShadow: { themeProp: 'shadows', componentType: 'box' },
+  width: { themeProp: 'sizes', componentType: 'box' },
+  height: { themeProp: 'sizes', componentType: 'box' },
+  borderRadius: { themeProp: 'radii', componentType: 'box' },
+  borderWidth: { themeProp: 'borderWidths', componentType: 'box' },
+  borderColor: { themeProp: 'colors', componentType: 'box' },
+  fontSize: { themeProp: 'fontSizes', componentType: 'text' },
+  fontFamily: { themeProp: 'fonts', componentType: 'text' },
+  fontWeight: { themeProp: 'fontWeights', componentType: 'text' },
+  lineHeight: {
+    themeProp: 'lineHeights',
+    componentType: 'text',
+    useLongText: true,
+  },
+  letterSpacing: {
+    themeProp: 'letterSpacings',
+    componentType: 'text',
+    useLongText: true,
+  },
+  color: { themeProp: 'colors', componentType: 'text' },
+};
 
 /**
   With the `SystemUIShowcases` component you can render all variations of a property from
   System UI specification abiding theme (https://system-ui.com/theme/).
 */
 export const SystemUIShowcases = ({
-  theme,
+  theme: partialTheme = {},
   showcaseKey,
   componentProps = {},
   gap = { horizontal: '2rem', vertical: '2rem' },
 }: SystemUIShowcasesProps) => {
+  const theme = merge(defaultTheme, partialTheme);
 
-  if (!keyDetails[showcaseKey]) return (
-    <Error>
-     {`"${showcaseKey}" is not yet supported.`}
-    </Error>
-  );
+  if (!keyDetails[showcaseKey])
+    return <Error>{`"${showcaseKey}" is not yet supported.`}</Error>;
 
   const { themeProp, componentType, useLongText } = keyDetails[showcaseKey];
   const variations = getVariations(themeProp, theme);
 
-  if (!variations.length) return (
-    <Error>
-     {`"${showcaseKey}" has no values in the provided theme`}
-    </Error>
-  );
+  if (!variations.length)
+    return (
+      <Error>{`"${showcaseKey}" has no values in the provided theme`}</Error>
+    );
 
-  const longestPropertyName = variations.reduce((max, e) => Math.max(`${showcaseKey}=${e}`.length, max), 0);
+  const longestPropertyName = variations.reduce(
+    (max, e) => Math.max(`${showcaseKey}=${e}`.length, max),
+    0
+  );
   const componentWidth = `${longestPropertyName / 2}rem`;
 
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        {variations.map(v => {
+        {variations.map((v) => {
           const props = { ...componentProps, [showcaseKey]: v };
           return (
             <ShowcaseComponent
@@ -151,10 +175,11 @@ export const SystemUIShowcases = ({
               caption={`${showcaseKey}="${v}"`}
               componentProps={props}
               minWidth={componentWidth}
-              useLongText={useLongText} />
+              useLongText={useLongText}
+            />
           );
         })}
       </Container>
     </ThemeProvider>
   );
-}
+};

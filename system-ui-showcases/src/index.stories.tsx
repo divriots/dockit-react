@@ -7,7 +7,6 @@ export const space = () => <Space scale={defaultTheme.space} />;
 
 export const width = () => (
   <SystemUIShowcases
-    theme={{}}
     showcaseKey="width"
     componentProps={{
       height: '8rem',
@@ -19,7 +18,6 @@ export const width = () => (
 
 export const height = () => (
   <SystemUIShowcases
-    theme={{}}
     showcaseKey="height"
     componentProps={{
       width: '8rem',
@@ -31,7 +29,6 @@ export const height = () => (
 
 export const bg = () => (
   <SystemUIShowcases
-    theme={{}}
     showcaseKey="bg"
     componentProps={{
       width: '8rem',
@@ -44,7 +41,6 @@ export const bg = () => (
 
 export const boxShadow = () => (
   <SystemUIShowcases
-    theme={{}}
     showcaseKey="boxShadow"
     componentProps={{
       width: '8rem',
@@ -56,7 +52,6 @@ export const boxShadow = () => (
 
 export const borderRadius = () => (
   <SystemUIShowcases
-    theme={{}}
     showcaseKey="borderRadius"
     componentProps={{
       width: '8rem',
@@ -69,7 +64,6 @@ export const borderRadius = () => (
 
 export const borderWidth = () => (
   <SystemUIShowcases
-    theme={{}}
     showcaseKey="borderWidth"
     componentProps={{
       width: '8rem',
@@ -84,7 +78,6 @@ export const borderWidth = () => (
 
 export const borderColor = () => (
   <SystemUIShowcases
-    theme={{}}
     showcaseKey="borderColor"
     componentProps={{
       width: '8rem',
@@ -98,24 +91,16 @@ export const borderColor = () => (
   />
 );
 
-export const fontSize = () => (
-  <SystemUIShowcases theme={{}} showcaseKey="fontSize" />
-);
+export const fontSize = () => <SystemUIShowcases showcaseKey="fontSize" />;
 
-export const fontFamily = () => (
-  <SystemUIShowcases theme={{}} showcaseKey="fontFamily" />
-);
+export const fontFamily = () => <SystemUIShowcases showcaseKey="fontFamily" />;
 
-export const fontWeight = () => (
-  <SystemUIShowcases theme={{}} showcaseKey="fontWeight" />
-);
+export const fontWeight = () => <SystemUIShowcases showcaseKey="fontWeight" />;
 
-export const lineHeight = () => (
-  <SystemUIShowcases theme={{}} showcaseKey="lineHeight" />
-);
+export const lineHeight = () => <SystemUIShowcases showcaseKey="lineHeight" />;
 
 export const letterSpacing = () => (
-  <SystemUIShowcases theme={{}} showcaseKey="letterSpacing" />
+  <SystemUIShowcases showcaseKey="letterSpacing" />
 );
 
-export const color = () => <SystemUIShowcases theme={{}} showcaseKey="color" />;
+export const color = () => <SystemUIShowcases showcaseKey="color" />;

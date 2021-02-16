@@ -1,5 +1,4 @@
 import React from 'react';
-import merge from 'deepmerge';
 import styled, { ThemeProvider } from 'styled-components';
 import {
   space,

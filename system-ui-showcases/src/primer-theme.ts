@@ -229,4 +229,5 @@ export const theme = {
     '112px',
     '128px',
   ],
+  zIndices: { beneath: -1, normal: 'auto', onTop: 10 },
 };

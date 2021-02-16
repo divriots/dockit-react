@@ -1,5 +1,5 @@
 import React from 'react';
-import { SystemUIShowcases } from './index';
+import { SystemUIShowcases, ZIndexShowcases } from './index';
 import { Space } from '~/space';
 import { theme } from './primer-theme';
 
@@ -136,3 +136,5 @@ export const letterSpacing = () => (
 export const color = () => (
   <SystemUIShowcases theme={theme} showcaseKey="color" />
 );
+
+export const zIndex = () => <ZIndexShowcases theme={theme} />;

@@ -82,6 +82,21 @@ export const borderWidth = () => (
   />
 );
 
+export const borderStyle = () => (
+  <SystemUIShowcases
+    theme={theme}
+    showcaseKey="borderStyle"
+    componentProps={{
+      width: '8rem',
+      height: '8rem',
+      boxShadow: 'large',
+      borderRadius: '1',
+      borderColor: 'green.6',
+      borderWidth: '2px',
+    }}
+  />
+);
+
 export const borderColor = () => (
   <SystemUIShowcases
     theme={theme}

@@ -1,5 +1,6 @@
 export const theme = {
   borderWidths: [0, '1px'],
+  borderStyles: ['solid', 'dotted', 'dashed', 'groove'],
   breakpoints: ['544px', '768px', '1012px', '1280px'],
   colors: {
     bodytext: '#24292e',

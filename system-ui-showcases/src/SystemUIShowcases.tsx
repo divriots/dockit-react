@@ -1,5 +1,4 @@
 import React from 'react';
-import merge from 'deepmerge';
 import styled, { ThemeProvider } from 'styled-components';
 import {
   space,
@@ -115,6 +114,7 @@ const keyDetails = {
   height: { themeProp: 'sizes', componentType: 'box' },
   borderRadius: { themeProp: 'radii', componentType: 'box' },
   borderWidth: { themeProp: 'borderWidths', componentType: 'box' },
+  borderStyle: { themeProp: 'borderStyles', componentType: 'box' },
   borderColor: { themeProp: 'colors', componentType: 'box' },
   fontSize: { themeProp: 'fontSizes', componentType: 'text' },
   fontFamily: { themeProp: 'fonts', componentType: 'text' },

@@ -21,7 +21,7 @@ export const Layout = ({ __context, children, ...props }) => {
   return (
     <main style={{ display: 'flex' }} className="markdown-body">
       <NavBar graph={graph} />
-      <div role="document">
+      <div role="document" style={{ flexGrow: 1 }}>
         {children}
         <FooterNav graph={graph} />
       </div>

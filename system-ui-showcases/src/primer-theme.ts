@@ -1,4 +1,4 @@
-export const defaultTheme = {
+export const theme = {
   borderWidths: [0, '1px'],
   breakpoints: ['544px', '768px', '1012px', '1280px'],
   colors: {
@@ -193,6 +193,7 @@ export const defaultTheme = {
     condensed: 1.25,
     default: 1.5,
   },
+  letterSpacings: { tight: '0.01rem', loose: '0.2rem' },
   radii: ['0', '3px', '6px', '100px'],
   shadows: {
     small: '0 1px 0 rgba(149, 157, 165, 0.1)',

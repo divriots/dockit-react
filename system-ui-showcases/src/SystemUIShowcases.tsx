@@ -12,13 +12,12 @@ import {
 import { Caption } from '~/caption';
 import { shortText, longText } from '~/text';
 import { getVariations } from './theme-helper';
-import { defaultTheme } from './default-theme';
 
 interface SystemUIShowcasesProps {
   /**
     A theme object that minds the System UI theme spec
   */
-  theme?: Record<string, any>;
+  theme: Record<string, any>;
   /**
     The key from the theme for which to showcase the variations.
   */
@@ -138,13 +137,11 @@ const keyDetails = {
   System UI specification abiding theme (https://system-ui.com/theme/).
 */
 export const SystemUIShowcases = ({
-  theme: partialTheme = {},
+  theme,
   showcaseKey,
   componentProps = {},
   gap = { horizontal: '2rem', vertical: '2rem' },
 }: SystemUIShowcasesProps) => {
-  const theme = merge(defaultTheme, partialTheme);
-
   if (!keyDetails[showcaseKey])
     return <Error>{`"${showcaseKey}" is not yet supported.`}</Error>;
 

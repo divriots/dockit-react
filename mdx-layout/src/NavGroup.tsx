@@ -1,7 +1,14 @@
 import React from 'react';
 import { NavLink } from './NavLink';
+import { PageGraph } from './PageGraph';
 
-export const NavGroup = ({ items, graph }) => (
+export const NavGroup = ({
+  items,
+  graph,
+}: {
+  items: string[];
+  graph: PageGraph;
+}) => (
   <ul className="navgroup">
     {items.map((item: string) => {
       const deps = graph.directDependantsOf(item);

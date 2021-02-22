@@ -1,11 +1,16 @@
 export const theme = {
   borderWidths: [0, '1px'],
+  borders: {
+    thinBlack: '1px solid #000',
+    thickBlack: '4px solid #000',
+  },
   borderStyles: ['solid', 'dotted', 'dashed', 'groove'],
   breakpoints: ['544px', '768px', '1012px', '1280px'],
   colors: {
     bodytext: '#24292e',
     black: '#1b1f23',
     white: '#fff',
+    gray50: '#24292e88',
     gray: [
       '#fafbfc',
       '#f6f8fa',

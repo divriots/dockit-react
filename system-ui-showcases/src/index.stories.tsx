@@ -1,9 +1,10 @@
 import React from 'react';
 import { SystemUIShowcases, ZIndexShowcases } from './index';
-import { Space } from '~/space';
 import { theme } from './primer-theme';
 
-export const space = () => <Space scale={theme.space} />;
+export const space = () => (
+  <SystemUIShowcases theme={theme} showcaseKey="space" />
+);
 
 export const width = () => (
   <SystemUIShowcases
@@ -38,14 +39,15 @@ export const bg = () => (
       height: '8rem',
       boxShadow: 'large',
       borderRadius: 4,
+      checkeredBackground: true,
     }}
   />
 );
 
-export const boxShadow = () => (
+export const shadows = () => (
   <SystemUIShowcases
     theme={theme}
-    showcaseKey="boxShadow"
+    showcaseKey="shadows"
     componentProps={{
       width: '8rem',
       height: '8rem',
@@ -113,6 +115,67 @@ export const borderColor = () => (
   />
 );
 
+export const border = () => (
+  <SystemUIShowcases
+    theme={theme}
+    showcaseKey="border"
+    componentProps={{
+      width: '8rem',
+      height: '8rem',
+      boxShadow: 'large',
+      borderRadius: '1',
+    }}
+  />
+);
+
+export const borderTop = () => (
+  <SystemUIShowcases
+    theme={theme}
+    showcaseKey="borderTop"
+    componentProps={{
+      width: '8rem',
+      height: '8rem',
+      boxShadow: 'large',
+    }}
+  />
+);
+
+export const borderBottom = () => (
+  <SystemUIShowcases
+    theme={theme}
+    showcaseKey="borderBottom"
+    componentProps={{
+      width: '8rem',
+      height: '8rem',
+      boxShadow: 'large',
+    }}
+  />
+);
+
+export const borderLeft = () => (
+  <SystemUIShowcases
+    theme={theme}
+    showcaseKey="borderLeft"
+    componentProps={{
+      width: '8rem',
+      height: '8rem',
+      boxShadow: 'large',
+    }}
+  />
+);
+
+export const borderRight = () => (
+  <SystemUIShowcases
+    theme={theme}
+    showcaseKey="borderRight"
+    componentProps={{
+      width: '8rem',
+      height: '8rem',
+      boxShadow: 'large',
+    }}
+  />
+);
+
 export const fontSize = () => (
   <SystemUIShowcases theme={theme} showcaseKey="fontSize" />
 );
@@ -137,4 +200,6 @@ export const color = () => (
   <SystemUIShowcases theme={theme} showcaseKey="color" />
 );
 
-export const zIndex = () => <ZIndexShowcases theme={theme} />;
+export const zIndex = () => (
+  <SystemUIShowcases theme={theme} showcaseKey="zIndex" />
+);

@@ -31,21 +31,23 @@ export const ZIndexShowcases = ({ theme }: { theme: Record<string, any> }) => {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'center',
+          marginTop: '3rem',
         }}
       >
         {variations.map((v, i) => (
           <Box
-            bg="#444"
-            ml="-2rem"
-            mt={`${i}rem`}
-            width="12rem"
+            bg="#6365f1"
+            ml="-6rem"
+            mt={`${4 * i}rem`}
             height="6rem"
+            px="1rem"
             borderRadius=".5rem"
             display="flex"
             justifyContent="center"
             alignItems="center"
-            boxShadow="0 12px 48px rgba(149, 157, 165, 0.3)"
+            boxShadow="0 12px 48px rgba(149, 157, 165, 0.6)"
             zIndex={v}
+            border="1px solid #fff"
           >
             <div style={{ color: '#fff' }}>{`zIndex="${v}"`}</div>
           </Box>

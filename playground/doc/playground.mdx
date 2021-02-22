@@ -3,7 +3,8 @@ import { mdx, MDXCreateElement } from '@mdx-js/react';
 import { Props, Description } from '~/props/dist/index';
 import { Playground } from '../dist';
 import { Button } from '../test/index';
-
+import { Layout } from '~/mdx-layout';
+export default Layout;
 
 # Playground Component
 
@@ -16,19 +17,21 @@ import { Playground } from '@divriots/dockit-react';
 import { Button } from './Button';
 
 <Playground scope={{ Button }} code={`
-  <Button>Button</Button> 
-  <Button primary>Primary</Button> 
-  <Button danger>Danger</Button> 
+  <Button>Button</Button>
+  <Button primary>Primary</Button>
+  <Button danger>Danger</Button>
   `} />
 ```
 
-<Playground scope={{ Button }} code={`
+<Playground
+  scope={{ Button }}
+  code={`
 <Button>Button</Button> 
 <Button primary>Primary</Button> 
 <Button danger>Danger</Button> 
-`} />
-
+`}
+/>
 
 ## Props
-<Props of={Playground} />
 
+<Props of={Playground} />

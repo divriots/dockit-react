@@ -139,6 +139,7 @@ const ShowcaseComponent = ({
 
 const keyDetails = {
   bg: { themeProp: 'colors', componentType: 'box' },
+  backgroundColor: { themeProp: 'colors', componentType: 'box' },
   boxShadow: { themeProp: 'shadows', componentType: 'box' },
   width: { themeProp: 'sizes', componentType: 'box' },
   height: { themeProp: 'sizes', componentType: 'box' },
@@ -170,6 +171,9 @@ const keyDetails = {
 /**
   With the `SystemUIShowcases` component you can render all variations of a property from
   System UI specification abiding theme (https://system-ui.com/theme/).
+  Supported keys: bg, backgroundColor, boxShadow, width, height, borderRadius, borderWidth,
+  borderStyle, borderColor, border, borderTop, borderBottom, borderLeft, borderRight, fontSize,
+  fontFamily, fontWeight, lineHeight, letterSpacing, color.
 */
 export const SystemUIShowcases = ({
   theme,

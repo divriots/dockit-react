@@ -3,7 +3,6 @@ import { Showcases } from './index';
 import './showcases-stories.css';
 
 export const opacity = () => {
-
   const classes = [
     'opacity-0',
     'opacity-10',
@@ -23,24 +22,15 @@ export const opacity = () => {
       showcaseClasses={classes}
       showcaseComponent="box"
       componentProps={{
-        className: "box",
-        checkeredBackground: true
+        className: 'box',
+        checkeredBackground: true,
       }}
     />
   );
 };
 
 export const fontSize = () => {
-
-  const classes = [
-    'xs',
-    'sm',
-    'base',
-    'lg',
-    'xl',
-    'xxl',
-    'xxxl',
-  ];
+  const classes = ['xs', 'sm', 'base', 'lg', 'xl', 'xxl', 'xxxl'];
 
   return (
     <Showcases

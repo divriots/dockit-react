@@ -2,6 +2,8 @@ import React from 'react';
 import { Showcases } from '~/showcases';
 import { extractClassSuffixes } from './theme-helpers';
 import resolveConfig from 'tailwindcss/resolveConfig';
+import { ZIndexShowcases } from './ZIndexShowcases';
+import { Space } from '~/space';
 
 const styles = {
   error: {
@@ -104,6 +106,9 @@ export const TailwindShowcases = ({
   gap,
 }: TailwindShowcasesProps) => {
   const { theme } = resolveConfig({ theme: partialTheme });
+  if (showcaseKey === 'zIndex') return <ZIndexShowcases theme={theme} />;
+
+  if (showcaseKey === 'space') return <Space scale={theme.spacing} />;
 
   const classSuffixes = getClassSuffixes(theme);
   const classNames = getClassNames(classSuffixes);

@@ -1,0 +1,66 @@
+import React from 'react';
+import { mdx, MDXCreateElement } from '@mdx-js/react';
+import { Props, Description } from '~/props/dist/index';
+import { Showcases } from '../dist';
+import { Layout } from '~/mdx-layout';
+import '../dist/showcases-stories.css';
+
+export default Layout;
+
+# Showcases Component
+
+<Description of={Showcases} />
+
+## Usage
+
+```
+import { Showcases } from '@divriots/dockit-react';
+
+const classes = [
+    'opacity-0',
+    'opacity-10',
+    'opacity-20',
+    'opacity-30',
+    'opacity-40',
+    'opacity-50',
+    'opacity-60',
+    'opacity-70',
+    'opacity-80',
+    'opacity-90',
+    'opacity-100',
+  ];
+
+<Showcases
+  showcaseClasses={classes}
+  showcaseComponent="box"
+  componentProps={{
+    className: "box",
+    checkeredBackground: true
+  }}
+/>
+```
+
+<Showcases
+  showcaseClasses={[
+    'opacity-0',
+    'opacity-10',
+    'opacity-20',
+    'opacity-30',
+    'opacity-40',
+    'opacity-50',
+    'opacity-60',
+    'opacity-70',
+    'opacity-80',
+    'opacity-90',
+    'opacity-100',
+  ]}
+  showcaseComponent="box"
+  componentProps={{
+    className: 'box',
+    checkeredBackground: true,
+  }}
+/>
+
+## Props
+
+<Props of={Showcases} />

@@ -11,6 +11,8 @@ import {
 import { Caption } from '~/caption';
 import { shortText, longText } from '~/text';
 import { getVariations } from './theme-helper';
+import { ZIndexShowcases } from './ZIndexShowcases';
+import { Space } from '~/space';
 
 interface SystemUIShowcasesProps {
   /**
@@ -36,23 +38,46 @@ const Box = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${shadow}
-  ${border}
-  ${space}
-  ${layout}
-  ${color}
+  position: relative;
+  ${shadow};
+  ${border};
+  ${space};
+  ${layout};
+  ${color};
+`;
+
+const CheckeredBackground = styled.div`
+  ${shadow};
+  ${border};
+  ${space};
+  ${layout};
+  ${color};
+  opacity: 1;
+  background-color: #000000;
+  background-image: linear-gradient(45deg, #999 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #999 75%),
+      linear-gradient(45deg, transparent 75%, #999 75%),
+        linear-gradient(45deg, #999 25%, #fff 25%);
+  background-size: 1rem 1rem;
+  background-position: 0 0, 0 0, -0.5rem -0.5rem, 0.5rem 0.5rem;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  boxshadow: none;
+  width: 100%;
+  height: 100%;
 `;
 
 const TextContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${shadow}
-  ${border}
-  ${space}
-  ${layout}
-  ${color}
-  ${typography}
+  ${shadow};
+  ${border};
+  ${space};
+  ${layout};
+  ${color};
+  ${typography};
 `;
 
 const Text = ({ useLongText = false, ...rest }) => (
@@ -92,23 +117,29 @@ const ShowcaseComponent = ({
   minWidth,
   type,
   useLongText,
-}: ShowcaseComponentProps) => (
-  <ComponentContainer
-    gap={gap}
-    minWidth={minWidth}
-    usedForText={type === 'text'}
-  >
-    {type === 'text' ? (
-      <Text {...componentProps} useLongText={useLongText} />
-    ) : (
-      <Box {...componentProps} />
-    )}
-    <Caption text={caption} width={minWidth} />
-  </ComponentContainer>
-);
+}: ShowcaseComponentProps) => {
+  const { checkeredBackground, ...props } = componentProps;
+  return (
+    <ComponentContainer
+      gap={gap}
+      minWidth={minWidth}
+      usedForText={type === 'text'}
+    >
+      {type === 'text' ? (
+        <Text {...props} useLongText={useLongText} />
+      ) : (
+        <Box {...props}>
+          {checkeredBackground && <CheckeredBackground {...props} />}
+        </Box>
+      )}
+      <Caption text={caption} width={minWidth} />
+    </ComponentContainer>
+  );
+};
 
 const keyDetails = {
   bg: { themeProp: 'colors', componentType: 'box' },
+  backgroundColor: { themeProp: 'colors', componentType: 'box' },
   boxShadow: { themeProp: 'shadows', componentType: 'box' },
   width: { themeProp: 'sizes', componentType: 'box' },
   height: { themeProp: 'sizes', componentType: 'box' },
@@ -116,6 +147,11 @@ const keyDetails = {
   borderWidth: { themeProp: 'borderWidths', componentType: 'box' },
   borderStyle: { themeProp: 'borderStyles', componentType: 'box' },
   borderColor: { themeProp: 'colors', componentType: 'box' },
+  border: { themeProp: 'borders', componentType: 'box' },
+  borderTop: { themeProp: 'borders', componentType: 'box' },
+  borderBottom: { themeProp: 'borders', componentType: 'box' },
+  borderLeft: { themeProp: 'borders', componentType: 'box' },
+  borderRight: { themeProp: 'borders', componentType: 'box' },
   fontSize: { themeProp: 'fontSizes', componentType: 'text' },
   fontFamily: { themeProp: 'fonts', componentType: 'text' },
   fontWeight: { themeProp: 'fontWeights', componentType: 'text' },
@@ -135,6 +171,9 @@ const keyDetails = {
 /**
   With the `SystemUIShowcases` component you can render all variations of a property from
   System UI specification abiding theme (https://system-ui.com/theme/).
+  Supported keys: bg, backgroundColor, boxShadow, width, height, borderRadius, borderWidth,
+  borderStyle, borderColor, border, borderTop, borderBottom, borderLeft, borderRight, fontSize,
+  fontFamily, fontWeight, lineHeight, letterSpacing, color.
 */
 export const SystemUIShowcases = ({
   theme,
@@ -142,6 +181,8 @@ export const SystemUIShowcases = ({
   componentProps = {},
   gap = { horizontal: '2rem', vertical: '2rem' },
 }: SystemUIShowcasesProps) => {
+  if (showcaseKey === 'zIndex') return <ZIndexShowcases theme={theme} />;
+  if (showcaseKey === 'space') return <Space scale={theme.space} />;
   if (!keyDetails[showcaseKey])
     return <Error>{`"${showcaseKey}" is not yet supported.`}</Error>;
 
@@ -157,7 +198,7 @@ export const SystemUIShowcases = ({
     (max, e) => Math.max(`${showcaseKey}=${e}`.length, max),
     0
   );
-  const componentWidth = `${longestPropertyName / 2.4}rem`;
+  const componentWidth = `${longestPropertyName / 2.2}rem`;
 
   return (
     <ThemeProvider theme={theme}>

@@ -166,6 +166,14 @@ const keyDetails = {
     useLongText: true,
   },
   color: { themeProp: 'colors', componentType: 'text' },
+  zIndex: {
+    themeProp: 'zIndex',
+    StandaloneComponent: ({ theme }) => <ZIndexShowcases theme={theme} />,
+  },
+  space: {
+    themeProp: 'space',
+    StandaloneComponent: ({ theme }) => <Space scale={theme.space} />,
+  },
 };
 
 /**
@@ -173,7 +181,7 @@ const keyDetails = {
   System UI specification abiding theme (https://system-ui.com/theme/).
   Supported keys: bg, backgroundColor, boxShadow, width, height, borderRadius, borderWidth,
   borderStyle, borderColor, border, borderTop, borderBottom, borderLeft, borderRight, fontSize,
-  fontFamily, fontWeight, lineHeight, letterSpacing, color.
+  fontFamily, fontWeight, lineHeight, letterSpacing, color, zIndex, space.
 */
 export const SystemUIShowcases = ({
   theme,
@@ -181,12 +189,20 @@ export const SystemUIShowcases = ({
   componentProps = {},
   gap = { horizontal: '2rem', vertical: '2rem' },
 }: SystemUIShowcasesProps) => {
-  if (showcaseKey === 'zIndex') return <ZIndexShowcases theme={theme} />;
-  if (showcaseKey === 'space') return <Space scale={theme.space} />;
   if (!keyDetails[showcaseKey])
     return <Error>{`"${showcaseKey}" is not yet supported.`}</Error>;
 
-  const { themeProp, componentType, useLongText } = keyDetails[showcaseKey];
+  const {
+    themeProp,
+    componentType,
+    useLongText,
+    StandaloneComponent,
+  } = keyDetails[showcaseKey];
+
+  if (!!StandaloneComponent) {
+    return <StandaloneComponent theme={theme} />;
+  }
+
   const variations = getVariations(themeProp, theme);
 
   if (!variations.length)

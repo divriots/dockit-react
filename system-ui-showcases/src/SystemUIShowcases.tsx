@@ -35,10 +35,6 @@ interface SystemUIShowcasesProps {
 }
 
 const Box = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
   ${shadow};
   ${border};
   ${space};
@@ -64,8 +60,6 @@ const CheckeredBackground = styled.div`
   top: 0;
   z-index: -1;
   boxshadow: none;
-  width: 100%;
-  height: 100%;
 `;
 
 const TextContainer = styled.div`
@@ -128,9 +122,10 @@ const ShowcaseComponent = ({
       {type === 'text' ? (
         <Text {...props} useLongText={useLongText} />
       ) : (
-        <Box {...props}>
+        <div style={{ position: 'relative' }}>
+          <Box {...props} />
           {checkeredBackground && <CheckeredBackground {...props} />}
-        </Box>
+        </div>
       )}
       <Caption text={caption} width={minWidth} />
     </ComponentContainer>

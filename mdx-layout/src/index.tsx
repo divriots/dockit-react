@@ -1,27 +1,20 @@
-import type { Context } from '@divriots/studio-doc-compiler';
-import { PageGraph, buildGraph } from './PageGraph';
-import './Layout.scss';
-import { NavBar } from './NavBar';
-import React, { ReactChildren, ReactChild } from 'react';
-import { FooterNav } from './FooterNav';
+import React from 'react';
+import { MDXProvider } from '@mdx-js/react';
+import { Playground } from '~/playground/dist/Playground.js';
+import { Showcases } from '~/showcases/dist/Showcases.js';
+import { Props } from '~/props/dist/Props.js';
+import { Layout as LayoutComponent } from './Layout';
+import { StylesheetSwitch } from './StylesheetSwitch';
 
-export const Layout = ({
-  __context,
-  children,
-  ...props // MDX exports
-}: {
-  __context: Context; // Layout Context
-  children: ReactChild | ReactChildren; // MDX Content
-}) => {
-  const graph: PageGraph = buildGraph(__context);
-  return (
-    <main>
-      <NavBar graph={graph} {...props} />
-      <article>
-        {children}
-        <FooterNav graph={graph} />
-      </article>
-    </main>
-  );
-};
-// TODO inEditor
+export const Layout = (props) => (
+  <MDXProvider components={{ Playground, Props, Showcases }}>
+    <StylesheetSwitch
+      colorSchemes={{
+        light: 'https://cdn.jsdelivr.net/npm/water.css/out/light.css',
+        dark: 'https://cdn.jsdelivr.net/npm/water.css/out/dark.css',
+        auto: 'https://cdn.jsdelivr.net/npm/water.css/out/water.css',
+      }}
+    />
+    <LayoutComponent {...props} />
+  </MDXProvider>
+);

@@ -1,0 +1,36 @@
+body {
+  max-width: unset !important;
+  margin: 1rem !important;
+}
+
+main {
+  display: grid !important;
+  justify-content: stretch;
+}
+
+article {
+  margin: auto;
+  overflow: auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    grid-template-columns: auto 1fr;
+    column-gap: 2rem;
+  }
+  nav > ul {
+    display: block !important;
+  }
+  label[for='navexpander'] {
+    display: none !important;
+  }
+}

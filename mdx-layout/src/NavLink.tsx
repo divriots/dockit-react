@@ -9,16 +9,14 @@ const relativeUrl = (url: string) =>
     url
   );
 
-export const NavLink = ({ page }) => {
-  const name = (page.nav && page.nav.key) || page.url;
-  return page.url ? (
+export const NavLink = ({ page }) =>
+  page.url && (
     <a
-      className={location.href.endsWith(page.url) ? 'selected' : ''}
       href={relativeUrl(page.url)}
+      {...(location.href.endsWith(page.url) && {
+        'aria-current': 'location',
+      })}
     >
-      {name}
+      {(page.nav && page.nav.key) || page.url}
     </a>
-  ) : (
-    <span>{name}</span>
   );
-};

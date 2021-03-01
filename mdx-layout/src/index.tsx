@@ -9,10 +9,9 @@ import { StylesheetSwitch } from './StylesheetSwitch';
 export const Layout = (props) => (
   <MDXProvider components={{ Playground, Props, Showcases }}>
     <StylesheetSwitch
-      colorSchemes={{
-        light: 'https://cdn.jsdelivr.net/npm/water.css/out/light.css',
-        dark: 'https://cdn.jsdelivr.net/npm/water.css/out/dark.css',
-        auto: 'https://cdn.jsdelivr.net/npm/water.css/out/water.css',
+      stylesheets={{
+        light: 'https://cdn.jsdelivr.net/npm/water.css/out/light.min.css',
+        dark: 'https://cdn.jsdelivr.net/npm/water.css/out/dark.min.css',
       }}
     />
     <LayoutComponent {...props} />

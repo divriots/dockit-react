@@ -9,16 +9,16 @@ export const NavGroup = ({
   items: string[];
   graph: PageGraph;
 }) => (
-  <ul className="navgroup">
+  <ul>
     {items.map((item: string) => {
       const deps = graph.directDependantsOf(item);
       return !deps.length ? (
-        <li key={item} className="navitem">
+        <li key={item}>
           <NavLink page={graph.getNodeData(item)} />
         </li>
       ) : (
         <li key={item}>
-          <h5>{item}</h5>
+          <span>{item}</span>
           <NavGroup items={deps} graph={graph} />
         </li>
       );

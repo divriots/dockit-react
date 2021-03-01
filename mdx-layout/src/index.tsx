@@ -1,6 +1,6 @@
-import type { Page, Context } from '@divriots/studio-doc-compiler';
-import { PageGraph, buildGraph, findPreviousNext } from './PageGraph';
-import './markdown-github.scss';
+import type { Context } from '@divriots/studio-doc-compiler';
+import { PageGraph, buildGraph } from './PageGraph';
+import './Layout.scss';
 import { NavBar } from './NavBar';
 import React, { ReactChildren, ReactChild } from 'react';
 import { FooterNav } from './FooterNav';
@@ -15,12 +15,17 @@ export const Layout = ({
 }) => {
   const graph: PageGraph = buildGraph(__context);
   return (
-    <main style={{ display: 'flex' }} className="markdown-body">
-      <NavBar graph={graph} />
-      <div role="document" style={{ flexGrow: 1 }}>
+    <main>
+      <link
+        rel="stylesheet"
+        href={'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css'}
+        type="text/css"
+      />
+      <NavBar graph={graph} {...props} />
+      <article>
         {children}
-        <FooterNav {...findPreviousNext(graph, location.href)} />
-      </div>
+        <FooterNav graph={graph} />
+      </article>
     </main>
   );
 };

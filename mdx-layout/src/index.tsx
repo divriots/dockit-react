@@ -16,11 +16,6 @@ export const Layout = ({
   const graph: PageGraph = buildGraph(__context);
   return (
     <main>
-      <link
-        rel="stylesheet"
-        href={'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css'}
-        type="text/css"
-      />
       <NavBar graph={graph} {...props} />
       <article>
         {children}

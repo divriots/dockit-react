@@ -1,50 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 
-export type ColorScheme = 'auto' | 'dark' | 'light';
+export type ColorScheme = 'dark' | 'light';
+
+const Sun = () => (
+  <svg viewBox="0 0 16 16" stroke="currentColor" style={{ width: '1rem' }}>
+    <line id="ray" x1="8" y1="1" x2="8" y2="3" strokeLinecap="round" />
+    <circle cx="8" cy="8" r="2" fill="transparent" />
+    {Array(7)
+      .fill(45)
+      .map((v, i) => (i + 1) * v)
+      .map((v, i) => (
+        <g key={i} transform={`rotate(${v}, 8 8)`}>
+          <use href="#ray" />
+        </g>
+      ))}
+  </svg>
+);
+
+const labelStyle: CSSProperties = {
+  position: 'fixed',
+  top: '.75rem',
+  right: '.25rem',
+  padding: '.25rem',
+  borderRadius: '50%',
+  backgroundColor: 'hsla(0,0%,50%,0.1)',
+};
 
 export const StylesheetSwitch = ({
-  prefersColorScheme = 'light',
-  colorSchemes,
+  defaultColorScheme = 'light',
+  stylesheets,
 }: {
-  prefersColorScheme?: ColorScheme;
-  colorSchemes: Record<ColorScheme, string>;
+  defaultColorScheme?: ColorScheme;
+  stylesheets: Record<ColorScheme, string>;
 }) => {
-  const backgroundColor = 'hsla(0,0%,50%,0.2)';
-  const defaultStyle = {
-    margin: 0,
-    borderRadius: '999px',
-  };
-  const [colorScheme, setColorScheme] = useState(prefersColorScheme);
-  const ColorSchemeInput = ({ scheme }: { scheme: ColorScheme }) => (
-    <label
-      style={{
-        ...defaultStyle,
-        padding: '.125rem .5rem',
-        fontSize: '70%',
-        textTransform: 'uppercase',
-        backgroundColor:
-          colorScheme === scheme ? backgroundColor : 'transparent',
-      }}
-    >
-      <input type="radio" value={scheme} style={{ display: 'none' }} />
-      {scheme}
-    </label>
-  );
+  const [colorScheme, setColorScheme] = useState(defaultColorScheme);
   return (
-    <div style={{ position: 'absolute', right: '4', top: '4' }}>
-      <link rel="stylesheet" href={colorSchemes[colorScheme]} />
-      <form
-        onChange={(e) => setColorScheme((e.target as any).value)}
-        style={{
-          ...defaultStyle,
-          padding: '.125rem',
-          border: `1px solid ${backgroundColor}`,
-        }}
-      >
-        {Object.keys(colorSchemes).map((k: ColorScheme) => (
-          <ColorSchemeInput scheme={k} />
-        ))}
-      </form>
-    </div>
+    <label style={labelStyle}>
+      <Sun />
+      <link rel="stylesheet" href={stylesheets[colorScheme]} />
+      <input
+        type="checkbox"
+        style={{ display: 'none' }}
+        onChange={() =>
+          setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')
+        }
+      />
+    </label>
   );
 };

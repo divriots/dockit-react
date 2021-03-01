@@ -1,5 +1,6 @@
 body {
   max-width: unset !important;
+  margin: 0!important;
 }
 
 main {
@@ -23,7 +24,7 @@ footer {
 }
 
 @media only screen and (min-width: 1024px) {
-    main {
+  main {
     grid-template-columns: auto 1fr;
     column-gap: 2rem;
   }

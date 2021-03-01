@@ -14,13 +14,9 @@ export const Layout = ({
   children: ReactChild | ReactChildren; // MDX Content
 }) => {
   const graph: PageGraph = buildGraph(__context);
+  const { stylesheet } = props as any;
   return (
     <main>
-      <link
-        rel="stylesheet"
-        href={'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css'}
-        type="text/css"
-      />
       <NavBar graph={graph} {...props} />
       <article>
         {children}

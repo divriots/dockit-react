@@ -35,7 +35,7 @@ export const Playground = ({ code, scope }: PlaygroundProps) => (
       <div style={styles.preview}>
         <LivePreview />
       </div>
-      <LiveEditor style={{ minHeight: '10rem', overflow: 'auto' }} />
+      <LiveEditor style={{ height: 'auto', overflow: 'auto' }} />
       <LiveError />
     </div>
   </LiveProvider>

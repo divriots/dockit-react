@@ -13,6 +13,7 @@ export const Layout = (props) => (
         light: 'https://cdn.jsdelivr.net/npm/water.css/out/light.min.css',
         dark: 'https://cdn.jsdelivr.net/npm/water.css/out/dark.min.css',
       }}
+      onSwitch={props.onSwitch}
     />
     <LayoutComponent {...props} />
   </MDXProvider>

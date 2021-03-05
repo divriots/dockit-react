@@ -29,9 +29,11 @@ const labelStyle: CSSProperties = {
 export const StylesheetSwitch = ({
   defaultColorScheme = 'light',
   stylesheets,
+  onSwitch = () => {},
 }: {
   defaultColorScheme?: ColorScheme;
   stylesheets: Record<ColorScheme, string>;
+  onSwitch?: (scheme: 'dark' | 'light') => void;
 }) => {
   const [colorScheme, setColorScheme] = useState(defaultColorScheme);
   return (
@@ -41,9 +43,11 @@ export const StylesheetSwitch = ({
       <input
         type="checkbox"
         style={{ display: 'none' }}
-        onChange={() =>
-          setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')
-        }
+        onChange={() => {
+          const newScheme = colorScheme === 'dark' ? 'light' : 'dark';
+          setColorScheme(newScheme);
+          onSwitch(newScheme);
+        }}
       />
     </label>
   );

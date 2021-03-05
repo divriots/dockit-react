@@ -47,7 +47,7 @@ export const bg = () => (
 export const shadows = () => (
   <SystemUIShowcases
     theme={theme}
-    showcaseKey="shadows"
+    showcaseKey="boxShadow"
     componentProps={{
       width: '8rem',
       height: '8rem',

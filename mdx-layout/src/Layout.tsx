@@ -3,7 +3,6 @@ import { PageGraph, buildGraph } from './PageGraph';
 import './Layout.scss';
 import { NavBar } from './NavBar';
 import React, { ReactChildren, ReactChild } from 'react';
-import { FooterNav } from './FooterNav';
 
 export const Layout = ({
   __context,
@@ -17,11 +16,7 @@ export const Layout = ({
   return (
     <main>
       <NavBar graph={graph} {...props} />
-      <article>
-        {children}
-        <FooterNav graph={graph} />
-      </article>
+      <article>{children}</article>
     </main>
   );
 };
-// TODO inEditor

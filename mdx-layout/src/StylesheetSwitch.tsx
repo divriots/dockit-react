@@ -33,7 +33,7 @@ export const StylesheetSwitch = ({
 }: {
   defaultColorScheme?: ColorScheme;
   stylesheets: Record<ColorScheme, string>;
-  onSwitch?: (scheme: 'dark' | 'light') => void;
+  onSwitch?: (scheme: ColorScheme) => void;
 }) => {
   const [colorScheme, setColorScheme] = useState(defaultColorScheme);
   return (

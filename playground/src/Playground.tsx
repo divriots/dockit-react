@@ -6,14 +6,12 @@ import toJSXString from 'react-element-to-jsx-string';
 const styles = {
   preview: {
     padding: '1rem',
-    border: '1px solid #E1E4E8',
+    border: '1px solid #80808033',
   } as CSSProperties,
   editor: {
     height: 'auto',
-    overflow: 'auto',
   } as CSSProperties,
   error: {
-    display: 'block',
     padding: '0.5rem',
     background: '#FF5555E6',
     color: '#F8F8F2',

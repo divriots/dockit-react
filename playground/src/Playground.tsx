@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { CSSProperties } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import dracula from 'prism-react-renderer/themes/dracula';
 import toJSXString from 'react-element-to-jsx-string';
@@ -6,8 +6,22 @@ import toJSXString from 'react-element-to-jsx-string';
 const styles = {
   preview: {
     padding: '1rem',
-    border: '1px solid #e1e4e8',
-  },
+    border: '1px solid #E1E4E8',
+  } as CSSProperties,
+  editor: {
+    height: 'auto',
+    overflow: 'auto',
+  } as CSSProperties,
+  error: {
+    display: 'block',
+    padding: '0.5rem',
+    background: '#FF5555E6',
+    color: '#F8F8F2',
+    whiteSpace: 'pre-wrap',
+    textAlign: 'left',
+    fontSize: '0.8em',
+    fontFamily: '"Source Code Pro", monospace',
+  } as CSSProperties,
 };
 
 export interface PlaygroundProps {
@@ -35,8 +49,8 @@ export const Playground = ({ code, scope }: PlaygroundProps) => (
       <div style={styles.preview}>
         <LivePreview />
       </div>
-      <LiveEditor style={{ height: 'auto', overflow: 'auto' }} />
-      <LiveError />
+      <LiveEditor style={styles.editor} />
+      <LiveError style={styles.error} />
     </div>
   </LiveProvider>
 );

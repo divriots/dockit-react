@@ -1,5 +1,5 @@
 import './NavBar.scss';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { NavGroup } from './NavGroup';
 import { PageGraph } from './PageGraph';
 
@@ -25,22 +25,26 @@ export const NavBar = ({
 }: {
   graph: PageGraph;
   name?: string;
-  logo?: string;
-}) => (
-  <nav>
-    <h3>
-      {logo && <img src={logo} />}
-      <span>{name}</span>
-      <label htmlFor="navexpander" aria-label="show nav" tabIndex={0}>
-        <ThreeBars />
-      </label>
-    </h3>
-    <input
-      type="checkbox"
-      id="navexpander"
-      defaultChecked={true}
-      style={{ display: 'none' }}
-    />
-    <NavGroup items={graph.overallOrder(true)} graph={graph} />
-  </nav>
-);
+  logo?: string | ReactElement;
+}) => {
+  const Logo = () =>
+    typeof logo === 'string' ? <img src={logo} /> : <>{logo}</>;
+  return (
+    <nav>
+      <h3>
+        <Logo />
+        <span>{name}</span>
+        <label htmlFor="navexpander" aria-label="show nav" tabIndex={0}>
+          <ThreeBars />
+        </label>
+      </h3>
+      <input
+        type="checkbox"
+        id="navexpander"
+        defaultChecked={true}
+        style={{ display: 'none' }}
+      />
+      <NavGroup items={graph.overallOrder(true)} graph={graph} />
+    </nav>
+  );
+};

@@ -14,9 +14,11 @@ export const Layout = ({
 }) => {
   const graph: PageGraph = buildGraph(__context);
   return (
-    <main>
-      <NavBar graph={graph} {...props} />
-      <article>{children}</article>
-    </main>
+    <div className="layout-wrapper">
+      <main>
+        <NavBar graph={graph} {...props} />
+        <article>{children}</article>
+      </main>
+    </div>
   );
 };

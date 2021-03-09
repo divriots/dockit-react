@@ -10,8 +10,8 @@ export const Layout = (props) => (
   <MDXProvider components={{ Playground, Props, Showcases }}>
     <StylesheetSwitch
       stylesheets={{
-        light: 'https://cdn.jsdelivr.net/npm/water.css/out/light.min.css',
-        dark: 'https://cdn.jsdelivr.net/npm/water.css/out/dark.min.css',
+        light: new URL('light.css', import.meta.url).href,
+        dark: new URL('dark.css', import.meta.url).href,
       }}
       onSwitch={props.onSwitch}
     />

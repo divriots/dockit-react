@@ -16,7 +16,9 @@ export const Layout = ({
   return (
     <main>
       <NavBar graph={graph} {...props} />
-      <article>{children}</article>
+      <article className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+        {children}
+      </article>
     </main>
   );
 };

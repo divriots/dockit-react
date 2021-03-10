@@ -28,12 +28,12 @@ export const NavBar = ({
   const Logo = () => (typeof logo === 'string' ? <img src={logo} /> : logo);
   return (
     <nav>
-      <h3>
+      <header>
         <Logo />
         <label htmlFor="navexpander" aria-label="show nav" tabIndex={0}>
           <ThreeBars />
         </label>
-      </h3>
+      </header>
       <input
         type="checkbox"
         id="navexpander"

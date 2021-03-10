@@ -20,17 +20,10 @@ h5 {
 
 ol {
   list-style-type: decimal;
-}
-
-ol li {
-  margin-left: 1.75em;
+  padding-inline-start: 2rem;
 }
 
 ul {
+  padding-inline-start: 2rem;
   list-style-type: disc;
-  list-style-position: outside;
-}
-
-ul li {
-  margin-left: 1.75em;
 }

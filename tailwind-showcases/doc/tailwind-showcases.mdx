@@ -10,7 +10,7 @@ export default Layout;
 
 ## Usage
 
-```js
+```tsx
 import { TailwindShowcases } from '@divriots/dockit-react';
 
 const partialTheme = {
@@ -25,7 +25,9 @@ const partialTheme = {
 <TailwindShowcases
   theme={partialTheme}
   showcaseKey="opacity"
-  componentProps={{ className: "shadow-xl h-32 w-32 bg-blue-700" }}
+  componentProps={{
+    className: "shadow-xl h-32 w-32 bg-blue-700"
+  }}
 />
 ```
 

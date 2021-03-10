@@ -25,7 +25,8 @@ export const NavBar = ({
   graph: PageGraph;
   logo?: string | ReactElement;
 }) => {
-  const Logo = () => (typeof logo === 'string' ? <img src={logo} /> : logo);
+  const Logo = () =>
+    typeof logo === 'string' ? <img src={logo} width="32" height="32" /> : logo;
   return (
     <nav>
       <header>

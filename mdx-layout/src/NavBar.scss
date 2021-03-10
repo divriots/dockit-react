@@ -1,18 +1,12 @@
 nav {
-  h3 {
+  header {
+    width: 100%;
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: .5rem;
-    img,
+    justify-content: space-between;
+
     label {
-      margin: 0;
       width: 2rem;
       height: 2rem;
-      margin-right: .75rem;
-    }
-    span {
-      flex-grow: 1;
     }
   }
   ul {

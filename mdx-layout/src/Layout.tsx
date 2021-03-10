@@ -1,6 +1,7 @@
 import type { Context } from '@divriots/studio-doc-compiler';
 import { PageGraph, buildGraph } from './PageGraph';
 import './Layout.scss';
+import './prism.css';
 import { NavBar } from './NavBar';
 import React, { ReactChildren, ReactChild } from 'react';
 

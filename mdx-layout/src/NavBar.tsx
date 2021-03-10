@@ -20,13 +20,12 @@ const ThreeBars = () => (
 
 export const NavBar = ({
   graph,
-  logo = '/assets/logo/dsd.svg',
+  logo = <img src="/assets/logo/dsd.svg" width="32" height="32" />,
 }: {
   graph: PageGraph;
-  logo?: string | ReactElement;
+  logo?: ReactElement;
 }) => {
-  const Logo = () =>
-    typeof logo === 'string' ? <img src={logo} width="32" height="32" /> : logo;
+  const Logo = () => logo;
   return (
     <nav>
       <header>

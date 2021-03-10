@@ -20,20 +20,23 @@ const ThreeBars = () => (
 
 export const NavBar = ({
   graph,
-  name,
   logo = '/assets/logo/dsd.svg',
 }: {
   graph: PageGraph;
-  name?: string;
   logo?: string | ReactElement;
 }) => {
-  const Logo = () =>
-    typeof logo === 'string' ? <img src={logo} /> : <>{logo}</>;
+  const Logo = () => (typeof logo === 'string' ? <img src={logo} /> : logo);
   return (
     <nav>
-      <h3>
+      <h3
+        style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'space-between',
+          paddingRight: '1rem',
+        }}
+      >
         <Logo />
-        <span>{name}</span>
         <label htmlFor="navexpander" aria-label="show nav" tabIndex={0}>
           <ThreeBars />
         </label>

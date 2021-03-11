@@ -19,11 +19,13 @@ h5 {
 }
 
 ol {
-  list-style-type: decimal;
-  padding-inline-start: 2rem;
+  list-style-type: decimal !important;
 }
 
 ul {
-  padding-inline-start: 2rem;
-  list-style-type: disc;
+  list-style-type: disc !important;
+}
+
+li {
+  margin-left: 1rem !important;
 }

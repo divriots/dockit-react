@@ -8,7 +8,7 @@ import typography from '@twind/typography';
 // Setup tailwind
 setup({ plugins: { ...typography() } });
 
-export const Layout = (props) => (
+export const TailwindLayout = (props) => (
   <MDXProvider components={{}}>
     <CoreLayout
       {...props}

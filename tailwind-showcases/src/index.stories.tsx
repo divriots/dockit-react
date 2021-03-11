@@ -1,5 +1,5 @@
 import React from 'react';
-import { TailwindShowcases, ZIndexShowcases } from './index';
+import { TailwindShowcases } from './index';
 import 'twind/shim';
 import twTheme from 'tailwindcss/defaultTheme.js';
 

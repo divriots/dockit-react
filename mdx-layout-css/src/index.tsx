@@ -1,12 +1,11 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Playground } from '~/playground/dist/Playground.js';
-import { Showcases } from '~/showcases/dist/Showcases.js';
-import { Props } from '~/props/dist/Props.js';
-import { Layout as CoreLayout } from '~/mdx-layout-core/dist/Layout';
-import { StylesheetSwitch } from '~/mdx-layout-core/dist/StylesheetSwitch';
+import { Playground } from '~/playground';
+import { Showcases } from '~/showcases';
+import { Props } from '~/props';
+import { CoreLayout, StylesheetSwitch } from '~/mdx-layout-core';
 
-export const Layout = (props) => (
+export const CssLayout = (props) => (
   <MDXProvider components={{ Playground, Props, Showcases }}>
     <StylesheetSwitch
       stylesheets={{

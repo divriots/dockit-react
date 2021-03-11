@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Layout as CoreLayout } from '~/mdx-layout-core/dist/Layout';
+import { CoreLayout } from '~/mdx-layout-core';
 import './styles.css';
 import { setup } from 'twind/shim';
 import typography from '@twind/typography';

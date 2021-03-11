@@ -4,13 +4,13 @@
     "menu": [
       "readme",
       [
-        "Tokens System-UI",
+        "System-UI",
         [
-          "system-ui-showcases"
+          "systemui-showcases"
         ]
       ],
       [
-        "Tokens Tailwind CSS",
+        "TailwindCSS",
         [
           "tailwind-showcases"
         ]
@@ -21,12 +21,7 @@
           "space",
           "props",
           "playground",
-          "showcases"
-        ]
-      ],
-      [
-        "Tools",
-        [
+          "showcases",
           "caption",
           "box",
           "text"

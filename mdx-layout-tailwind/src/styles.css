@@ -1,0 +1,17 @@
+article {
+  padding: 1rem;
+}
+
+nav {
+  padding: 1rem;
+}
+
+ol {
+  list-style-type: decimal;
+  padding-inline-start: 2rem;
+}
+
+ul {
+  padding-inline-start: 2rem;
+  list-style-type: disc;
+}

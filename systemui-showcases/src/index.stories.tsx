@@ -1,5 +1,5 @@
 import React from 'react';
-import { SystemUIShowcases, ZIndexShowcases } from './index';
+import { SystemUIShowcases } from './index';
 import { theme } from './primer-theme';
 
 export const space = () => (

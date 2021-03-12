@@ -15,9 +15,10 @@ const Li = (props) => <li className="ml-4" {...props} />;
 // Setup tailwind
 setup({ plugins: { ...typography() } });
 
-export const setupTwind = (args) => setup({ ...args, plugins: { ...typography(), ...args?.plugins } });
+export const setupTwind = (args) =>
+  setup({ ...args, plugins: { ...typography(), ...args?.plugins } });
 
-export const TailwindLayout = ({ components: {}, ...rest }) => (
+export const TailwindLayout = ({ components = {}, ...rest }) => (
   <MDXProvider
     components={{
       ol: Ol,

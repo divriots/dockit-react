@@ -15,7 +15,9 @@ const Li = (props) => <li className="ml-4" {...props} />;
 // Setup tailwind
 setup({ plugins: { ...typography() } });
 
-export const TailwindLayout = (props) => (
+export const setupTwind = (args) => setup({ ...args, plugins: { ...typography(), ...args?.plugins } });
+
+export const TailwindLayout = ({ components: {}, ...rest }) => (
   <MDXProvider
     components={{
       ol: Ol,
@@ -25,10 +27,11 @@ export const TailwindLayout = (props) => (
       Showcases,
       Props,
       Description,
+      ...components,
     }}
   >
     <CoreLayout
-      {...props}
+      {...rest}
       articleClassName="prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
     />
   </MDXProvider>

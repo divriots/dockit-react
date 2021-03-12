@@ -4,13 +4,14 @@ import { CoreLayout } from '~/mdx-layout-core';
 import { Playground } from '~/playground';
 import { Showcases } from '~/showcases';
 import { Props, Description } from '~/props';
-import './styles.css';
 import { setup } from 'twind/shim';
 import typography from '@twind/typography';
 
 const Ol = (props) => <ol className="list-decimal" {...props} />;
 const Ul = (props) => <ul className="list-disc" {...props} />;
 const Li = (props) => <li className="ml-4" {...props} />;
+const Nav = (props) => <nav className="p-4" {...props} />;
+const Article = (props) => <article className="p-4" {...props} />;
 
 // Setup tailwind
 setup({ plugins: { ...typography() } });
@@ -24,6 +25,8 @@ export const TailwindLayout = ({ components = {}, ...rest }) => (
       ol: Ol,
       ul: Ul,
       li: Li,
+      nav: Nav,
+      article: Article,
       Playground,
       Showcases,
       Props,

@@ -5,15 +5,3 @@ article {
 nav {
   padding: 1rem;
 }
-
-ol {
-  list-style-type: decimal !important;
-}
-
-ul {
-  list-style-type: disc !important;
-}
-
-li {
-  margin-left: 1rem !important;
-}

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowNonTsExtensions": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "reactNamespace": "React",
+    "paths": {
+      "~/*": [
+        "/*"
+      ]
+    }
+  }
+}

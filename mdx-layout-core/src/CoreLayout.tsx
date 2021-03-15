@@ -1,10 +1,10 @@
 import type { Context } from '@divriots/studio-doc-compiler';
 import { PageGraph, buildGraph } from './PageGraph';
-import './Layout.scss';
+import './CoreLayout.scss';
 import { NavBar } from './NavBar';
 import React, { ReactChildren, ReactChild } from 'react';
 
-export const Layout = ({
+export const CoreLayout = ({
   __context,
   children,
   articleClassName,

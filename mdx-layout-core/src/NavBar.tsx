@@ -20,7 +20,12 @@ const ThreeBars = () => (
 
 export const NavBar = ({
   graph,
-  logo = <img src="/assets/logo/dsd.svg" width="32" height="32" />,
+  logo = (
+    <img
+      src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
+      style={{ height: '64px' }}
+    />
+  ),
 }: {
   graph: PageGraph;
   logo?: ReactElement;

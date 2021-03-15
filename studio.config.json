@@ -30,7 +30,9 @@
       [
         "Layouts",
         [
-          "mdx-layout"
+          "mdx-layout-core",
+          "mdx-layout-css",
+          "mdx-layout-tailwind"
         ]
       ]
     ]

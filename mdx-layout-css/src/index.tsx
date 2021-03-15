@@ -10,6 +10,8 @@ const sheets = {
   dark: new URL('dark.css', import.meta.url).href,
 };
 
+console.log('------', sheets);
+
 export const CssLayout = ({ components = {}, onSwitch, ...rest }) => (
   <MDXProvider components={{ Playground, Props, Description, Showcases, ...components }}>
     <StylesheetSwitch

@@ -14,6 +14,7 @@ export const ZIndexShowcases = ({ theme }: { theme: Record<string, any> }) => {
     >
       {classes.map((cls, i) => (
         <div
+          key={cls}
           className={`${cls} rounded-md bg-indigo-500 shadow-2xl`}
           style={{
             height: '6rem',

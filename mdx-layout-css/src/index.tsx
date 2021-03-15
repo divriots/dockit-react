@@ -5,19 +5,17 @@ import { Showcases } from '~/showcases';
 import { Props, Description } from '~/props';
 import { CoreLayout, StylesheetSwitch } from '~/mdx-layout-core';
 
-const sheets = {
-  light: new URL('light.css', import.meta.url).href,
-  dark: new URL('dark.css', import.meta.url).href,
-};
-
-console.log('------', JSON.stringify(sheets));
 
 export const CssLayout = ({ components = {}, onSwitch, ...rest }) => (
   <MDXProvider components={{ Playground, Props, Description, Showcases, ...components }}>
     <StylesheetSwitch
-      stylesheets={sheets}
+      stylesheets={{
+        light: 'https://cdn.jsdelivr.net/npm/water.css/out/light.min.css',
+        dark: 'https://cdn.jsdelivr.net/npm/water.css/out/dark.min.css',
+      }}
       onSwitch={onSwitch}
     />
+    <link rel="stylesheet" href={'../dist/commons.css'} />
     <CoreLayout {...rest} />
   </MDXProvider>
 );

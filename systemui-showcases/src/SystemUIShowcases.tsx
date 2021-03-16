@@ -209,7 +209,7 @@ export const SystemUIShowcases = ({
     (max, e) => Math.max(`${showcaseKey}=${e}`.length, max),
     0
   );
-  const componentWidth = `${longestPropertyName / 2.2}rem`;
+  const componentWidth = `${longestPropertyName / 1.8}rem`;
 
   return (
     <ThemeProvider theme={theme}>

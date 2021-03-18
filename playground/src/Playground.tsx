@@ -40,7 +40,9 @@ export const Playground = ({ code, scope }: PlaygroundProps) => (
     code={code.trim()}
     scope={scope}
     theme={oceanicNext}
-    transformCode={(code) => (code.startsWith('<') ? `<>${code}</>` : code)}
+    transformCode={(code) =>
+      code.trim().startsWith('<') ? `<>${code}</>` : code
+    }
   >
     <div>
       <div style={styles.preview}>

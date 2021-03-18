@@ -1,7 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import dracula from 'prism-react-renderer/themes/dracula';
-import toJSXString from 'react-element-to-jsx-string';
+import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
 const styles = {
   preview: {
@@ -40,7 +39,7 @@ export const Playground = ({ code, scope }: PlaygroundProps) => (
   <LiveProvider
     code={code.trim()}
     scope={scope}
-    theme={dracula}
+    theme={oceanicNext}
     transformCode={(code) => `<>${code}</>`}
   >
     <div>

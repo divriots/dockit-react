@@ -18,7 +18,7 @@ export const NavGroup = ({
         </li>
       ) : (
         <li key={item}>
-          <span>{item}</span>
+          <span className="layout-nav-chapter">{item}</span>
           <NavGroup items={deps} graph={graph} />
         </li>
       );

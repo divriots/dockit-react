@@ -1,0 +1,111 @@
+import { mdx } from '@mdx-js/react';
+import { Dos, Donts, SampleButton } from '../dist';
+import { Description, Props } from '~/props';
+import { Playground } from '~/playground';
+import { CssLayout } from '~/mdx-layout-css';
+export default CssLayout;
+
+# DO'S & DON'TS
+
+## Usage
+
+```tsx
+import { Dos, Donts } from '@divriots/dockit-react';
+import { Button } from './Button';
+
+<Dos
+  Component={Button}
+  instructions={[
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]}
+/>;
+
+<Donts
+  Component={SampleButton}
+  instructions={[
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]}
+/>;
+```
+
+## DO
+
+<Description of={Dos} />
+
+<Dos
+  instructions={[
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]}
+/>
+
+### With Component
+
+<Dos
+  Component={SampleButton}
+  instructions={[
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]}
+/>
+
+## DON'T
+
+<Description of={Donts} />
+
+<Donts
+  instructions={[
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]}
+/>
+
+### With Component
+
+<Donts
+  Component={SampleButton}
+  instructions={[
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]}
+/>
+
+<Playground
+  scope={{ Dos, Donts, SampleButton }}
+  code={`
+<Dos
+  Component={SampleButton}
+  instructions={[
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]}
+/>
+<Donts
+  Component={SampleButton}
+  instructions={[
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  ]}
+/>
+`}
+/>
+
+## Props
+
+### Do
+
+<Props of={Dos} />
+
+### Dont
+
+<Props of={Donts} />

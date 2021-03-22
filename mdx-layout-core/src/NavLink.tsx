@@ -12,6 +12,7 @@ const relativeUrl = (url: string) =>
 export const NavLink = ({ page }) =>
   page.url && (
     <a
+      className="layout-nav-page"
       href={relativeUrl(page.url)}
       {...(location.href.endsWith(page.url) && {
         'aria-current': 'location',

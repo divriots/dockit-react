@@ -1,4 +1,6 @@
 nav {
+  padding: 1rem;
+
   header {
     width: calc(100% - 1rem);
     display: flex;
@@ -14,18 +16,19 @@ nav {
     list-style-type: none;
     padding-inline-start: 0;
     li {
-      text-transform: capitalize;
       & > :not(ul) {
         display: flex;
         padding: 0.25rem 0.5rem;
         border-radius: 0.25rem;
         opacity: 0.9;
       }
-      & > span {
+      .layout-nav-chapter {
         text-transform: uppercase;
         margin-top: 1rem;
+        opacity: 0.5;
+        font-size: 80%;
       }
-      & > a {
+      .layout-nav-page {
         &[aria-current='location'] {
           font-weight: bold;
         }

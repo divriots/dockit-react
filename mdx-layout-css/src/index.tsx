@@ -5,7 +5,6 @@ import { Showcases } from '~/showcases';
 import { Props, Description } from '~/props';
 import { CoreLayout, StylesheetSwitch } from '~/mdx-layout-core';
 
-
 export const CssLayout = ({ components = {}, onSwitch, ...rest }) => (
   <MDXProvider components={{ Playground, Props, Description, Showcases, ...components }}>
     <StylesheetSwitch
@@ -15,7 +14,7 @@ export const CssLayout = ({ components = {}, onSwitch, ...rest }) => (
       }}
       onSwitch={onSwitch}
     />
-    <link rel="stylesheet" href={'../dist/commons.css'} />
+    <link rel="stylesheet" href={new URL('commons.css', import.meta.url).href} />
     <CoreLayout {...rest} />
   </MDXProvider>
 );

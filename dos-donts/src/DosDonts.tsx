@@ -70,7 +70,7 @@ type CardProps = {
   /**
    * Icon to be shown as indicator
    */
-  Icon: ReactNode,
+  Icon?: ReactNode,
   /**
    * Color to be used as theme from the card. A transparency will be added to use as background color as well.
    */
@@ -104,7 +104,7 @@ export const InstructionsCard = ({ Icon, color, Component, label, instructions }
       }}
     >
       <div style={styles.titleContainer}>
-        <Icon />
+        {!!Icon && <Icon />}
         <span style={styles.title}>{label}</span>
       </div>
       {!!instructions && <div style={styles.instructionsWrapper}>
@@ -121,10 +121,10 @@ export const InstructionsCard = ({ Icon, color, Component, label, instructions }
 /**
  * Component to render general instructions or for a specific component.
  */
-export const Dos = ({ color = '#36B37E', label = 'DO', Component, instructions }: Partial<CardProps>) => (
+export const Dos = ({ Icon, color = '#36B37E', label = 'DO', Component, instructions }: CardProps) => (
   <InstructionsCard
     Component={Component}
-    Icon={() => <CheckCircle color={color} />}
+    Icon={() => !!Icon ? <Icon /> : <CheckCircle color={color} />}
     color={color}
     label={label}
     instructions={instructions}
@@ -134,10 +134,10 @@ export const Dos = ({ color = '#36B37E', label = 'DO', Component, instructions }
 /**
  * Component to render general restrictions or for a specific component.
  */
-export const Donts = ({ color = '#DE350B', label = 'DON\'T', Component, instructions }: Partial<CardProps>) => (
+export const Donts = ({ Icon, color = '#DE350B', label = "DON'T", Component, instructions }: CardProps) => (
   <InstructionsCard
     Component={Component}
-    Icon={() => <CloseOctagon color={color} />}
+    Icon={() => !!Icon ? <Icon /> : <CloseOctagon color={color} />}
     color={color}
     label={label}
     instructions={instructions}

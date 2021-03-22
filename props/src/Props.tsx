@@ -58,7 +58,7 @@ export const Props = ({ of }: PropsProps) => {
         </thead>
         <tbody>
           {
-            Object.entries(props).map(([name, prop]) =>(
+            Object.entries(props).map(([name, prop]) => (
               <tr key={name}>
                 <td>{name}</td>
                 <td>{prop.description}</td>

@@ -11,7 +11,7 @@ export const CssLayout = ({ components = {}, onSwitch, ...rest }) => (
       }}
       onSwitch={onSwitch}
     />
-    <link rel="stylesheet" href={'../dist/commons.css'} />
+    <link rel="stylesheet" href={new URL('commons.css', import.meta.url).href} />
     <CoreLayout {...rest} />
   </MDXProvider>
 );

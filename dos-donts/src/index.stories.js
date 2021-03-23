@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Dos, Donts, SampleButton } from './index';
 
 export default {

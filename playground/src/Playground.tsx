@@ -30,26 +30,39 @@ export interface PlaygroundProps {
   Specifies globals to use inside the live editor.
   */
   scope: object;
+  /**
+  Allows to render multiple components
+  */
+  noInline: boolean;
 }
 
 /**
   Used to render your component inside a live-editable playground and directly see the output of the code used.
 */
-export const Playground = ({ code, scope }: PlaygroundProps) => (
-  <LiveProvider
-    code={code.trim()}
-    scope={scope}
-    theme={oceanicNext}
-    transformCode={(code) =>
-      code.trim().startsWith('<') ? `<>${code}</>` : code
-    }
-  >
-    <div>
-      <div style={styles.preview}>
-        <LivePreview />
+export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
+  const firstCharacterNotCommentRegex = /^[^\/]/m;
+
+  return (
+    <LiveProvider
+      code={code.trim()}
+      scope={scope}
+      noInline={noInline}
+      theme={oceanicNext}
+      transformCode={(code) => {
+        if (code.trim().startsWith('<'))
+          return `<>${code}</>`;
+
+        const [firstCharacter = ''] = `${code}`.trim().match(firstCharacterNotCommentRegex) || [];
+        return firstCharacter.startsWith('<') ? `<>${code}</>` : code;
+      }}
+    >
+      <div>
+        <div style={styles.preview}>
+          <LivePreview />
+        </div>
+        <LiveEditor style={styles.editor} />
+        <LiveError style={styles.error} />
       </div>
-      <LiveEditor style={styles.editor} />
-      <LiveError style={styles.error} />
-    </div>
-  </LiveProvider>
-);
+    </LiveProvider>
+  )
+};

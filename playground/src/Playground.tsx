@@ -21,7 +21,7 @@ const styles = {
   } as CSSProperties,
 };
 
-export interface PlaygroundProps {
+type PlaygroundProps = {
   /**
   The jsx to edit and render, as string.
   */
@@ -33,7 +33,7 @@ export interface PlaygroundProps {
   /**
   Allows to render multiple components
   */
-  noInline: boolean;
+  noInline?: boolean;
 }
 
 /**
@@ -66,3 +66,7 @@ export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
     </LiveProvider>
   )
 };
+
+Playground.defaultProps = {
+  noInline: false,
+}

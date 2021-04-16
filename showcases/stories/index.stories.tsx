@@ -1,5 +1,5 @@
 import React from 'react';
-import { Showcases } from './index';
+import { Showcases } from '../index';
 import './showcases-stories.css';
 
 export const opacity = () => {

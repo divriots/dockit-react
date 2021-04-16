@@ -1,6 +1,6 @@
 import React from 'react';
-import { SystemUIShowcases } from './index';
-import { theme } from './primer-theme';
+import { SystemUIShowcases } from '../index';
+import { theme } from '../src/primer-theme';
 
 export const space = () => (
   <SystemUIShowcases theme={theme} showcaseKey="space" />

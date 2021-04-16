@@ -1,5 +1,5 @@
 import React from 'react';
-import { Playground } from './index';
+import { Playground } from '../index';
 import { Button } from '../test';
 
 export default {

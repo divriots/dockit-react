@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dos, Donts, SampleButton } from './index';
+import { Dos, Donts, SampleButton } from '../index';
 
 export default {
   parameters: {

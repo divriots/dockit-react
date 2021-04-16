@@ -36,6 +36,7 @@ export const ZIndexShowcases = ({ theme }: { theme: Record<string, any> }) => {
       >
         {variations.map((v, i) => (
           <Box
+            key={v}
             bg="#6365f1"
             ml="-6rem"
             mt={`${4 * i}rem`}

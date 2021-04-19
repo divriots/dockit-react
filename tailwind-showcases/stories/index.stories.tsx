@@ -1,7 +1,7 @@
 import React from 'react';
-import { TailwindShowcases } from './index';
 import 'twind/shim';
 import twTheme from 'tailwindcss/defaultTheme.js';
+import { TailwindShowcases } from '../index';
 
 export const bg_color = () => (
   <TailwindShowcases

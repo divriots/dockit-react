@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space } from './index';
+import { Space } from '../index';
 
 export const space_numbers_array_scale = () => (
   <Space scale={[0, 1, 8, 16, 24, 32, 64, 128]} />

@@ -33,7 +33,7 @@ export interface PlaygroundProps {
   /**
   Allows to render multiple components
   */
-  noInline: boolean;
+  noInline?: boolean;
 }
 
 /**

@@ -40,7 +40,7 @@ type PlaygroundProps = {
   Used to render your component inside a live-editable playground and directly see the output of the code used.
 */
 export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
-  const firstCharacterNotCommentRegex = /^[^\/\s].*/gm;
+  const firstCharacterNotCommentRegex = /(^[^\/\s].*)/gm;
 
   return (
     <LiveProvider

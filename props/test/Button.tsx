@@ -17,9 +17,14 @@ type ButtonProps = {
   Function to execute on press.
   **/
   onPress: () => {};
-}
+};
 
 /**
 A button is component that the user can press to trigger an action.
  */
-export const Button = ({ type = 'primary', text, disabled = false, onPress = () => {}}: ButtonProps) => <div/>;
+export const Button = ({
+  type = 'primary',
+  text,
+  disabled = false,
+  onPress = () => {},
+}: ButtonProps) => <div />;

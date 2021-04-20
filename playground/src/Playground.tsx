@@ -21,7 +21,7 @@ const styles = {
   } as CSSProperties,
 };
 
-export interface PlaygroundProps {
+type PlaygroundProps = {
   /**
   The jsx to edit and render, as string.
   */
@@ -40,8 +40,7 @@ export interface PlaygroundProps {
   Used to render your component inside a live-editable playground and directly see the output of the code used.
 */
 export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
-  const firstCharacterNotCommentRegex = /^[^\/]/m;
-
+  const commentsRegex = /(\/\/.*)|(\/\*(.|\n)*?\*\/)/gm;
   return (
     <LiveProvider
       code={code.trim()}
@@ -49,11 +48,8 @@ export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
       noInline={noInline}
       theme={oceanicNext}
       transformCode={(code) => {
-        if (code.trim().startsWith('<'))
-          return `<>${code}</>`;
-
-        const [firstCharacter = ''] = `${code}`.trim().match(firstCharacterNotCommentRegex) || [];
-        return firstCharacter.startsWith('<') ? `<>${code}</>` : code;
+        const codeWithoutComments = code.replaceAll(commentsRegex, '').trim();
+        return codeWithoutComments.startsWith('<') ? `<>${codeWithoutComments}</>` : codeWithoutComments;
       }}
     >
       <div>
@@ -66,3 +62,7 @@ export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
     </LiveProvider>
   )
 };
+
+Playground.defaultProps = {
+  noInline: false,
+}

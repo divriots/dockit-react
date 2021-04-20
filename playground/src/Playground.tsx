@@ -40,9 +40,7 @@ type PlaygroundProps = {
   Used to render your component inside a live-editable playground and directly see the output of the code used.
 */
 export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
-  const notSingleLineComments = /(^[^\/\s].*)/gm;
-  const multilineCommentsBlock = /^\/\*(?:(?!\/\*).)*(?:(\*\/))/gms;
-
+  const commentsRegex = /(\/\/.*)|(\/\*(.|\n)*?\*\/)/gm;
   return (
     <LiveProvider
       code={code.trim()}
@@ -50,14 +48,8 @@ export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
       noInline={noInline}
       theme={oceanicNext}
       transformCode={(code) => {
-        const codeWithoutComments = (code
-          .replaceAll(new RegExp(multilineCommentsBlock, 'gms'), '')
-          .match(notSingleLineComments) || []
-        ).join('').trim();
-
-        return codeWithoutComments.startsWith('<')
-          ? `<>\n${codeWithoutComments}\n</>`
-          : codeWithoutComments;
+        const codeWithoutComments = code.replaceAll(commentsRegex, '').trim();
+        return codeWithoutComments.startsWith('<') ? `<>${codeWithoutComments}</>` : codeWithoutComments;
       }}
     >
       <div>

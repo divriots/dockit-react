@@ -1,3 +1,4 @@
+export default `
 h1 {
   font-size: 2.25rem;
 }
@@ -27,3 +28,4 @@ ul {
   padding-inline-start: 2rem;
   list-style-type: disc;
 }
+`;

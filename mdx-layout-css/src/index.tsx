@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { CoreLayout, StylesheetSwitch } from '~/mdx-layout-core';
+import styles from './common-styles';
 
 export const CssLayout = ({ components = {}, onSwitch, ...rest }) => (
   <MDXProvider components={{ ...components }}>
@@ -11,7 +12,7 @@ export const CssLayout = ({ components = {}, onSwitch, ...rest }) => (
       }}
       onSwitch={onSwitch}
     />
-    <link rel="stylesheet" href={new URL('commons.css', import.meta.url).href} />
+    <style>{styles}</style>
     <CoreLayout {...rest} />
   </MDXProvider>
 );

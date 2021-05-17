@@ -27,7 +27,7 @@ export const ZIndexShowcases = ({ theme }: { theme: Record<string, any> }) => {
             alignItems: 'center',
             border: '1px solid #FFF',
             borderRadius: '0.375rem',
-            boxShadow: '#000 0px 0px 0px 0px, #000 0px 0px 0px 0px, #00000040 0px 25px 50px -12px',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
             backgroundColor: '#6366F1',
           }}
         >

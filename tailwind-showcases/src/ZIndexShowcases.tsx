@@ -15,7 +15,7 @@ export const ZIndexShowcases = ({ theme }: { theme: Record<string, any> }) => {
       {classes.map((cls, i) => (
         <div
           key={cls}
-          className={`${cls} rounded-md bg-indigo-500 shadow-2xl`}
+          className={cls}
           style={{
             height: '6rem',
             minWidth: '8rem',
@@ -25,10 +25,13 @@ export const ZIndexShowcases = ({ theme }: { theme: Record<string, any> }) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            border: '1px solid #fff',
+            border: '1px solid #FFF',
+            borderRadius: '0.375rem',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            backgroundColor: '#6366F1',
           }}
         >
-          <div className="text-white">{cls}</div>
+          <div style={{ color: '#FFF' }}>{cls}</div>
         </div>
       ))}
     </div>

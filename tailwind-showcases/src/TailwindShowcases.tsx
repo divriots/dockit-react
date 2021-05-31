@@ -33,6 +33,7 @@ interface TailwindShowcasesProps {
 
 const getClassSuffixes = (theme: Record<string, any>) => ({
   colors: extractClassSuffixes('colors', theme),
+  backgroundImage: extractClassSuffixes('backgroundImage', theme),
   opacity: extractClassSuffixes('opacity', theme),
   boxShadow: extractClassSuffixes('boxShadow', theme),
   borderRadius: extractClassSuffixes('borderRadius', theme),
@@ -48,6 +49,10 @@ const getClassNames = (suffixes: Record<string, string[]>) => ({
   backgroundColor: {
     component: 'box',
     classes: suffixes.colors.map((s) => `bg${s}`),
+  },
+  backgroundImage: {
+    component: 'box',
+    classes: suffixes.backgroundImage.map((s) => `bg${s}`),
   },
   opacity: {
     component: 'box',

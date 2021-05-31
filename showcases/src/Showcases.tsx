@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import { Box } from '~/box';
 import { Text } from '~/text';
 import { Caption } from '~/caption';
@@ -56,6 +56,7 @@ type CaptionedComponentProps = {
   gap?: Gap;
   type: ComponentType;
   captionWidth: string;
+  key: any,
 };
 
 const CaptionedComponent = ({
@@ -66,15 +67,6 @@ const CaptionedComponent = ({
   captionWidth,
   ...otherProps
 }: CaptionedComponentProps) => {
-  const [hovered, setHovered] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  const copy = () => {
-    copyTextToClipboard(caption);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   const marginV = gap?.vertical ? `${gap.vertical / 2}px` : `0px`;
   const marginH = gap?.horizontal ? `${gap.horizontal / 2}px` : `0px`;
 

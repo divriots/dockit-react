@@ -14,6 +14,17 @@ export const bg_color = () => (
   />
 );
 
+export const bg_image = () => (
+  <TailwindShowcases
+    theme={twTheme}
+    showcaseKey="backgroundImage"
+    componentProps={{
+      className: 'shadow-xl h-32 w-32 from-yellow-400 via-red-500 to-pink-500',
+      checkeredBackground: true,
+    }}
+  />
+);
+
 export const opacity = () => (
   <TailwindShowcases
     theme={twTheme}

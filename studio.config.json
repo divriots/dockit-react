@@ -16,6 +16,12 @@
         ]
       ],
       [
+        "Style",
+        [
+          "style-showcases"
+        ]
+      ],
+      [
         "Components",
         [
           "space",

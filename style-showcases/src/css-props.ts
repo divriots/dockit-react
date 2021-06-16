@@ -6,7 +6,8 @@ const getAllCSSCustomProps = () => {
 
   const sheets = [...document.styleSheets].filter(isSameDomain);
 
-  const isCustomProperty = ([propName]) => propName.indexOf('--') === 0;
+  const isCustomProperty = ([propName]: string[]) =>
+    propName.indexOf('--') === 0;
 
   const getRuleProps = (rule) =>
     [...rule.style]

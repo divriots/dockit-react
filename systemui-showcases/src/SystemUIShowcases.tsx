@@ -11,7 +11,7 @@ import {
 import { Caption } from '~/caption';
 import { shortText, longText } from '~/text';
 import { getVariations } from './theme-helper';
-import { ZIndexShowcases } from './ZIndexShowcases';
+import { ZIndexShowcases } from '~/z-index';
 import { Space } from '~/space';
 
 interface SystemUIShowcasesProps {
@@ -163,7 +163,13 @@ const keyDetails = {
   color: { themeProp: 'colors', componentType: 'text' },
   zIndex: {
     themeProp: 'zIndex',
-    StandaloneComponent: ({ theme }) => <ZIndexShowcases theme={theme} />,
+    StandaloneComponent: ({ theme }) => {
+      const variations = getVariations('zIndices', theme);
+      return (
+        <ThemeProvider theme={theme}>
+          <ZIndexShowcases values={variations} isStyledComponent />
+        </ThemeProvider>);
+    }
   },
   space: {
     themeProp: 'space',

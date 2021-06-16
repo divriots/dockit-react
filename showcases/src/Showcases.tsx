@@ -29,7 +29,6 @@ const styles = {
 };
 
 type Gap = { horizontal?: number; vertical?: number };
-type ComponentType = 'box' | 'text' | undefined;
 
 type ShowcasesProps = {
   /**
@@ -43,7 +42,7 @@ type ShowcasesProps = {
   /**
   The component type to be used to showcase.
    */
-  showcaseComponent?: ComponentType;
+  showcaseComponent?: 'box' | 'text';
   /**
   The showcase component props.
    */
@@ -58,7 +57,7 @@ type CaptionedComponentProps = {
   caption: string;
   className: string;
   gap?: Gap;
-  type: ComponentType;
+  type: 'box' | 'text';
   captionWidth: string;
   key: any,
 };
@@ -117,14 +116,14 @@ export const Showcases = ({
     : {
       showcases: showcaseStyles,
       getProp: (showcaseStyle: { [key: string]: any }) => ({ className: fixedClassName, style: { ...style, ...showcaseStyle } }),
-      getName: s => JSON.stringify(s).replaceAll('"', ''),
+      getName: s => JSON.stringify(s, null, ' ').replaceAll(/{|}|"/g, ''),
     };
 
   const longestName = showcases.map(s => getName(s)).reduce(
     (max, e) => Math.max(e.length, max),
     0
   );
-  const captionWidth = `${longestName / 2}rem`;
+  const captionWidth = `${longestName / 2.8}rem`;
 
   return (
     <div style={container as CSSProperties}>

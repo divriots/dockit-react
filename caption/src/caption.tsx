@@ -7,6 +7,9 @@ const styles = {
     position: 'relative',
     display: 'inline-block',
   },
+  caption: {
+    fontFamily: `Menlo, Monaco, 'Courier New', monospace`,
+  },
   hovered: {
     opacity: 0.7,
     cursor: 'pointer',
@@ -16,7 +19,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    bottom: '1.1rem',
+    top: '-1.3rem',
     fontSize: '.8rem',
     borderRadius: '0.3rem',
     backgroundColor: '#2d3748',
@@ -35,7 +38,7 @@ const styles = {
 }
 
 
-export const Caption = ({ text, width }: { text: string, width?: string }) => {
+export const Caption = ({ text, width, style }: { text: string, width?: string, style?: Record<string, any> }) => {
   const [hovered, setHovered] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -53,19 +56,19 @@ export const Caption = ({ text, width }: { text: string, width?: string }) => {
         style={{
           ...styles.wrapper,
           width: captionWidth,
-          } as CSSProperties}
+        } as CSSProperties}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onClick={copy}
-        >
-        <div style={(hovered ? styles.hovered : {}) as CSSProperties}>{text}</div>
+      >
+        <div style={{ ...styles.caption, ...style, ...(hovered ? styles.hovered : {}) as CSSProperties }}>{text}</div>
         <div
           style={
             (hovered ? { ...styles.tooltip, ...styles.tooltipVisible } : styles.tooltip) as CSSProperties
-            }>
+          }>
           {copied ? 'Copied' : 'Copy'}
         </div>
       </div>
-    </div>
+    </div >
   );
 };

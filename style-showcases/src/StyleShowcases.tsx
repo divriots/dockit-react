@@ -3,6 +3,7 @@ import { Showcases } from '~/showcases';
 import { getCssCustomProps } from './css-props';
 import { ZIndexShowcases } from '~/z-index';
 import { Space } from '~/space';
+import { TransitionShowcases } from '~/transitions';
 
 const styles = {
   error: {
@@ -53,7 +54,11 @@ export const StyleShowcases = ({
     return <Space scale={props.reduce((acc = {}, [name, value]) => ({ ...acc, [getCssValue(name)]: value }), {})} />;
   }
 
-  if (/z-index/gi.test(prefix)) return <ZIndexShowcases values={props.map(([name]) => getCssValue(name))} />;
+  const values = props.map(([name]) => getCssValue(name));
+
+  if (/z-index/gi.test(prefix)) return <ZIndexShowcases values={values} />;
+
+  if (/transition/gi.test(prefix)) return <TransitionShowcases values={values} />;
 
   const showcaseStyles = props.map(([name]) => ({ [styleKey]: getCssValue(name) }));
 

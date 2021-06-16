@@ -42,7 +42,8 @@ export const Caption = ({ text, width, style }: { text: string, width?: string, 
   const [hovered, setHovered] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const copy = () => {
+  const copy = (e) => {
+    e.stopPropagation();
     copyTextToClipboard(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

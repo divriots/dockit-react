@@ -23,9 +23,9 @@ export const z_index = () => <StyleShowcases
 	prefix="--z-index"
 />;
 
-// export const transition = () => <StyleShowcases
-//   prefix="--transition"
-// />;
+export const transition = () => <StyleShowcases
+	prefix="--transition"
+/>;
 
 export const border_radius = () => <StyleShowcases
 	prefix="--border-radius"

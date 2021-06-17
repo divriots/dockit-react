@@ -1,6 +1,6 @@
 import React from 'react';
 import { Props } from '../index';
-import { JSCard, TSCard } from '../test';
+import { JSCard, TSCard, NoPropCard } from '../test';
 
 export default {
   parameters: {
@@ -11,3 +11,7 @@ export default {
 export const props_from_JS = () => <Props of={JSCard} />;
 
 export const props_from_TS = () => <Props of={TSCard} />;
+
+export const props_from_Unknown = () => <Props of={<div></div>} />;
+
+export const props_from_NoProps = () => <Props of={NoPropCard} />;

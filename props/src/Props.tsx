@@ -32,17 +32,32 @@ type PropsProps = {
   of: ComponentWithDocGenInfo;
 };
 
+const getType = (prop: Prop) => {
+  const type = prop.type || prop.tsType;
+  if (!type) return 'undefined';
+  return ['union', 'intersection'].includes(type.name) ? type.raw : type.name;
+};
+
+const errorStyle = {
+  color: 'tomato',
+  border: '1px solid tomato',
+  borderRadius: '4px',
+  padding: '4px 8px',
+};
+
+const error = (text: string) => <span style={errorStyle}>{text}</span>;
+
 /**
   Used for listing the props details of a React component.
 */
 export const Props = ({ of }: PropsProps) => {
-  const { props } = of.__docgenInfo;
+  if (!of.__docgenInfo) return error('DocGen failed to generate info');
 
-  const getType = (prop: Prop) => {
-    const type = prop.type || prop.tsType;
-    if (!type) return 'undefined';
-    return ['union', 'intersection'].includes(type.name) ? type.raw : type.name;
-  };
+  const { props } = of.__docgenInfo;
+  if (!props)
+    return error(
+      `No Props available for ${of.name}, check props parameter type`
+    );
 
   return (
     <div>

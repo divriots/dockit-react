@@ -50,7 +50,7 @@ export const StyleShowcases = ({
 
   const getCssValue = name => `var(${name})`;
 
-  if (/space|spacing/gi.test(prefix)) {
+  if (/space|spacing/gi.test(prefix) && !/letter/gi.test(prefix)) {
     return <Space scale={props.reduce((acc = {}, [name, value]) => ({ ...acc, [getCssValue(name)]: value }), {})} />;
   }
 

@@ -44,6 +44,12 @@ export const spacing = () => <StyleShowcases
 	prefix="--spacing"
 />;
 
+export const letter_spacing = () => <StyleShowcases
+	prefix="--letter-spacing"
+	showcaseComponent="text"
+	styleKey="letter-spacing"
+/>;
+
 export const line_height = () => <StyleShowcases
 	prefix="--line-height"
 	showcaseComponent="text"

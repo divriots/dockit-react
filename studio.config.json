@@ -16,6 +16,12 @@
         ]
       ],
       [
+        "Style",
+        [
+          "style-showcases"
+        ]
+      ],
+      [
         "Components",
         [
           "space",
@@ -25,7 +31,9 @@
           "caption",
           "box",
           "text",
-          "dos-donts"
+          "z-index",
+          "dos-donts",
+          "transitions"
         ]
       ],
       [

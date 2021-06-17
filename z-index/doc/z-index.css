@@ -1,0 +1,11 @@
+.top {
+  z-index: 1000;
+}
+
+.middle {
+  z-index: 100;
+}
+
+.bottom {
+  z-index: 0;
+}

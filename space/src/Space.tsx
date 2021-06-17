@@ -14,7 +14,7 @@ interface SpaceProps {
 export const Space = ({ scale }: SpaceProps) => {
   const scaleValues = (Array.isArray(scale)
     ? (scale as any[]).map((s, i) => [i, s])
-    : Object.keys(scale).map((k) => [k, scale[k]])
+    : Object.entries(scale)
   ).map(([k, v]) => [k, typeof v === 'number' ? `${v}px` : v]);
 
   return (

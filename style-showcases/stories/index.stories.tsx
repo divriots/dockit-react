@@ -6,7 +6,7 @@ import './style-showcases.css'
 export const color = () => (
 	<StyleShowcases
 		prefix="--color"
-		styleKey="background"
+		styleKey="backgroundColor"
 		componentProps={{ className: "box" }}
 	/>
 );
@@ -30,14 +30,14 @@ export const transition = () => <StyleShowcases
 export const border_radius = () => <StyleShowcases
 	prefix="--border-radius"
 	componentProps={{ className: "box wide" }}
-	styleKey="border-radius"
+	styleKey="borderRadius"
 	checkered-background="false"
 />;
 
 export const shadow = () => <StyleShowcases
 	prefix="--shadow"
 	componentProps={{ className: "box white" }}
-	styleKey="box-shadow"
+	styleKey="boxShadow"
 />;
 
 export const spacing = () => <StyleShowcases
@@ -47,30 +47,30 @@ export const spacing = () => <StyleShowcases
 export const letter_spacing = () => <StyleShowcases
 	prefix="--letter-spacing"
 	showcaseComponent="text"
-	styleKey="letter-spacing"
+	styleKey="letterSpacing"
 />;
 
 export const line_height = () => <StyleShowcases
 	prefix="--line-height"
 	showcaseComponent="text"
-	styleKey="line-height"
+	styleKey="lineHeight"
 	componentProps={{ useLongText: true }}
 />;
 
 export const font_weight = () => <StyleShowcases
 	prefix="--font-weight"
 	showcaseComponent="text"
-	styleKey="font-weight"
+	styleKey="fontWeight"
 />;
 
 export const font_size = () => <StyleShowcases
 	prefix="--font-size"
 	showcaseComponent="text"
-	styleKey="font-size"
+	styleKey="fontSize"
 />;
 
 export const font_family = () => <StyleShowcases
 	prefix="--font-family"
 	showcaseComponent="text"
-	styleKey="font-family"
+	styleKey="fontFamily"
 />;

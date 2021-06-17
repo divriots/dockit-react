@@ -22,7 +22,7 @@ const styles = {
 	},
 };
 
-const TransitionBox = ({ value, key }: { value: string, key: any }) => {
+const TransitionBox = ({ value }: { value: string, key: any }) => {
 	const [pressed, setPressed] = useState(false);
 	return (
 		<div

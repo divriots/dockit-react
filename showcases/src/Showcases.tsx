@@ -123,7 +123,7 @@ export const Showcases = ({
     (max, e) => Math.max(e.length, max),
     0
   );
-  const captionWidth = `${longestName / 2.8}rem`;
+  const captionWidth = `${longestName / 2.4}rem`;
 
   return (
     <div style={container as CSSProperties}>

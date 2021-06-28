@@ -80,6 +80,8 @@ const Text = ({ useLongText = false, ...rest }) => (
 
 const Container = styled.div`
   display: flex;
+  flex-direction: ${(props) => (props.type === 'text' ? 'column' : 'row')};
+  align-items: flex-start;
   flex-wrap: wrap;
 `;
 
@@ -211,15 +213,18 @@ export const SystemUIShowcases = ({
       <Error>{`"${showcaseKey}" has no values in the provided theme`}</Error>
     );
 
+  const getCaption = (value) => `${showcaseKey}="${value}"`;
+
   const longestPropertyName = variations.reduce(
-    (max, e) => Math.max(`${showcaseKey}=${e}`.length, max),
+    (max, e) => Math.max(getCaption(e).length, max),
     0
   );
+
   const componentWidth = `${longestPropertyName / 1.8}rem`;
 
   return (
     <ThemeProvider theme={theme}>
-      <Container>
+      <Container type={componentType}>
         {variations.map((v) => {
           const props = { ...componentProps, [showcaseKey]: v };
           return (
@@ -227,7 +232,7 @@ export const SystemUIShowcases = ({
               key={v}
               type={componentType}
               gap={gap}
-              caption={`${showcaseKey}="${v}"`}
+              caption={getCaption(v)}
               componentProps={props}
               minWidth={componentWidth}
               useLongText={useLongText}

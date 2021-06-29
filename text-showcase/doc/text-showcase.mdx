@@ -1,0 +1,37 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { Props, Description } from '~/props';
+import { Playground } from '~/playground';
+import { TextShowcase } from '../index';
+import { CssLayout } from '~/mdx-layout-css';
+
+export default CssLayout;
+
+# Showcases Component
+
+<Description of={TextShowcase} />
+
+## Usage
+
+```tsx
+import { TextShowcase } from '@divriots/dockit-react/text-showcases';
+
+<TextShowcase showcaseClass="underline" />;
+
+<TextShowcase showcaseStyle={{ textDecoration: 'underline' }} />;
+```
+
+## Example
+
+<Playground
+  scope={{ TextShowcase }}
+  code={`
+<TextShowcase showcaseClass="underline" />
+<br />
+<TextShowcase showcaseStyle={{ textDecoration: 'underline' }} />
+  `}
+/>
+
+## Props
+
+<Props of={TextShowcase} />

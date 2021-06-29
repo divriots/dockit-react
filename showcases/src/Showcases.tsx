@@ -59,7 +59,7 @@ type CaptionedComponentProps = {
   gap?: Gap;
   type: 'box' | 'text';
   captionWidth: string;
-  key: any;
+  key?: any;
 };
 
 const CaptionedComponent = ({
@@ -110,19 +110,25 @@ export const Showcases = ({
   const { showcases, getProp, getName } = showcaseClasses
     ? {
       showcases: showcaseClasses,
-      getProp: (showcaseClass: string) => ({ className: `${fixedClassName} ${showcaseClass}`, style }),
+      getProp: (showcaseClass: string) => ({
+        className: `${fixedClassName} ${showcaseClass}`,
+        style,
+      }),
       getName: (cls) => cls,
     }
     : {
       showcases: showcaseStyles,
-      getProp: (showcaseStyle: { [key: string]: any }) => ({ className: fixedClassName, style: { ...style, ...showcaseStyle } }),
-      getName: s => JSON.stringify(s, null, ' ').replaceAll(/{|}|"/g, '').trim(),
+      getProp: (showcaseStyle: { [key: string]: any }) => ({
+        className: fixedClassName,
+        style: { ...style, ...showcaseStyle },
+      }),
+      getName: (s) =>
+        JSON.stringify(s, null, ' ').replaceAll(/{|}|"/g, '').trim(),
     };
 
-  const longestName = showcases.map(s => getName(s)).reduce(
-    (max, e) => Math.max(e.length, max),
-    0
-  );
+  const longestName = showcases
+    .map((s) => getName(s))
+    .reduce((max, e) => Math.max(e.length, max), 0);
   const captionWidth = `${longestName / 1.8}rem`;
 
   return (

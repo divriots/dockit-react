@@ -1,1 +1,1 @@
-export { Showcases, TextShowcase } from './Showcases';
+export { Showcases } from './Showcases';

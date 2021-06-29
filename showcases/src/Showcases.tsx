@@ -62,25 +62,6 @@ type CaptionedComponentProps = {
   key?: any;
 };
 
-export const TextShowcase = ({
-  className,
-  useLongText = false,
-}: {
-  className: string;
-  useLongText?: boolean;
-}) => {
-  const captionWidth = `${className.length / 1.8}rem`;
-  return (
-    <CaptionedComponent
-      caption={className}
-      className={className}
-      captionWidth={captionWidth}
-      type="text"
-      {...{ useLongText }}
-    />
-  );
-};
-
 const CaptionedComponent = ({
   caption,
   className,
@@ -128,22 +109,22 @@ export const Showcases = ({
 
   const { showcases, getProp, getName } = showcaseClasses
     ? {
-        showcases: showcaseClasses,
-        getProp: (showcaseClass: string) => ({
-          className: `${fixedClassName} ${showcaseClass}`,
-          style,
-        }),
-        getName: (cls) => cls,
-      }
+      showcases: showcaseClasses,
+      getProp: (showcaseClass: string) => ({
+        className: `${fixedClassName} ${showcaseClass}`,
+        style,
+      }),
+      getName: (cls) => cls,
+    }
     : {
-        showcases: showcaseStyles,
-        getProp: (showcaseStyle: { [key: string]: any }) => ({
-          className: fixedClassName,
-          style: { ...style, ...showcaseStyle },
-        }),
-        getName: (s) =>
-          JSON.stringify(s, null, ' ').replaceAll(/{|}|"/g, '').trim(),
-      };
+      showcases: showcaseStyles,
+      getProp: (showcaseStyle: { [key: string]: any }) => ({
+        className: fixedClassName,
+        style: { ...style, ...showcaseStyle },
+      }),
+      getName: (s) =>
+        JSON.stringify(s, null, ' ').replaceAll(/{|}|"/g, '').trim(),
+    };
 
   const longestName = showcases
     .map((s) => getName(s))

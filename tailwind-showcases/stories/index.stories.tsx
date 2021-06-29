@@ -99,6 +99,14 @@ export const line_height = () => (
   />
 );
 
+export const text_decoration = () => (
+  <TailwindShowcases theme={twTheme} showcaseKey="textDecoration" />
+);
+
+export const text_transform = () => (
+  <TailwindShowcases theme={twTheme} showcaseKey="textTransform" />
+);
+
 export const text_color = () => (
   <TailwindShowcases theme={twTheme} showcaseKey="textColor" />
 );

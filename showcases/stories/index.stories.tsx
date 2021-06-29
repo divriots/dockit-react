@@ -1,6 +1,8 @@
 import React from 'react';
-import { Showcases } from '../index';
+import { Showcases, TextShowcase } from '../index';
 import './showcases-stories.css';
+
+export const textDecoration = () => <TextShowcase className="underline" />;
 
 export const opacity_classes = () => {
   const classes = [

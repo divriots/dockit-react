@@ -43,6 +43,8 @@ const getClassSuffixes = (theme: Record<string, any>) => ({
   fontWeight: extractClassSuffixes('fontWeight', theme),
   letterSpacing: extractClassSuffixes('letterSpacing', theme),
   lineHeight: extractClassSuffixes('lineHeight', theme),
+  textDecoration: ['underline', 'line-through', 'no-underline'],
+  textTransform: ['uppercase', 'lowercase', 'capitalize', 'normal-case'],
 });
 
 const getClassNames = (suffixes: Record<string, string[]>) => ({
@@ -97,6 +99,14 @@ const getClassNames = (suffixes: Record<string, string[]>) => ({
   lineHeight: {
     component: 'text',
     classes: suffixes.lineHeight.map((s) => `leading${s}`),
+  },
+  textDecoration: {
+    component: 'text',
+    classes: suffixes.textDecoration,
+  },
+  textTransform: {
+    component: 'text',
+    classes: suffixes.textTransform,
   },
 });
 

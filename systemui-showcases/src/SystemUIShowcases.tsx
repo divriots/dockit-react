@@ -31,7 +31,7 @@ interface SystemUIShowcasesProps {
   /**
     Specifies the distance between rendered components, used to adjust the layout.
   */
-  gap?: { horizontal?: string; vertical?: string };
+  gap?: { horizontal?: string; vertical?: string; };
 }
 
 const Box = styled.div`
@@ -99,7 +99,7 @@ const Error = styled.div`
 
 interface ShowcaseComponentProps {
   componentProps?: Record<string, any>;
-  gap?: { horizontal?: string; vertical?: string };
+  gap?: { horizontal?: string; vertical?: string; };
   caption: string;
   minWidth: string;
   type: 'box' | 'text';
@@ -213,10 +213,8 @@ export const SystemUIShowcases = ({
       <Error>{`"${showcaseKey}" has no values in the provided theme`}</Error>
     );
 
-  const getCaption = (value) => `${showcaseKey}="${value}"`;
-
   const longestPropertyName = variations.reduce(
-    (max, e) => Math.max(getCaption(e).length, max),
+    (max, e) => Math.max(e.length, max),
     0
   );
 
@@ -232,7 +230,7 @@ export const SystemUIShowcases = ({
               key={v}
               type={componentType}
               gap={gap}
-              caption={getCaption(v)}
+              caption={v}
               componentProps={props}
               minWidth={componentWidth}
               useLongText={useLongText}

@@ -18,18 +18,18 @@ const Sun = () => (
 );
 
 const labelStyle: CSSProperties = {
-  position: 'fixed',
-  top: '.75rem',
-  right: '.25rem',
-  padding: '.25rem',
+  marginLeft: '.5rem',
   borderRadius: '50%',
   backgroundColor: 'hsla(0,0%,50%,0.1)',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
 };
 
 export const StylesheetSwitch = ({
   defaultColorScheme = 'light',
   stylesheets,
-  onSwitch = () => {},
+  onSwitch = () => { },
 }: {
   defaultColorScheme?: ColorScheme;
   stylesheets: Record<ColorScheme, string>;

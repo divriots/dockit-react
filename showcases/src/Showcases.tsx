@@ -28,7 +28,7 @@ const styles = {
   },
 };
 
-type Gap = { horizontal?: number; vertical?: number };
+type Gap = { horizontal?: number; vertical?: number; };
 
 type ShowcasesProps = {
   /**
@@ -38,7 +38,7 @@ type ShowcasesProps = {
   /**
   Array of css styles to be showcased
    */
-  showcaseStyles?: { [key: string]: any }[];
+  showcaseStyles?: { [key: string]: any; }[];
   /**
   The component type to be used to showcase.
    */
@@ -118,18 +118,17 @@ export const Showcases = ({
     }
     : {
       showcases: showcaseStyles,
-      getProp: (showcaseStyle: { [key: string]: any }) => ({
+      getProp: (showcaseStyle: { [key: string]: any; }) => ({
         className: fixedClassName,
         style: { ...style, ...showcaseStyle },
       }),
-      getName: (s) =>
-        JSON.stringify(s, null, ' ').replaceAll(/{|}|"/g, '').trim(),
+      getName: (s) => Object.values(s)[0],
     };
 
   const longestName = showcases
     .map((s) => getName(s))
     .reduce((max, e) => Math.max(e.length, max), 0);
-  const captionWidth = `${longestName / 1.8}rem`;
+  const captionWidth = `${longestName / 2}rem`;
 
   return (
     <div style={container as CSSProperties}>

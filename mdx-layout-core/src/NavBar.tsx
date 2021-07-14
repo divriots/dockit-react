@@ -26,18 +26,24 @@ export const NavBar = ({
       style={{ height: '64px' }}
     />
   ),
+  stylesheetSwitch = (<></>)
 }: {
   graph: PageGraph;
   logo?: ReactElement;
+  stylesheetSwitch?: ReactElement;
 }) => {
   const Logo = () => logo;
+  const StylesheetSwitch = () => stylesheetSwitch;
   return (
     <nav>
       <header>
         <Logo />
-        <label htmlFor="navexpander" aria-label="show nav" tabIndex={0}>
-          <ThreeBars />
-        </label>
+        <div class="header-actions">
+          <label htmlFor="navexpander" aria-label="show nav" tabIndex={0}>
+            <ThreeBars />
+          </label>
+          <StylesheetSwitch />
+        </div>
       </header>
       <input
         type="checkbox"

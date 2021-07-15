@@ -38,7 +38,7 @@ export const NavBar = ({
     <nav>
       <header>
         <Logo />
-        <div class="header-actions">
+        <div className="header-actions">
           <label htmlFor="navexpander" aria-label="show nav" tabIndex={0}>
             <ThreeBars />
           </label>

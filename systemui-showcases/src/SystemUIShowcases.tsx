@@ -91,6 +91,7 @@ const ComponentContainer = styled.div`
   min-width: ${(props) => props.minWidth};
   display: flex;
   flex-direction: ${(props) => (props.usedForText ? 'row-reverse' : 'column')};
+  align-items: baseline;
 `;
 
 const Error = styled.div`
@@ -104,6 +105,7 @@ interface ShowcaseComponentProps {
   minWidth: string;
   type: 'box' | 'text';
   useLongText: boolean;
+  key?: any,
 }
 
 const ShowcaseComponent = ({
@@ -214,11 +216,11 @@ export const SystemUIShowcases = ({
     );
 
   const longestPropertyName = variations.reduce(
-    (max, e) => Math.max(e.length, max),
+    (max, e) => Math.max(`${e}`.length, max),
     0
   );
 
-  const componentWidth = `${longestPropertyName / 1.8}rem`;
+  const componentWidth = `${longestPropertyName / 2 + 0.5}rem`;
 
   return (
     <ThemeProvider theme={theme}>

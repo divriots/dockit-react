@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
+import './playground.scss';
 
 const styles = {
   preview: {
@@ -34,7 +35,7 @@ type PlaygroundProps = {
   Allows to render multiple components
   */
   noInline?: boolean;
-}
+};
 
 /**
   Used to render your component inside a live-editable playground and directly see the output of the code used.
@@ -49,20 +50,22 @@ export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
       theme={oceanicNext}
       transformCode={(code) => {
         const codeWithoutComments = code.replaceAll(commentsRegex, '').trim();
-        return codeWithoutComments.startsWith('<') ? `<>${codeWithoutComments}</>` : codeWithoutComments;
+        return codeWithoutComments.startsWith('<')
+          ? `<>${codeWithoutComments}</>`
+          : codeWithoutComments;
       }}
     >
       <div>
-        <div style={styles.preview}>
+        <div id="playground_preview" style={styles.preview}>
           <LivePreview />
         </div>
         <LiveEditor style={styles.editor} />
         <LiveError style={styles.error} />
       </div>
     </LiveProvider>
-  )
+  );
 };
 
 Playground.defaultProps = {
   noInline: false,
-}
+};

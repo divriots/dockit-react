@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
-import classes from './playground.module.css';
+import './playground.css';
 
 const styles = {
   preview: {
@@ -54,7 +54,7 @@ export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
       }}
     >
       <div>
-        <div style={styles.preview} className={classes.playgroundPreview}>
+        <div style={styles.preview} id="playground-preview">
           <LivePreview />
         </div>
         <LiveEditor style={styles.editor} />

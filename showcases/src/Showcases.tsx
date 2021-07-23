@@ -130,7 +130,6 @@ export const Showcases = ({
     .map((s) => getName(s))
     .reduce((max, e) => Math.max(e.length, max), 0);
   const captionWidth = `${1 + longestName / 2.5}rem`;
-  console.log({ longestName, captionWidth });
 
   return (
     <div style={container as CSSProperties}>

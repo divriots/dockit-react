@@ -12,10 +12,14 @@ interface SpaceProps {
 }
 
 export const Space = ({ scale }: SpaceProps) => {
-  const scaleValues = (Array.isArray(scale)
-    ? (scale as any[]).map((s, i) => [i, s])
-    : Object.entries(scale)
-  ).map(([k, v]) => [k, typeof v === 'number' ? `${v}px` : v]);
+  const scaleValues = (
+    Array.isArray(scale)
+      ? (scale as any[]).map((s, i) => [i, s])
+      : Object.entries(scale)
+  ).map(([k, v]) => [
+    `${k}`.trim().replace(/var\(|\)/gi, ''),
+    typeof v === 'number' ? `${v}px` : v,
+  ]);
 
   return (
     <table>
@@ -29,8 +33,12 @@ export const Space = ({ scale }: SpaceProps) => {
       <tbody>
         {scaleValues.map(([name, value]) => (
           <tr key={name}>
-            <td>{name}</td>
-            <td>{value}</td>
+            <td>
+              <pre>{name}</pre>
+            </td>
+            <td>
+              <pre>{value}</pre>
+            </td>
             <td>
               <div style={{ ...styles.box, width: value }} />
             </td>

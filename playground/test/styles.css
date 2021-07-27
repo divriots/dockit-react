@@ -1,0 +1,17 @@
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-width: 1px;
+  border-radius: 2px;
+  margin: 0rem 0.1rem;
+}
+
+.btn-primary {
+  background-color: rgb(46, 164, 79);
+  color: rgb(255, 255, 255);
+}
+
+.btn-danger {
+  background-color: rgb(203, 36, 49);
+  color: rgb(255, 255, 255);
+}

@@ -1,7 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
-import './playground.css';
 
 const styles = {
   preview: {
@@ -24,22 +23,24 @@ const styles = {
 
 type PlaygroundProps = {
   /**
-  The jsx to edit and render, as string.
-  */
+   * The jsx to edit and render, as string.
+   */
   code: string;
+
   /**
-  Specifies globals to use inside the live editor.
-  */
-  scope: object;
+   * Specifies globals to use inside the live editor.
+   */
+  scope?: object;
+
   /**
-  Allows to render multiple components
-  */
+   * Allows to render multiple components.
+   */
   noInline?: boolean;
 };
 
 /**
-  Used to render your component inside a live-editable playground and directly see the output of the code used.
-*/
+ * Renders your code inside a live-editable playground and directly shows the output of the code used.
+ */
 export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
   const commentsRegex = /([^http:|https:]\/\/.*)|(\/\*(.|\n)*?\*\/)/gm;
   return (
@@ -50,11 +51,13 @@ export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
       theme={oceanicNext}
       transformCode={(code) => {
         const codeWithoutComments = code.replaceAll(commentsRegex, '').trim();
-        return codeWithoutComments.startsWith('<') ? `<>${codeWithoutComments}</>` : codeWithoutComments;
+        return codeWithoutComments.startsWith('<')
+          ? `<>${codeWithoutComments}</>`
+          : codeWithoutComments;
       }}
     >
       <div>
-        <div style={styles.preview} id="playground-preview">
+        <div style={styles.preview}>
           <LivePreview />
         </div>
         <LiveEditor style={styles.editor} />

@@ -1,16 +1,19 @@
 import React from 'react';
 import { mdx, MDXCreateElement } from '@mdx-js/react';
 import { Props, Description } from '~/props/dist/index';
-import { Playground } from '../dist';
+import { Playground, ShadowPlayground } from '../dist';
 import { Button } from '../test/index';
+import styles from '../test/styles.css';
 import { CssLayout } from '~/mdx-layout-css';
 export default CssLayout;
 
-# Playground Component
+## Playground Component
 
 <Description of={Playground} />
 
-## Usage
+### Usage with global styles
+
+This includes the usage with most CSS-in-JS libraries which rely on global style tag.
 
 ```tsx
 import { Playground } from '@divriots/dockit-react';
@@ -19,9 +22,9 @@ import { Button } from './Button';
 <Playground
   scope={{ Button }}
   code={`
-  <Button>Button</Button>
-  <Button primary>Primary</Button>
-  <Button danger>Danger</Button>
+<Button>Button</Button>
+<Button primary>Primary</Button>
+<Button danger>Danger</Button>
   `}
 />;
 ```
@@ -29,12 +32,59 @@ import { Button } from './Button';
 <Playground
   scope={{ Button }}
   code={`
-<Button>Button</Button> 
-<Button primary>Primary</Button> 
-<Button danger>Danger</Button> 
-`}
+<Button>Button</Button>
+<Button primary>Primary</Button>
+<Button danger>Danger</Button>
+  `}
 />
 
-## Props
+### Playground Props
 
 <Props of={Playground} />
+
+## ShadowPlayground Component
+
+<Description of={ShadowPlayground} />
+
+### Usage with Shadow DOM
+
+```tsx
+import { ShadowPlayground } from '@divriots/dockit-react';
+import styles from './styles.css';
+
+<ShadowPlayground
+  styles={styles}
+  code={`
+<button className="btn">Button</button>
+<button className="btn btn-primary">Primary</button>
+<button className="btn btn-danger">Danger</button>
+  `}
+/>;
+```
+
+<ShadowPlayground
+  styles={styles}
+  code={`
+<button className="btn">Button</button>
+<button className="btn btn-primary">Primary</button>
+<button className="btn btn-danger">Danger</button>
+  `}
+/>
+
+### Recommended setup for your Design System
+
+You can setup a wrapper component to use for Design System demos in the following manner:
+
+```tsx
+import { ShadowPlayground } from '@divriots/dockit-react';
+import styles from './styles.css';
+export const DSPlayground = (props) => {
+  return <ShadowPlayground styles={styles} {...props} />;
+};
+```
+
+Then just import and use `DSPlayground` to avoid setting up styles in every demo.
+
+### ShadowPlayground Props
+
+<Props of={ShadowPlayground} />

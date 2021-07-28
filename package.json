@@ -6,9 +6,6 @@
   "type": "module",
   "homepage": "https://backlight.dev/preview/wzPn6NO54tDJlBxCtjGx/",
   "scripts": {
-    "serve": "dsd-cli serve wzPn6NO54tDJlBxCtjGx --open"
-  },
-  "devDependencies": {
-    "dsd-cli": "latest"
+    "serve": "npx backlight@latest serve wzPn6NO54tDJlBxCtjGx --open"
   }
 }

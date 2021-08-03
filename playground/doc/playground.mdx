@@ -16,7 +16,7 @@ export default CssLayout;
 This includes the usage with most CSS-in-JS libraries which rely on global style tag.
 
 ```tsx
-import { Playground } from '@divriots/dockit-react';
+import { Playground } from '@divriots/dockit-react/playground';
 import { Button } from './Button';
 
 <Playground
@@ -49,7 +49,7 @@ import { Button } from './Button';
 ### Usage with Shadow DOM
 
 ```tsx
-import { ShadowPlayground } from '@divriots/dockit-react';
+import { ShadowPlayground } from '@divriots/dockit-react/playground';
 import styles from './styles.css';
 
 <ShadowPlayground
@@ -76,7 +76,7 @@ import styles from './styles.css';
 You can setup a wrapper component to use for Design System demos in the following manner:
 
 ```tsx
-import { ShadowPlayground } from '@divriots/dockit-react';
+import { ShadowPlayground } from '@divriots/dockit-react/playground';
 import styles from './styles.css';
 export const DSPlayground = (props) => {
   return <ShadowPlayground styles={styles} {...props} />;

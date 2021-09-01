@@ -27,9 +27,7 @@ export const Button_doc_with_shadow_playground = () => (
     styles={styles}
     code={`
 <button className="btn">Button</button>
-<button className="btn btn-primary">Primary</button><button className="btn btn-danger">Danger</button>
-<button className="btn btn-danger">Danger</button>
-
+<button className="btn btn-primary">Primary</button>
 <button className="btn btn-danger">Danger</button>
     `}
   />

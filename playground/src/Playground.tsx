@@ -7,8 +7,14 @@ const styles = {
     padding: '1rem',
     border: '1px solid #80808033',
   } as CSSProperties,
+  editorContainer: {
+    overflowX: 'auto',
+    display: 'grid',
+  } as CSSProperties,
   editor: {
     height: 'auto',
+    width: 'max-content',
+    minWidth: '100%',
   } as CSSProperties,
   error: {
     padding: '0.5rem',
@@ -41,7 +47,12 @@ type PlaygroundProps = {
 /**
  * Renders your code inside a live-editable playground and directly shows the output of the code used.
  */
-export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
+export const Playground = ({
+  code,
+  scope,
+  noInline,
+  ...props
+}: PlaygroundProps) => {
   const commentsRegex = /([^http:|https:]\/\/.*)|(\/\*(.|\n)*?\*\/)/gm;
   return (
     <LiveProvider
@@ -56,11 +67,13 @@ export const Playground = ({ code, scope, noInline }: PlaygroundProps) => {
           : codeWithoutComments;
       }}
     >
-      <div>
+      <div {...props}>
         <div style={styles.preview}>
           <LivePreview />
         </div>
-        <LiveEditor style={styles.editor} />
+        <div style={styles.editorContainer}>
+          <LiveEditor style={styles.editor} />
+        </div>
         <LiveError style={styles.error} />
       </div>
     </LiveProvider>

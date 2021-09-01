@@ -34,6 +34,7 @@ export const ShadowPlayground = ({
   scope,
   noInline,
   styles,
+  ...props
 }: ShadowPlaygroundProps) => {
   const playgroundRef = useRef();
 
@@ -41,7 +42,7 @@ export const ShadowPlayground = ({
     const playgroundElement = playgroundRef.current as DockitReactPlayground;
     playgroundElement.styles = styles;
     ReactDOM.render(
-      <Playground {...{ code, scope, noInline }} />,
+      <Playground {...{ code, scope, noInline, ...props }} />,
       playgroundElement.$renderRoot
     );
   });

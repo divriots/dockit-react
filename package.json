@@ -8,9 +8,6 @@
   "scripts": {
     "serve": "npx backlight@latest serve wzPn6NO54tDJlBxCtjGx --open"
   },
-  "devDependencies": {
-    "chai": "latest"
-  },
   "dependencies": {
     "@mdx-js/react": "latest",
     "copy-to-clipboard": "latest",
@@ -26,5 +23,8 @@
     "styled-system": "latest",
     "tailwindcss": "latest",
     "twind": "latest"
+  },
+  "devDependencies": {
+    "chai": "latest"
   }
 }

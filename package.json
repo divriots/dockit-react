@@ -1,11 +1,28 @@
 {
   "name": "@divriots/dockit-react",
-  "version": "0.0.66",
+  "version": "0.0.67",
   "description": "",
   "license": "ISC",
   "type": "module",
   "homepage": "https://backlight.dev/preview/wzPn6NO54tDJlBxCtjGx/",
   "scripts": {
     "serve": "npx backlight@latest serve wzPn6NO54tDJlBxCtjGx --open"
+  },
+  "devDependencies": {
+    "@mdx-js/react": "latest",
+    "chai": "latest",
+    "copy-to-clipboard": "latest",
+    "dependency-graph": "latest",
+    "lodash": "latest",
+    "path": "latest",
+    "prism-react-renderer": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-live": "latest",
+    "styled-components": "latest",
+    "styled-system": "latest",
+    "tailwindcss": "latest",
+    "twind": "latest"
   }
 }

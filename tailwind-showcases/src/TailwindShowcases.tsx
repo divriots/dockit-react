@@ -1,4 +1,5 @@
 import React from 'react';
+import 'twind/shim';
 import { Showcases } from '~/showcases';
 import { extractClassSuffixes } from './theme-helpers';
 import resolveConfig from 'tailwindcss/resolveConfig';

@@ -9,8 +9,7 @@
     "serve": "npx backlight@latest serve wzPn6NO54tDJlBxCtjGx --open"
   },
   "devDependencies": {
-    "chai": "latest",
-    "twind": "latest"
+    "chai": "latest"
   },
   "dependencies": {
     "@mdx-js/react": "latest",
@@ -25,6 +24,7 @@
     "react-live": "latest",
     "styled-components": "latest",
     "styled-system": "latest",
-    "tailwindcss": "latest"
+    "tailwindcss": "latest",
+    "twind": "latest"
   }
 }

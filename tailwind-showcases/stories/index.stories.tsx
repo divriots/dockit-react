@@ -1,5 +1,4 @@
 import React from 'react';
-import 'twind/shim';
 import twTheme from 'tailwindcss/defaultTheme.js';
 import { TailwindShowcases } from '../index';
 

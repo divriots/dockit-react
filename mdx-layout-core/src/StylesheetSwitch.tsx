@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 
 export type ColorScheme = 'dark' | 'light';
 
@@ -23,31 +23,23 @@ const labelStyle: CSSProperties = {
   backgroundColor: 'hsla(0,0%,50%,0.1)',
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
 };
 
 export const StylesheetSwitch = ({
-  defaultColorScheme = 'light',
-  stylesheets,
-  onSwitch = () => { },
+  colorScheme,
+  onSwitch = () => {},
 }: {
-  defaultColorScheme?: ColorScheme;
-  stylesheets: Record<ColorScheme, string>;
+  colorScheme: ColorScheme;
   onSwitch?: (scheme: ColorScheme) => void;
 }) => {
-  const [colorScheme, setColorScheme] = useState(defaultColorScheme);
   return (
     <label style={labelStyle}>
       <Sun />
-      <link rel="stylesheet" href={stylesheets[colorScheme]} />
       <input
         type="checkbox"
         style={{ display: 'none' }}
-        onChange={() => {
-          const newScheme = colorScheme === 'dark' ? 'light' : 'dark';
-          setColorScheme(newScheme);
-          onSwitch(newScheme);
-        }}
+        onChange={() => onSwitch(colorScheme === 'dark' ? 'light' : 'dark')}
       />
     </label>
   );

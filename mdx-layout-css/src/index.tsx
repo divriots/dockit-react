@@ -3,6 +3,11 @@ import { MDXProvider } from '@mdx-js/react';
 import { CoreLayout, StylesheetSwitch, ColorScheme } from '~/mdx-layout-core';
 import styles from './common-styles';
 
+export const getInitialColorScheme = () =>
+  localStorage.getItem('colorScheme') ||
+  (window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark') ||
+  'light';
+
 export const CssLayout = ({
   components = {},
   onSwitch = (scheme: ColorScheme) => {},
@@ -14,9 +19,7 @@ export const CssLayout = ({
   };
 
   const [colorScheme, setColorScheme] = useState<ColorScheme>(
-    localStorage.getItem('colorScheme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark') ||
-      'light'
+    getInitialColorScheme()
   );
 
   return (

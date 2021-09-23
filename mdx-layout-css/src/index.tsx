@@ -5,7 +5,7 @@ import styles from './common-styles';
 
 export const CssLayout = ({
   components = {},
-  onSwitch = () => {},
+  onSwitch = (scheme: ColorScheme) => {},
   ...rest
 }) => {
   const stylesheets = {
@@ -13,7 +13,11 @@ export const CssLayout = ({
     dark: 'https://cdn.jsdelivr.net/npm/water.css/out/dark.min.css',
   };
 
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const [colorScheme, setColorScheme] = useState<ColorScheme>(
+    localStorage.getItem('colorScheme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark') ||
+      'light'
+  );
 
   return (
     <MDXProvider components={{ ...components }}>
@@ -25,6 +29,7 @@ export const CssLayout = ({
             colorScheme={colorScheme}
             onSwitch={(scheme) => {
               onSwitch(scheme);
+              localStorage.setItem('colorScheme', scheme);
               setColorScheme(scheme);
             }}
           />

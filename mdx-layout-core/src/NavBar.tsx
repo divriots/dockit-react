@@ -26,7 +26,7 @@ export const NavBar = ({
       style={{ height: '64px' }}
     />
   ),
-  stylesheetSwitch = (<></>)
+  stylesheetSwitch = <></>,
 }: {
   graph: PageGraph;
   logo?: ReactElement;

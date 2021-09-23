@@ -14,7 +14,9 @@ export const CssLayout = ({
   };
 
   const [colorScheme, setColorScheme] = useState<ColorScheme>(
-    localStorage.getItem('colorScheme') || 'light'
+    localStorage.getItem('colorScheme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark') ||
+      'light'
   );
 
   return (

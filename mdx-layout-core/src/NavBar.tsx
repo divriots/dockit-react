@@ -22,7 +22,7 @@ const ThreeBars = () => (
 export const NavBar = ({
   graph,
   logo = (
-    <div style={{ width: '130px', height: 'auto' }}>
+    <div style={{ width: '150px', height: 'auto' }}>
       <DefaultLogo />
     </div>
   ),

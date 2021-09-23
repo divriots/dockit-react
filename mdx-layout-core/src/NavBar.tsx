@@ -2,7 +2,7 @@ import './NavBar.scss';
 import React, { ReactElement } from 'react';
 import { NavGroup } from './NavGroup';
 import { PageGraph } from './PageGraph';
-import defaultLogo from './logo.png';
+import { DefaultLogo } from './DefaultLogo';
 
 const ThreeBars = () => (
   <svg
@@ -21,7 +21,11 @@ const ThreeBars = () => (
 
 export const NavBar = ({
   graph,
-  logo = <img src={defaultLogo} style={{ height: '64px' }} />,
+  logo = (
+    <div style={{ width: '130px', height: 'auto' }}>
+      <DefaultLogo />
+    </div>
+  ),
   stylesheetSwitch = <></>,
 }: {
   graph: PageGraph;

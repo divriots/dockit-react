@@ -1,4 +1,6 @@
-import React, { ComponentType } from 'react';
+import React from 'react';
+import type { ComponentType } from 'react';
+import { error } from './error';
 
 export interface PropType {
   name: string;
@@ -37,15 +39,6 @@ const getType = (prop: Prop) => {
   if (!type) return 'undefined';
   return ['union', 'intersection'].includes(type.name) ? type.raw : type.name;
 };
-
-const errorStyle = {
-  color: 'tomato',
-  border: '1px solid tomato',
-  borderRadius: '4px',
-  padding: '4px 8px',
-};
-
-const error = (text: string) => <span style={errorStyle}>{text}</span>;
 
 /**
   Used for listing the props details of a React component.

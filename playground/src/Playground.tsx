@@ -2,6 +2,16 @@ import React, { CSSProperties } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
+const patchStyleTrueAttribute = (code) =>
+  // `style` should not be `true` for React-Native + Vite.JS
+  // because it throws "Uncaught Invariant Violation: style may be false but not true"
+  // which, even though gets caught by the ErrorBoundary, gets also caught by the HRM compiler
+  // and gets shown as a fullscreen error modal
+  code
+    .replaceAll('style={true}', 'style={{}}')
+    .replaceAll('style ', 'style={{}} ')
+    .replaceAll('style>', 'style={{}}>');
+
 const styles = {
   preview: {
     padding: '1rem',
@@ -10,6 +20,7 @@ const styles = {
   editorContainer: {
     overflowX: 'auto',
     display: 'grid',
+    borderRadius: '0px',
   } as CSSProperties,
   editor: {
     height: 'auto',
@@ -62,9 +73,13 @@ export const Playground = ({
       theme={oceanicNext}
       transformCode={(code) => {
         const codeWithoutComments = code.replaceAll(commentsRegex, '').trim();
-        return codeWithoutComments.startsWith('<')
-          ? `<>${codeWithoutComments}</>`
-          : codeWithoutComments;
+
+        const codeWithPatchedStyle =
+          patchStyleTrueAttribute(codeWithoutComments);
+
+        return codeWithPatchedStyle.startsWith('<')
+          ? `<>${codeWithPatchedStyle}</>`
+          : codeWithPatchedStyle;
       }}
     >
       <div {...props}>

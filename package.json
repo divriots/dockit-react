@@ -21,8 +21,7 @@
     "react-live": "^2.3.0",
     "styled-components": "^5.3.1",
     "styled-system": "^5.1.5",
-    "tailwindcss": "^2.2.15",
-    "twind": "^0.16.16"
+    "tailwindcss": "^2.2.15"
   },
   "devDependencies": {
     "chai": "^4.3.4"

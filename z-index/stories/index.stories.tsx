@@ -1,5 +1,5 @@
 import React from 'react';
-import { ZIndexShowcases } from '../index';
+import { ZIndexShowcases } from '../';
 import './z-index-stories.css';
 
 export const z_index_values = () => (

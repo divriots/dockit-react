@@ -1,6 +1,6 @@
 import React from 'react';
 import { Props } from '../index';
-import { JSCard, TSCard, NoPropCard } from '../test';
+import { JSCard, TSCard, NoPropCard } from '../doc';
 
 export default {
   parameters: {

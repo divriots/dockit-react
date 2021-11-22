@@ -1,5 +1,5 @@
 import React from 'react';
-import * as path from 'path';
+import path from 'path';
 
 const relativeUrl = (url: string) =>
   path.join(

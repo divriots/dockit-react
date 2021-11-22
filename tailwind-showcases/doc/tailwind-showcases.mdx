@@ -1,6 +1,7 @@
 import { mdx } from '@mdx-js/react';
 import { Props, Description } from '~/props/src/index';
 import { TailwindShowcases } from '../src';
+import 'https://unpkg.com/tailwindcss@2.0.3/dist/tailwind.min.css';
 import { TailwindLayout } from '~/mdx-layout-tailwind';
 export default TailwindLayout;
 
@@ -40,3 +41,8 @@ const partialTheme = {
 ## Props
 
 <Props of={TailwindShowcases} />
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@tailwindcss/typography@0.4.0/dist/typography.min.css"
+/>

@@ -31,7 +31,7 @@ interface SystemUIShowcasesProps {
   /**
     Specifies the distance between rendered components, used to adjust the layout.
   */
-  gap?: { horizontal?: string; vertical?: string; };
+  gap?: { horizontal?: string; vertical?: string };
 }
 
 const Box = styled.div`
@@ -100,12 +100,12 @@ const Error = styled.div`
 
 interface ShowcaseComponentProps {
   componentProps?: Record<string, any>;
-  gap?: { horizontal?: string; vertical?: string; };
+  gap?: { horizontal?: string; vertical?: string };
   caption: string;
   minWidth: string;
   type: 'box' | 'text';
   useLongText: boolean;
-  key?: any,
+  key?: any;
 }
 
 const ShowcaseComponent = ({
@@ -172,8 +172,9 @@ const keyDetails = {
       return (
         <ThemeProvider theme={theme}>
           <ZIndexShowcases values={variations} isStyledComponent />
-        </ThemeProvider>);
-    }
+        </ThemeProvider>
+      );
+    },
   },
   space: {
     themeProp: 'space',
@@ -197,12 +198,8 @@ export const SystemUIShowcases = ({
   if (!keyDetails[showcaseKey])
     return <Error>{`"${showcaseKey}" is not yet supported.`}</Error>;
 
-  const {
-    themeProp,
-    componentType,
-    useLongText,
-    StandaloneComponent,
-  } = keyDetails[showcaseKey];
+  const { themeProp, componentType, useLongText, StandaloneComponent } =
+    keyDetails[showcaseKey];
 
   if (!!StandaloneComponent) {
     return <StandaloneComponent theme={theme} />;

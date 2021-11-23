@@ -32,3 +32,16 @@ export const Button_doc_with_shadow_playground = () => (
     `}
   />
 );
+
+export const Button_doc_with_playground_and_inner_classes = () => (
+  <Playground
+    style={{ width: '400px', height: '300px' }}
+    styles={styles}
+    innerClassName="inner-demo"
+    code={`
+<button className="btn">Button</button>
+<button className="btn btn-primary">Primary</button>
+<button className="btn btn-danger">Danger</button>
+    `}
+  />
+);

@@ -53,6 +53,11 @@ type PlaygroundProps = {
    * Allows to render multiple components.
    */
   noInline?: boolean;
+
+  /**
+   * ClassName(s) to pass to inner blocks
+   */
+  innerClassName?: string;
 };
 
 /**
@@ -62,6 +67,7 @@ export const Playground = ({
   code,
   scope,
   noInline,
+  innerClassName,
   ...props
 }: PlaygroundProps) => {
   const commentsRegex = /([^http:|https:]\/\/.*)|(\/\*(.|\n)*?\*\/)/gm;
@@ -83,10 +89,16 @@ export const Playground = ({
       }}
     >
       <div {...props}>
-        <div style={styles.preview}>
+        <div
+          style={styles.preview}
+          className={`${innerClassName} live-preview`}
+        >
           <LivePreview />
         </div>
-        <div style={styles.editorContainer}>
+        <div
+          style={styles.editorContainer}
+          className={`${innerClassName} live-editor`}
+        >
           <LiveEditor style={styles.editor} />
         </div>
         <LiveError style={styles.error} />

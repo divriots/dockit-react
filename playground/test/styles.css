@@ -15,3 +15,15 @@
   background-color: rgb(203, 36, 49);
   color: rgb(255, 255, 255);
 }
+
+.inner-demo {
+  font-size: 0.75rem;
+}
+
+.inner-demo.live-preview {
+  border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.inner-demo.live-editor {
+  border-radius: 0 0 0.375rem 0.375rem !important;
+}

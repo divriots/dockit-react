@@ -37,7 +37,14 @@ type PropsProps = {
 const getType = (prop: Prop) => {
   const type = prop.type || prop.tsType;
   if (!type) return 'undefined';
-  return ['union', 'intersection'].includes(type.name) ? type.raw : type.name;
+  switch (type.name) {
+    case 'union':
+    case 'interection':
+    case 'enum':
+      return type.raw;
+    default:
+      return type.name;
+  }
 };
 
 /**

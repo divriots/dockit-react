@@ -24,6 +24,8 @@ const labelStyle: CSSProperties = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  width: '2rem',
+  height: '2rem',
 };
 
 export const StylesheetSwitch = ({

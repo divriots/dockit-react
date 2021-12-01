@@ -1,11 +1,20 @@
 import { findPreviousNext, PageGraph } from './PageGraph';
 import { NavLink } from './NavLink';
-import React from 'react';
+import React, { CSSProperties } from 'react';
+
+const styles = {
+  footer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    textTransform: 'capitalize',
+  } as CSSProperties,
+};
 
 export const FooterNav = ({ graph }: { graph: PageGraph }) => {
   const { previous, next } = findPreviousNext(graph, location.href);
   return (
-    <footer>
+    <footer style={styles.footer}>
       {previous ? (
         <span>
           &lt; <NavLink page={previous} />

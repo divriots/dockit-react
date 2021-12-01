@@ -1,8 +1,26 @@
-import './NavBar.scss';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, CSSProperties } from 'react';
 import { NavGroup } from './NavGroup';
 import { PageGraph } from './PageGraph';
 import { DefaultLogo } from './DefaultLogo';
+
+const styles = {
+  nav: {
+    padding: '1rem',
+  } as CSSProperties,
+  header: {
+    width: 'calc(100% - 1rem)',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  } as CSSProperties,
+  headerLabel: {
+    width: '2rem',
+    height: '2rem',
+  } as CSSProperties,
+  headerActions: {
+    display: 'flex',
+  } as CSSProperties,
+};
 
 const ThreeBars = () => (
   <svg
@@ -21,6 +39,7 @@ const ThreeBars = () => (
 
 export const NavBar = ({
   graph,
+  isDesktop,
   logo = (
     <div style={{ width: '150px', height: 'auto' }}>
       <DefaultLogo />
@@ -29,17 +48,29 @@ export const NavBar = ({
   stylesheetSwitch = <></>,
 }: {
   graph: PageGraph;
+  isDesktop?: boolean;
   logo?: ReactElement;
   stylesheetSwitch?: ReactElement;
 }) => {
   const Logo = () => logo;
   const StylesheetSwitch = () => stylesheetSwitch;
+  const [checked, setChecked] = React.useState(true);
   return (
-    <nav>
-      <header>
+    <nav style={styles.nav}>
+      <header style={styles.header}>
         <Logo />
-        <div className="header-actions">
-          <label htmlFor="navexpander" aria-label="show nav" tabIndex={0}>
+        <div style={styles.headerActions}>
+          <label
+            htmlFor="navexpander"
+            aria-label="show nav"
+            tabIndex={0}
+            style={{
+              ...styles.headerLabel,
+              ...(isDesktop && {
+                display: 'none',
+              }),
+            }}
+          >
             <ThreeBars />
           </label>
           <StylesheetSwitch />
@@ -48,10 +79,16 @@ export const NavBar = ({
       <input
         type="checkbox"
         id="navexpander"
-        defaultChecked={true}
+        onChange={() => setChecked(!checked)}
+        defaultChecked={checked}
         style={{ display: 'none' }}
       />
-      <NavGroup items={graph.overallOrder(true)} graph={graph} />
+      <NavGroup
+        items={graph.overallOrder(true)}
+        graph={graph}
+        isDesktop={isDesktop}
+        isClosed={checked}
+      />
     </nav>
   );
 };

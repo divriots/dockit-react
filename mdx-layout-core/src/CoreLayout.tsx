@@ -2,8 +2,7 @@ import type { Context } from '@divriots/studio-doc-compiler';
 import { PageGraph, buildGraph } from './PageGraph';
 import { NavBar } from './NavBar';
 import React, { ReactChildren, ReactChild, CSSProperties } from 'react';
-
-import 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css';
+import prismcss from 'prismjs/themes/prism-tomorrow.css?raw';
 
 const styles = {
   main: {
@@ -55,6 +54,7 @@ export const CoreLayout = ({
         }),
       }}
     >
+      <style>{prismcss}</style>
       <NavBar graph={graph} isDesktop={matches} {...props} />
       <article className={articleClassName} style={styles.article}>
         {children}

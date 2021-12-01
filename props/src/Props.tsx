@@ -40,8 +40,9 @@ const getType = (prop: Prop) => {
   switch (type.name) {
     case 'union':
     case 'interection':
-    case 'enum':
       return type.raw;
+    case 'enum':
+      return type.value.map((v) => v.value).join(' | ');
     default:
       return type.name;
   }

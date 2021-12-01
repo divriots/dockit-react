@@ -3,8 +3,6 @@ import { PageGraph, buildGraph } from './PageGraph';
 import { NavBar } from './NavBar';
 import React, { ReactChildren, ReactChild, CSSProperties } from 'react';
 
-import 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css';
-
 const styles = {
   main: {
     display: 'grid',
@@ -41,6 +39,12 @@ export const CoreLayout = ({
     mediaMatch.addEventListener('change', handler);
     return () => mediaMatch.removeEventListener('change', handler);
   });
+
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'https://unpkg.com/prismjs@1.25.0/themes/prism-tomorrow.css';
+  document.head.appendChild(link);
 
   document.body.style.margin = '0';
   document.body.style.maxWidth = 'unset';

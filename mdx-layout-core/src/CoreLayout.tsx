@@ -2,6 +2,7 @@ import type { Context } from '@divriots/studio-doc-compiler';
 import { PageGraph, buildGraph } from './PageGraph';
 import { NavBar } from './NavBar';
 import React, { ReactChildren, ReactChild, CSSProperties } from 'react';
+import prismcss from 'prismjs/themes/prism-tomorrow.css?raw';
 
 const styles = {
   main: {
@@ -40,12 +41,6 @@ export const CoreLayout = ({
     return () => mediaMatch.removeEventListener('change', handler);
   });
 
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = 'https://unpkg.com/prismjs@1.25.0/themes/prism-tomorrow.css';
-  document.head.appendChild(link);
-
   document.body.style.margin = '0';
   document.body.style.maxWidth = 'unset';
 
@@ -59,6 +54,7 @@ export const CoreLayout = ({
         }),
       }}
     >
+      <style>{prismcss}</style>
       <NavBar graph={graph} isDesktop={matches} {...props} />
       <article className={articleClassName} style={styles.article}>
         {children}

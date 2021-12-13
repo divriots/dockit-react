@@ -32,6 +32,7 @@ type PropsProps = {
     Component with documentation info for which to list the props details.
   */
   of: ComponentWithDocGenInfo;
+  filter: (prop: Prop) => boolean;
 };
 
 const getType = (prop: Prop) => {
@@ -51,7 +52,7 @@ const getType = (prop: Prop) => {
 /**
   Used for listing the props details of a React component.
 */
-export const Props = ({ of }: PropsProps) => {
+export const Props = ({ of, filter = (p) => true }: PropsProps) => {
   if (!of.__docgenInfo) return error('DocGen failed to generate info');
 
   const { props } = of.__docgenInfo;
@@ -73,17 +74,19 @@ export const Props = ({ of }: PropsProps) => {
           </tr>
         </thead>
         <tbody>
-          {Object.entries(props).map(([name, prop]) => (
-            <tr key={name}>
-              <td>{name}</td>
-              <td>{prop.description}</td>
-              <td>
-                <code>{getType(prop)}</code>
-              </td>
-              <td>{prop.defaultValue?.value}</td>
-              <td>{prop.required.toString()}</td>
-            </tr>
-          ))}
+          {Object.entries(props)
+            .filter(([, prop]) => filter(prop))
+            .map(([name, prop]) => (
+              <tr key={name}>
+                <td>{name}</td>
+                <td>{prop.description}</td>
+                <td>
+                  <code>{getType(prop)}</code>
+                </td>
+                <td>{prop.defaultValue?.value}</td>
+                <td>{prop.required.toString()}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

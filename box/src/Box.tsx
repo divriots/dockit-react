@@ -17,6 +17,7 @@ const styles = {
   },
   wrapper: {
     position: 'relative',
+    zIndex: 0,
   },
   content: {
     display: 'flex',

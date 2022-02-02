@@ -1,6 +1,6 @@
 import React from 'react';
-import { SystemUIShowcases } from '../index';
-import { theme } from '../src/primer-theme';
+import { SystemUIShowcases, showcaseKeys } from '~/systemui-showcases';
+import { primerTheme as theme } from './primer-theme';
 
 export const space = () => (
   <SystemUIShowcases theme={theme} showcaseKey="space" />
@@ -203,3 +203,5 @@ export const color = () => (
 export const zIndex = () => (
   <SystemUIShowcases theme={theme} showcaseKey="zIndex" />
 );
+
+export const supportedKeys = () => showcaseKeys;

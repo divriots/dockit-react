@@ -52,8 +52,8 @@ const CheckeredBackground = styled.div`
   background-color: #000000;
   background-image: linear-gradient(45deg, #999 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, #999 75%),
-      linear-gradient(45deg, transparent 75%, #999 75%),
-        linear-gradient(45deg, #999 25%, #fff 25%);
+    linear-gradient(45deg, transparent 75%, #999 75%),
+    linear-gradient(45deg, #999 25%, #fff 25%);
   background-size: 1rem 1rem;
   background-position: 0 0, 0 0, -0.5rem -0.5rem, 0.5rem 0.5rem;
   position: absolute;
@@ -182,12 +182,11 @@ const keyDetails = {
   },
 };
 
+export const showcaseKeys = Object.keys(keyDetails);
+
 /**
-  With the `SystemUIShowcases` component you can render all variations of a property from
-  System UI specification abiding theme (https://system-ui.com/theme/).
-  Supported keys: bg, backgroundColor, boxShadow, width, height, borderRadius, borderWidth,
-  borderStyle, borderColor, border, borderTop, borderBottom, borderLeft, borderRight, fontSize,
-  fontFamily, fontWeight, lineHeight, letterSpacing, color, zIndex, space.
+  With this component you can render all variations of a property from
+  System UI specification abiding theme https://system-ui.com/theme/.
 */
 export const SystemUIShowcases = ({
   theme,

@@ -1,4 +1,4 @@
-export const theme = {
+export const primerTheme = {
   borderWidths: [0, '1px'],
   borders: {
     thinBlack: '1px solid #000',
@@ -184,8 +184,7 @@ export const theme = {
   fonts: {
     normal:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
-    mono:
-      'SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace',
+    mono: 'SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace',
   },
   fontSizes: ['12px', '14px', '16px', '20px', '24px', '32px', '40px', '48px'],
   fontWeights: {

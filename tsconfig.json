@@ -11,6 +11,9 @@
     "paths": {
       "~/*": [
         "/*"
+      ],
+      "@divriots/dockit-react/*": [
+        "*"
       ]
     }
   }

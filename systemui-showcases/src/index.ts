@@ -1,1 +1,1 @@
-export { SystemUIShowcases } from './SystemUIShowcases';
+export * from './SystemUIShowcases';

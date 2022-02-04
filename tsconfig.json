@@ -8,13 +8,10 @@
     "reactNamespace": "React",
     "module": "ESNext",
     "moduleResolution": "Node",
+    "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "/*"
-      ],
-      "@divriots/dockit-react/*": [
-        "*"
-      ]
+      "~/*": ["*"],
+      "@divriots/dockit-react/*": ["*"]
     }
   }
 }

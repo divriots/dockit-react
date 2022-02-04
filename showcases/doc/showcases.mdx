@@ -1,9 +1,9 @@
 import React from 'react';
 import { mdx } from '@mdx-js/react';
-import { Props, Description } from '~/props/src/index';
-import { Showcases } from '../src';
+import { Props, Description } from '~/props';
+import { Showcases } from '~/showcases';
 import { CssLayout } from '~/mdx-layout-css';
-import '../stories/showcases-stories.css';
+import '~/showcases/stories/showcases-stories.css';
 
 export default CssLayout;
 
@@ -11,27 +11,31 @@ export default CssLayout;
 
 <Description of={Showcases} />
 
+## Props
+
+<Props of={Showcases} />
+
 ## Usage
+
+### Opacity variations via classes
 
 ```tsx
 import { Showcases } from '@divriots/dockit-react';
 
-const classes = [
-  'opacity-0',
-  'opacity-10',
-  'opacity-20',
-  'opacity-30',
-  'opacity-40',
-  'opacity-50',
-  'opacity-60',
-  'opacity-70',
-  'opacity-80',
-  'opacity-90',
-  'opacity-100',
-];
-
 <Showcases
-  showcaseClasses={classes}
+  showcaseClasses={[
+    'opacity-0',
+    'opacity-10',
+    'opacity-20',
+    'opacity-30',
+    'opacity-40',
+    'opacity-50',
+    'opacity-60',
+    'opacity-70',
+    'opacity-80',
+    'opacity-90',
+    'opacity-100',
+  ]}
   showcaseComponent="box"
   componentProps={{
     className: 'box',
@@ -61,6 +65,92 @@ const classes = [
   }}
 />
 
-## Props
+### Font size variations via classes
 
-<Props of={Showcases} />
+```tsx
+<Showcases
+  showcaseClasses={['xs', 'sm', 'base', 'lg', 'xl', 'xxl', 'xxxl']}
+  showcaseComponent="text"
+  gap={{ vertical: 20 }}
+/>
+```
+
+<Showcases
+  showcaseClasses={['xs', 'sm', 'base', 'lg', 'xl', 'xxl', 'xxxl']}
+  showcaseComponent="text"
+  gap={{ vertical: 20 }}
+/>
+
+### Opacity variations via styles
+
+```tsx
+<Showcases
+  showcaseStyles={[
+    { opacity: 0.0 },
+    { opacity: 0.1 },
+    { opacity: 0.2 },
+    { opacity: 0.3 },
+    { opacity: 0.4 },
+    { opacity: 0.5 },
+    { opacity: 0.6 },
+    { opacity: 0.7 },
+    { opacity: 0.8 },
+    { opacity: 0.9 },
+    { opacity: 1 },
+  ]}
+  showcaseComponent="box"
+  componentProps={{
+    className: 'box',
+    checkeredBackground: true,
+  }}
+/>
+```
+
+<Showcases
+  showcaseStyles={[
+    { opacity: 0.0 },
+    { opacity: 0.1 },
+    { opacity: 0.2 },
+    { opacity: 0.3 },
+    { opacity: 0.4 },
+    { opacity: 0.5 },
+    { opacity: 0.6 },
+    { opacity: 0.7 },
+    { opacity: 0.8 },
+    { opacity: 0.9 },
+    { opacity: 1 },
+  ]}
+  showcaseComponent="box"
+  componentProps={{
+    className: 'box',
+    checkeredBackground: true,
+  }}
+/>
+
+### Font size variations via styles
+
+```tsx
+<Showcases
+  showcaseStyles={[
+    { fontSize: 8 },
+    { fontSize: 12 },
+    { fontSize: 16 },
+    { fontSize: 24 },
+    { fontSize: 32 },
+  ]}
+  showcaseComponent="text"
+  gap={{ vertical: 20 }}
+/>
+```
+
+<Showcases
+  showcaseStyles={[
+    { fontSize: 8 },
+    { fontSize: 12 },
+    { fontSize: 16 },
+    { fontSize: 24 },
+    { fontSize: 32 },
+  ]}
+  showcaseComponent="text"
+  gap={{ vertical: 20 }}
+/>

@@ -12,6 +12,19 @@ export default CssLayout;
 
 ## Usage
 
+### Example Tokens definition
+
+```css
+:root {
+  --color-white: #ffffff
+  --color-primary: #3082ce
+  --color-gray-300: #cbd5e0
+  --color-focus-outline: #4299e14c
+}
+```
+
+To render these as background colors of a box tokens use the prefix '--color' and the 'styleKey' 'background'.
+
 ```tsx
 import { StyleShowcases } from '@divriots/dockit-react/style-showcases';
 
@@ -28,6 +41,99 @@ import { StyleShowcases } from '@divriots/dockit-react/style-showcases';
   componentProps={{ className: 'box' }}
 />
 
+## Showcase Component
+
+The component used for showcasing is either a box, a line or a paragraph of text. It defaults to `box` and if `text` is desired it should be specified via `showcaseComponent="text"` property.
+Properties for the showcase component (such as `style` or `class`) can be specified like `componentProps={{ className: 'box'}}`.
+
 ## Props
 
 <Props of={StyleShowcases} />
+
+## Example showcasing of various CSS props
+
+### color
+
+<StyleShowcases
+  prefix="--color"
+  styleKey="backgroundColor"
+  componentProps={{ className: 'box' }}
+/>
+
+### opacity
+
+<StyleShowcases
+  prefix="--opacity"
+  styleKey="opacity"
+  componentProps={{ className: 'box' }}
+/>
+
+### z-index
+
+<StyleShowcases prefix="--z-index" />
+
+### transition
+
+<StyleShowcases prefix="--transition" />
+
+### border
+
+<StyleShowcases
+  prefix="--border-radius"
+  componentProps={{ className: 'box wide' }}
+  styleKey="borderRadius"
+  checkered-background="false"
+/>
+
+### shadow
+
+<StyleShowcases
+  prefix="--shadow"
+  componentProps={{ className: 'box white' }}
+  styleKey="boxShadow"
+/>
+
+### spacing
+
+<StyleShowcases prefix="--spacing" />
+
+### letter
+
+<StyleShowcases
+  prefix="--letter-spacing"
+  showcaseComponent="text"
+  styleKey="letterSpacing"
+/>
+
+### line
+
+<StyleShowcases
+  prefix="--line-height"
+  showcaseComponent="text"
+  styleKey="lineHeight"
+  componentProps={{ useLongText: true }}
+/>
+
+### font
+
+<StyleShowcases
+  prefix="--font-weight"
+  showcaseComponent="text"
+  styleKey="fontWeight"
+/>
+
+### font
+
+<StyleShowcases
+  prefix="--font-size"
+  showcaseComponent="text"
+  styleKey="fontSize"
+/>
+
+### font
+
+<StyleShowcases
+  prefix="--font-family"
+  showcaseComponent="text"
+  styleKey="fontFamily"
+/>

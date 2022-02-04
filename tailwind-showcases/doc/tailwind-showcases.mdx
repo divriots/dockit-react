@@ -1,18 +1,26 @@
 import { mdx } from '@mdx-js/react';
 import { Props, Description } from '~/props/src/index';
-import { TailwindShowcases } from '../src';
+import { TailwindShowcases, showcaseKeys } from '~/tailwind-showcases';
 import 'https://unpkg.com/tailwindcss@2.0.3/dist/tailwind.min.css';
-import { TailwindLayout } from '~/mdx-layout-tailwind';
-export default TailwindLayout;
+import { CssLayout } from '~/mdx-layout-css';
+export default CssLayout;
 
 # TailwindShowcases Component
 
 <Description of={TailwindShowcases} />
 
+### Supported Keys
+
+<code>
+  {showcaseKeys.map((k) => (
+    <span key={k}>{`${k}, `}</span>
+  ))}
+</code>
+
 ## Usage
 
 ```tsx
-import { TailwindShowcases } from '@divriots/dockit-react';
+import { TailwindShowcases } from '@divriots/dockit-react/tailwind-showcases';
 
 const partialTheme = {
   extend: {
@@ -33,14 +41,120 @@ const partialTheme = {
 ```
 
 <TailwindShowcases
-  theme={{}}
   showcaseKey="opacity"
   componentProps={{ className: 'shadow-xl h-32 w-32 bg-blue-700' }}
 />
 
+### Showcase Component
+
+The component used for showcasing is either a box, a line or a paragraph of text. This is determined automatically by the showcase key.
+Props for it can be passed in the `componentProps` property of `TailwindShowcases`.
+
 ## Props
 
 <Props of={TailwindShowcases} />
+
+## Showcasing of all supported keys
+
+### backgroundColor
+
+<TailwindShowcases
+  showcaseKey="backgroundColor"
+  componentProps={{
+    className: 'shadow-xl h-32 w-32',
+    checkeredBackground: true,
+  }}
+/>
+
+### backgroundImage
+
+<TailwindShowcases
+  showcaseKey="backgroundImage"
+  componentProps={{
+    className: 'shadow-xl h-32 w-32 from-yellow-400 via-red-500 to-pink-500',
+    checkeredBackground: true,
+  }}
+/>
+
+### opacity
+
+<TailwindShowcases
+  showcaseKey="opacity"
+  componentProps={{
+    className: 'shadow-xl h-32 w-32 bg-blue-700',
+  }}
+/>
+
+### shadow
+
+<TailwindShowcases
+  showcaseKey="shadow"
+  componentProps={{
+    className: 'h-32 w-32 bg-white',
+  }}
+/>
+
+### borderRadius
+
+<TailwindShowcases
+  showcaseKey="borderRadius"
+  componentProps={{
+    className: 'shadow-2xl h-32 w-32 bg-blue-400',
+  }}
+/>
+
+### borderWidth
+
+<TailwindShowcases
+  showcaseKey="borderWidth"
+  componentProps={{
+    className: 'h-32 w-32 bg-gray-50',
+  }}
+/>
+
+### borderColor
+
+<TailwindShowcases
+  showcaseKey="borderColor"
+  componentProps={{
+    className: 'h-32 w-32 bg-gray-50 border-4 rounded',
+  }}
+/>
+
+### fontFamily
+
+<TailwindShowcases showcaseKey="fontFamily" />
+
+### fontSize
+
+<TailwindShowcases showcaseKey="fontSize" />
+
+### fontWeight
+
+<TailwindShowcases showcaseKey="fontWeight" />
+
+### letterSpacing
+
+<TailwindShowcases showcaseKey="letterSpacing" />
+
+### lineHeight
+
+<TailwindShowcases
+  showcaseKey="lineHeight"
+  componentProps={{ useLongText: true }}
+/>
+
+### textColor
+
+<TailwindShowcases showcaseKey="textColor" />
+
+### zIndex
+
+<TailwindShowcases showcaseKey="zIndex" />
+
+### space
+
+<TailwindShowcases showcaseKey="space" />
 
 <link
   rel="stylesheet"

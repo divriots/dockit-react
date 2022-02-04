@@ -1,15 +1,36 @@
 import { mdx } from '@mdx-js/react';
-import { ZIndexShowcases } from '../src';
+import { ZIndexShowcases } from '~/z-index';
 import { CssLayout } from '~/mdx-layout-css';
+import { Description, Props } from '~/props';
 import './z-index.css';
 export default CssLayout;
 
-# Z-Index
+# ZIndexShowcases
 
-## Values showcases
+<Description of={ZIndexShowcases} />
+
+## Props
+
+<Props of={ZIndexShowcases} />
+
+## Usage
+
+### Values showcases
+
+```tsx
+import { ZIndexShowcases } from '@divriots/dockit-react/z-index';
+
+<ZIndexShowcases values={[`10`, `100`, `1000`, `40`]} />;
+```
 
 <ZIndexShowcases values={[`10`, `100`, `1000`, `40`]} />
 
-## Classes showcases
+### Classes showcases
+
+```tsx
+import { ZIndexShowcases } from '@divriots/dockit-react/z-index';
+
+<ZIndexShowcases classes={['bottom', 'middle', 'top']} />;
+```
 
 <ZIndexShowcases classes={['bottom', 'middle', 'top']} />

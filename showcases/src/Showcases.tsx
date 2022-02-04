@@ -94,6 +94,9 @@ const CaptionedComponent = ({
   );
 };
 
+/**
+ A component used to generate showcases for different variations of styles, classes.
+ */
 export const Showcases = ({
   showcaseClasses,
   showcaseStyles,

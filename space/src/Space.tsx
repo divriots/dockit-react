@@ -5,12 +5,21 @@ const styles = {
     height: '1rem',
     backgroundColor: '#718096',
   },
+  table: {
+    tableLayout: 'auto',
+  },
 };
 
 interface SpaceProps {
+  /**
+    The different spacing values to showcase.
+   */
   scale: (string | number)[] | Record<string, string | number>;
 }
 
+/**
+  With the Styleshowcase component you can render CSS custom properties showcases based on a prefix and a style key.
+*/
 export const Space = ({ scale }: SpaceProps) => {
   const scaleValues = (
     Array.isArray(scale)
@@ -22,7 +31,7 @@ export const Space = ({ scale }: SpaceProps) => {
   ]);
 
   return (
-    <table>
+    <table style={styles.table}>
       <thead>
         <tr>
           <th>Name</th>

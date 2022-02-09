@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /**
   A test card component, with javascript.
 */
-const JSCard = ({ title, paragraph }) => (
+export const JSCard = ({ title, paragraph }) => (
   <div>
     <h2>{title}</h2>
     <p>{paragraph}</p>
@@ -26,5 +26,3 @@ JSCard.propTypes = {
 JSCard.defaultProps = {
   paragraph: 'This is a default content.',
 };
-
-export { JSCard };

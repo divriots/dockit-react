@@ -45,60 +45,86 @@ const getClassSuffixes = (theme: Record<string, any>) => ({
   lineHeight: extractClassSuffixes('lineHeight', theme),
 });
 
-const getClassNames = (suffixes: Record<string, string[]>) => ({
+const showcaseDetails = {
   backgroundColor: {
     component: 'box',
-    classes: suffixes.colors.map((s) => `bg${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.colors.map((s) => `bg${s}`),
   },
   backgroundImage: {
     component: 'box',
-    classes: suffixes.backgroundImage.map((s) => `bg${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.backgroundImage.map((s) => `bg${s}`),
   },
   opacity: {
     component: 'box',
-    classes: suffixes.opacity.map((s) => `opacity${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.opacity.map((s) => `opacity${s}`),
   },
   shadow: {
     component: 'box',
-    classes: suffixes.boxShadow.map((s) => `shadow${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.boxShadow.map((s) => `shadow${s}`),
   },
   borderRadius: {
     component: 'box',
-    classes: suffixes.borderRadius.map((s) => `rounded${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.borderRadius.map((s) => `rounded${s}`),
   },
   borderWidth: {
     component: 'box',
-    classes: suffixes.borderWidth.map((s) => `border${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.borderWidth.map((s) => `border${s}`),
   },
   borderColor: {
     component: 'box',
-    classes: suffixes.colors.map((s) => `border${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.colors.map((s) => `border${s}`),
   },
   fontFamily: {
     component: 'text',
-    classes: suffixes.fontFamily.map((s) => `font${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.fontFamily.map((s) => `font${s}`),
   },
   fontSize: {
     component: 'text',
-    classes: suffixes.fontSize.map((s) => `text${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.fontSize.map((s) => `text${s}`),
   },
   fontWeight: {
     component: 'text',
-    classes: suffixes.fontWeight.map((s) => `font${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.fontWeight.map((s) => `font${s}`),
   },
   textColor: {
     component: 'text',
-    classes: suffixes.colors.map((s) => `text${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.colors.map((s) => `text${s}`),
   },
   letterSpacing: {
     component: 'text',
-    classes: suffixes.letterSpacing.map((s) => `tracking${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.letterSpacing.map((s) => `tracking${s}`),
   },
   lineHeight: {
     component: 'text',
-    classes: suffixes.lineHeight.map((s) => `leading${s}`),
+    getClasses: (suffixes: Record<string, any>) =>
+      suffixes.lineHeight.map((s) => `leading${s}`),
   },
-});
+  zIndex: {
+    renderShowcases: (theme: Record<string, any>) => {
+      const classes = extractClassSuffixes('zIndex', theme).map((s) => `z${s}`);
+      return <ZIndexShowcases classes={classes} />;
+    },
+  },
+  space: {
+    renderShowcases: (theme: Record<string, any>) => (
+      <Space scale={theme.spacing} />
+    ),
+  },
+};
+
+export const showcaseKeys = Object.keys(showcaseDetails);
 
 /**
   With the TailwindShowcases component you can render all variations of a property from
@@ -110,27 +136,22 @@ export const TailwindShowcases = ({
   componentProps = {},
   gap,
 }: TailwindShowcasesProps) => {
-  const { theme } = resolveConfig({ theme: partialTheme });
-
-  if (showcaseKey === 'zIndex') {
-    const classes = extractClassSuffixes('zIndex', theme).map((s) => `z${s}`);
-    return <ZIndexShowcases classes={classes} />;
-  }
-
-  if (showcaseKey === 'space') return <Space scale={theme.spacing} />;
-
-  const classSuffixes = getClassSuffixes(theme);
-  const classNames = getClassNames(classSuffixes);
-
-  const supportedKeys = Object.keys(classNames);
-  if (!supportedKeys.includes(showcaseKey))
+  if (!showcaseKeys.includes(showcaseKey))
     return (
       <p style={styles.error}>
         {`Other keys than ${supportedKeys.join(', ')} are not yet supported`}
       </p>
     );
 
-  const { classes, component } = classNames[showcaseKey];
+  const { theme } = resolveConfig({ theme: partialTheme });
+
+  const { getClasses, component, renderShowcases } =
+    showcaseDetails[showcaseKey];
+
+  if (!!renderShowcases) return renderShowcases(theme);
+
+  const classSuffixes = getClassSuffixes(theme);
+  const classes = getClasses ? getClasses(classSuffixes) : [];
   return (
     <Showcases
       showcaseComponent={component}

@@ -1,0 +1,268 @@
+import { mdx } from '@mdx-js/react';
+import { Props, Description } from '~/props/src/index';
+import { SystemUIShowcases, showcaseKeys } from '~/systemui-showcases/src';
+import { primerTheme as theme } from '../stories/primer-theme';
+import { CssLayout } from '~/mdx-layout-css';
+export default CssLayout;
+
+# SystemUIShowcases Component
+
+<Description of={SystemUIShowcases} />
+
+### Supported Keys
+
+<code>
+  {showcaseKeys.map((k) => (
+    <span key={k}>{`${k}, `}</span>
+  ))}
+</code>
+
+## Usage
+
+```tsx
+import { SystemUIShowcases } from '@divriots/dockit-react/systemui-showcases';
+import theme from './theme';
+
+// using explicit component props
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderRadius"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    bg: 'green.6',
+  }}
+/>;
+
+// using a class for styling the showcase component
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderRadius"
+  componentProps={{ className: 'box' }}
+/>;
+```
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderRadius"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    bg: 'green.6',
+  }}
+/>
+
+### Showcase Component
+
+The component used for showcasing is either a box, a line or a paragraph of text. This is determined automatically by the showcase key.
+Props for it can be passed in the `componentProps` property of `SystemUIShowcases`.
+
+## Props
+
+<Props of={SystemUIShowcases} />
+
+## Showcasing of all supported keys
+
+### space
+
+<SystemUIShowcases theme={theme} showcaseKey="space" />
+
+### width
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="width"
+  componentProps={{
+    height: '8rem',
+    boxShadow: 'large',
+    bg: 'green.6',
+  }}
+/>
+
+### height
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="height"
+  componentProps={{
+    width: '8rem',
+    boxShadow: 'large',
+    bg: 'green.6',
+  }}
+/>
+
+### bg
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="bg"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    borderRadius: 4,
+    checkeredBackground: true,
+  }}
+/>
+
+### boxShadow
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="boxShadow"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    borderRadius: 4,
+  }}
+/>
+
+### borderRadius
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderRadius"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    bg: 'green.6',
+  }}
+/>
+
+### borderWidth
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderWidth"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    borderRadius: '1',
+    borderColor: 'green.6',
+    borderStyle: 'solid',
+  }}
+/>
+
+### borderStyle
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderStyle"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    borderRadius: '1',
+    borderColor: 'green.6',
+    borderWidth: '2px',
+  }}
+/>
+
+### borderColor
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderColor"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    borderRadius: '1',
+    borderColor: 'green.6',
+    borderStyle: 'solid',
+    borderWidth: '5px',
+  }}
+/>
+
+### border
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="border"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+    borderRadius: '1',
+  }}
+/>
+
+### borderTop
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderTop"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+  }}
+/>
+
+### borderBottom
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderBottom"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+  }}
+/>
+
+### borderLeft
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderLeft"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+  }}
+/>
+
+### borderRight
+
+<SystemUIShowcases
+  theme={theme}
+  showcaseKey="borderRight"
+  componentProps={{
+    width: '8rem',
+    height: '8rem',
+    boxShadow: 'large',
+  }}
+/>
+
+### fontSize
+
+<SystemUIShowcases theme={theme} showcaseKey="fontSize" />
+
+### fontFamily
+
+<SystemUIShowcases theme={theme} showcaseKey="fontFamily" />
+
+### fontWeight
+
+<SystemUIShowcases theme={theme} showcaseKey="fontWeight" />
+
+### lineHeight
+
+<SystemUIShowcases theme={theme} showcaseKey="lineHeight" />
+
+### letterSpacing
+
+<SystemUIShowcases theme={theme} showcaseKey="letterSpacing" />
+
+### color
+
+<SystemUIShowcases theme={theme} showcaseKey="color" />
+
+### zIndex
+
+<SystemUIShowcases theme={theme} showcaseKey="zIndex" />

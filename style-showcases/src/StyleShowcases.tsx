@@ -36,8 +36,7 @@ interface StyleShowcasesProps {
 }
 
 /**
-  With the Styleshowcase component you can render all variations of a property from
-  the tailwindcss theme.
+  With the Styleshowcase component you can render CSS custom properties showcases based on a prefix and a style key.
 */
 export const StyleShowcases = ({
   prefix,
@@ -48,20 +47,29 @@ export const StyleShowcases = ({
 }: StyleShowcasesProps) => {
   const props = getCssCustomProps(prefix);
 
-  const getCssValue = name => `var(${name})`;
+  const getCssValue = (name) => `var(${name})`;
 
   if (/space|spacing/gi.test(prefix) && !/letter/gi.test(prefix)) {
-    return <Space scale={props.reduce((acc = {}, [name, value]) => ({ ...acc, [getCssValue(name)]: value }), {})} />;
+    return (
+      <Space
+        scale={props.reduce(
+          (acc = {}, [name, value]) => ({ ...acc, [getCssValue(name)]: value }),
+          {}
+        )}
+      />
+    );
   }
 
   const values = props.map(([name]) => getCssValue(name));
 
   if (/z-index/gi.test(prefix)) return <ZIndexShowcases values={values} />;
 
-  if (/transition/gi.test(prefix)) return <TransitionShowcases values={values} />;
+  if (/transition/gi.test(prefix))
+    return <TransitionShowcases values={values} />;
 
-  const showcaseStyles = props.map(([name]) => ({ [styleKey]: getCssValue(name) }));
-
+  const showcaseStyles = props.map(([name]) => ({
+    [styleKey]: getCssValue(name),
+  }));
 
   return (
     <Showcases

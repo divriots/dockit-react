@@ -3,48 +3,23 @@
     "dir": "",
     "menu": [
       "introduction",
-      [
-        "System-UI",
-        [
-          "systemui-showcases"
-        ]
-      ],
-      [
-        "TailwindCSS",
-        [
-          "tailwind-showcases"
-        ]
-      ],
-      [
-        "Style",
-        [
-          "style-showcases"
-        ]
-      ],
+      ["System-UI", ["systemui-showcases"]],
+      ["TailwindCSS", ["tailwind-showcases"]],
+      ["Style", ["style-showcases"]],
       [
         "Components",
         [
-          "space",
-          "props",
           "playground",
           "showcases",
           "text-showcase",
-          "caption",
-          "box",
-          "text",
+          "space",
           "z-index",
           "dos-donts",
           "transitions"
         ]
       ],
-      [
-        "Layouts",
-        [
-          "mdx-layout-core",
-          "mdx-layout-css",
-          "mdx-layout-tailwind"
-        ]
-      ]
+      ["Toolkit Components", ["caption", "box", "text", "props"]],
+      ["Layouts", ["mdx-layout-core", "mdx-layout-css", "mdx-layout-tailwind"]]
     ]
   }
 }

@@ -1,1 +1,1 @@
-export { TailwindShowcases } from './TailwindShowcases';
+export * from './TailwindShowcases';

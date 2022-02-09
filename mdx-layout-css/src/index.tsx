@@ -8,6 +8,11 @@ export const getInitialColorScheme = () =>
   (window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark') ||
   'light';
 
+/**
+ Component used for styling the layout of mdx docs.
+ It uses Water.css https://watercss.kognise.dev .
+ It's built on top of CoreLayout and it supports Dark and Light modes.
+ */
 export const CssLayout = ({
   components = {},
   onSwitch = (scheme: ColorScheme) => {},

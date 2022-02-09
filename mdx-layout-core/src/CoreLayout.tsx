@@ -21,6 +21,10 @@ const styles = {
   } as CSSProperties,
 };
 
+/**
+ Component that is the core building block of MDX layouts. No styles are applied.
+ The navigation menu is integrated.
+ */
 export const CoreLayout = ({
   __context,
   children,

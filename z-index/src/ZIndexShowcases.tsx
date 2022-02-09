@@ -33,13 +33,25 @@ const StyledBox = styled(Box)`
   ${position}
 `;
 
+/**
+ Component used to show variations of z-indices.
+ */
 export const ZIndexShowcases = ({
   values,
   classes,
   isStyledComponent = false,
 }: {
+  /**
+   Values of z-index to showcase.
+   */
   values?: string[];
+  /**
+   Classes as variations of z-index.
+   */
   classes?: string[];
+  /**
+   Flag indicating if this should be a styled component.
+   */
   isStyledComponent?: boolean;
 }) => {
   let { getStyle, getClass, showcases } = values

@@ -31,5 +31,5 @@ const getAllCSSCustomProps = () => {
   return uniqBy(allProps, ([name]) => name);
 };
 
-export const getCssCustomProps = (prefix = '') =>
+export const getCssCustomProps = (prefix = ''): string[][] =>
   getAllCSSCustomProps().filter(([name]) => name.startsWith(prefix));

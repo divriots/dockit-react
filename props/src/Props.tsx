@@ -80,7 +80,7 @@ export const Props = ({ of, filter = (p) => true }: PropsProps) => {
   }
   return (
     <div>
-      <table>
+      <table style={{ tableLayout: 'auto' }}>
         <thead>
           <tr>
             <th>Name</th>
@@ -92,8 +92,8 @@ export const Props = ({ of, filter = (p) => true }: PropsProps) => {
         </thead>
         <tbody>
           {Object.entries(props)
-            .filter(([, prop]) => filter(prop))
-            .map(([name, prop]) => (
+            .filter(([, prop]) => filter(prop as any))
+            .map(([name, prop]: any[]) => (
               <tr key={name}>
                 <td>{name}</td>
                 <td>{prop.description}</td>

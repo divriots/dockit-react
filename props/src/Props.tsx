@@ -69,7 +69,7 @@ export const Props = ({ of, filter = (p) => true }: PropsProps) => {
     return error('DocGen failed to generate info');
   }
 
-  const { props } = docgenInfo;
+  const props = docgenInfo?.props || {};
   if (!props)
     return error(
       `No Props available for ${of.name}, check props parameter type`

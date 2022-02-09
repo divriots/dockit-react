@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { ComponentType } from 'react';
-import { error } from './error';
+import { error as errorComponent } from './error';
 
 export interface PropType {
   name: string;
@@ -57,24 +57,27 @@ const getType = (prop: Prop) => {
 */
 export const Props = ({ of, filter = (p) => true }: PropsProps) => {
   const [docgenInfo, setDocgenInfo] = useState<DocGenInfo>(null);
+  const [error, setError] = useState<any>(null);
 
   useEffect(() => {
     if (of.__docgenInfo) {
       setDocgenInfo(of.__docgenInfo);
     } else if (of.__dynamicDocgenInfo) {
-      Promise.resolve(of.__dynamicDocgenInfo).then(setDocgenInfo);
+      Promise.resolve(of.__dynamicDocgenInfo)
+        .then(setDocgenInfo)
+        .catch(setError);
+    } else {
+      setError(new Error('DocGen failed to generate info'));
     }
-  });
-  if (!of.__docgenInfo && !of.__dynamicDocgenInfo) {
-    return error('DocGen failed to generate info');
+  }, [of]);
+  if (error) {
+    return errorComponent(error.message);
   }
 
-  const props = docgenInfo?.props || {};
-  if (!props)
-    return error(
-      `No Props available for ${of.name}, check props parameter type`
-    );
-
+  const props = docgenInfo?.props;
+  if (!props) {
+    return 'Loading...';
+  }
   return (
     <div>
       <table>

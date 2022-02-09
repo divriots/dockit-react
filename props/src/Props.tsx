@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ComponentType } from 'react';
 import { error } from './error';
 
@@ -20,11 +20,14 @@ interface Prop {
   };
 }
 
+interface DocGenInfo {
+  description?: string;
+  props?: Record<string, Prop>;
+}
+
 type ComponentWithDocGenInfo = ComponentType & {
-  __docgenInfo: {
-    description?: string;
-    props?: Record<string, Prop>;
-  };
+  __docgenInfo?: DocGenInfo;
+  __dynamicDocgenInfo?: Promise<DocGenInfo>;
 };
 
 type PropsProps = {
@@ -53,9 +56,20 @@ const getType = (prop: Prop) => {
   Used for listing the props details of a React component.
 */
 export const Props = ({ of, filter = (p) => true }: PropsProps) => {
-  if (!of.__docgenInfo) return error('DocGen failed to generate info');
+  const [docgenInfo, setDocgenInfo] = useState<DocGenInfo>(null);
 
-  const { props } = of.__docgenInfo;
+  useEffect(() => {
+    if (of.__docgenInfo) {
+      setDocgenInfo(of.__docgenInfo);
+    } else if (of.__dynamicDocgenInfo) {
+      Promise.resolve(of.__dynamicDocgenInfo).then(setDocgenInfo);
+    }
+  });
+  if (!of.__docgenInfo && !of.__dynamicDocgenInfo) {
+    return error('DocGen failed to generate info');
+  }
+
+  const { props } = docgenInfo;
   if (!props)
     return error(
       `No Props available for ${of.name}, check props parameter type`

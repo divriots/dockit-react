@@ -1,34 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import type { ComponentType } from 'react';
+import React from 'react';
 import { error as errorComponent } from './error';
-
-export interface PropType {
-  name: string;
-  value?: any;
-  raw?: any;
-  computed?: boolean;
-}
-
-interface Prop {
-  required: boolean;
-  description?: string;
-  type?: PropType;
-  tsType?: PropType;
-  defaultValue?: {
-    value: string;
-    computed: boolean;
-  };
-}
-
-interface DocGenInfo {
-  description?: string;
-  props?: Record<string, Prop>;
-}
-
-type ComponentWithDocGenInfo = ComponentType & {
-  __docgenInfo?: DocGenInfo;
-  __dynamicDocgenInfo?: Promise<DocGenInfo>;
-};
+import { useDocgenInfo } from './docgen';
+import type { ComponentWithDocGenInfo, Prop } from './types';
 
 type PropsProps = {
   /**
@@ -56,20 +29,7 @@ const getType = (prop: Prop) => {
   Used for listing the props details of a React component.
 */
 export const Props = ({ of, filter = (p) => true }: PropsProps) => {
-  const [docgenInfo, setDocgenInfo] = useState<DocGenInfo>(null);
-  const [error, setError] = useState<any>(null);
-
-  useEffect(() => {
-    if (of.__docgenInfo) {
-      setDocgenInfo(of.__docgenInfo);
-    } else if (of.__dynamicDocgenInfo) {
-      Promise.resolve(of.__dynamicDocgenInfo)
-        .then(setDocgenInfo)
-        .catch(setError);
-    } else {
-      setError(new Error('DocGen failed to generate info'));
-    }
-  }, [of]);
+  const [docgenInfo, error] = useDocgenInfo(of);
   if (error) {
     return errorComponent(error.message);
   }

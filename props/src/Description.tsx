@@ -1,12 +1,7 @@
 import React from 'react';
-import type { ComponentType } from 'react';
-import { error } from './error';
-
-type ComponentWithDocGenInfo = ComponentType & {
-  __docgenInfo: {
-    description?: string;
-  };
-};
+import { error as errorComponent } from './error';
+import { useDocgenInfo } from './docgen';
+import type { ComponentWithDocGenInfo } from './types';
 
 type DescriptionProps = {
   /**
@@ -19,8 +14,13 @@ type DescriptionProps = {
   React component used to display the description of a React component.
 */
 export const Description = ({ of }: DescriptionProps) => {
-  if (!of.__docgenInfo) return error('DocGen failed to generate info');
-  const { description } = of.__docgenInfo;
-
+  const [docgenInfo, error] = useDocgenInfo(of);
+  if (error) {
+    return errorComponent(error.message);
+  }
+  if (!docgenInfo) {
+    return 'Loading...';
+  }
+  const { description } = docgenInfo;
   return <div>{description}</div>;
 };

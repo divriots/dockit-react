@@ -25,6 +25,7 @@
     "twind": "^0.16.16"
   },
   "devDependencies": {
+    "@divriots/studio-doc-compiler": "^0.0.29",
     "@types/styled-system": "^5.1.15",
     "chai": "^4.3.4"
   }

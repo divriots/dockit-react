@@ -1,3 +1,4 @@
+import type { Page } from '@divriots/studio-doc-compiler';
 import React from 'react';
 import path from 'path';
 import { styles } from './NavGroup';
@@ -10,7 +11,7 @@ const relativeUrl = (url: string) =>
     url
   );
 
-export const NavLink = ({ page }) => {
+export const NavLink = ({ page }: { page: Page }) => {
   const [hover, setHover] = React.useState(false);
 
   return (

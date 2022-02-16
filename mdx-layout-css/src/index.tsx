@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { CoreLayout, StylesheetSwitch, ColorScheme } from '~/mdx-layout-core';
+import { installRouter } from '~/router';
 import styles from './common-styles';
 
 export const getInitialColorScheme = () =>
   localStorage.getItem('colorScheme') ||
   (window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark') ||
   'light';
+
+installRouter();
 
 /**
  Component used for styling the layout of mdx docs.

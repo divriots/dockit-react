@@ -21,6 +21,7 @@ export const NavLink = ({ page }: { page: Page }) => {
         onMouseLeave={() => setHover(false)}
         className="layout-nav-page"
         href={relativeUrl(page.url)}
+        data-page-render-doc-url={relativeUrl(page.renderDocUrl)}
         style={{
           ...styles.listItem,
           ...(location.href.endsWith(page.url) && {

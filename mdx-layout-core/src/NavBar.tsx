@@ -38,6 +38,7 @@ const ThreeBars = () => (
 );
 
 export const NavBar = ({
+  base,
   graph,
   isDesktop,
   logo = (
@@ -47,6 +48,7 @@ export const NavBar = ({
   ),
   stylesheetSwitch = <></>,
 }: {
+  base: string;
   graph: PageGraph;
   isDesktop?: boolean;
   logo?: ReactElement;
@@ -85,6 +87,7 @@ export const NavBar = ({
       />
       <NavGroup
         items={graph.overallOrder(true)}
+        base={base}
         graph={graph}
         isDesktop={isDesktop}
         isClosed={checked}

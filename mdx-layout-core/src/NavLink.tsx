@@ -1,39 +1,32 @@
 import type { Page } from '@divriots/studio-doc-compiler';
 import React from 'react';
-import path from 'path';
 import { styles } from './NavGroup';
 
-const relativeUrl = (url: string) =>
-  path.join(
-    Array(url.split('/').length - 1)
-      .fill('..')
-      .join('/'),
-    url
-  );
-
-export const NavLink = ({ page }: { page: Page }) => {
+export const NavLink = ({ base, page }: { base: string; page: Page }) => {
   if (!page.url) {
     return null;
   }
   const [hover, setHover] = React.useState(false);
+  const pageUrlWithoutOrigin = base + page.url;
+  const isCurrentPage = location.pathname === pageUrlWithoutOrigin;
 
   return (
     <a
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       className="layout-nav-page"
-      href={relativeUrl(page.url)}
+      href={pageUrlWithoutOrigin}
       style={{
         ...styles.listItem,
-        ...(location.href.endsWith(page.url) && {
+        ...(isCurrentPage && {
           fontWeight: 'bold',
         }),
-        ...((location.href.endsWith(page.url) || hover) && {
+        ...((isCurrentPage || hover) && {
           opacity: '1',
           backgroundColor: 'hsla(0, 0%, 50%, 0.15)',
         }),
       }}
-      {...(location.href.endsWith(page.url) && {
+      {...(isCurrentPage && {
         'aria-current': 'location',
       })}
     >

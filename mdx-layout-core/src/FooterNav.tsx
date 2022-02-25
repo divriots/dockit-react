@@ -11,20 +11,26 @@ const styles = {
   } as CSSProperties,
 };
 
-export const FooterNav = ({ graph }: { graph: PageGraph }) => {
+export const FooterNav = ({
+  base,
+  graph,
+}: {
+  base: string;
+  graph: PageGraph;
+}) => {
   const { previous, next } = findPreviousNext(graph, location.href);
   return (
     <footer style={styles.footer}>
       {previous ? (
         <span>
-          &lt; <NavLink page={previous} />
+          &lt; <NavLink base={base} page={previous} />
         </span>
       ) : (
         <span></span>
       )}
       {next ? (
         <span>
-          <NavLink page={next} /> &gt;
+          <NavLink base={base} page={next} /> &gt;
         </span>
       ) : (
         <span></span>

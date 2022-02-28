@@ -24,11 +24,13 @@ export const styles = {
 
 export const NavGroup = ({
   items,
+  base,
   graph,
   isDesktop,
   isClosed,
 }: {
   items: string[];
+  base: string;
   graph: PageGraph;
   isDesktop?: boolean;
   isClosed?: boolean;
@@ -48,14 +50,19 @@ export const NavGroup = ({
       const deps = graph.directDependantsOf(item);
       return !deps.length ? (
         <li key={item}>
-          <NavLink page={graph.getNodeData(item)} />
+          <NavLink base={base} page={graph.getNodeData(item)} />
         </li>
       ) : (
         <li key={item}>
           <span style={{ ...styles.listItem, ...styles.layoutNavChapter }}>
             {item}
           </span>
-          <NavGroup items={deps} graph={graph} isDesktop={isDesktop} />
+          <NavGroup
+            items={deps}
+            base={base}
+            graph={graph}
+            isDesktop={isDesktop}
+          />
         </li>
       );
     })}

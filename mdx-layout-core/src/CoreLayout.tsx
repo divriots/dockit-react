@@ -59,7 +59,12 @@ export const CoreLayout = ({
       }}
     >
       <style>{prismcss}</style>
-      <NavBar graph={graph} isDesktop={matches} {...props} />
+      <NavBar
+        base={__context.base}
+        graph={graph}
+        isDesktop={matches}
+        {...props}
+      />
       <article className={articleClassName} style={styles.article}>
         {children}
       </article>

@@ -2,7 +2,6 @@ import React from 'react';
 
 const styles = {
   box: {
-    marginTop: 'auto',
     height: '1rem',
     backgroundColor: '#718096',
   },

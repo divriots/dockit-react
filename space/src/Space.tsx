@@ -2,11 +2,15 @@ import React from 'react';
 
 const styles = {
   box: {
+    marginTop: 'auto',
     height: '1rem',
     backgroundColor: '#718096',
   },
   table: {
     tableLayout: 'auto',
+  },
+  boxCell: {
+    verticalAlign: 'middle',
   },
 };
 
@@ -48,7 +52,7 @@ export const Space = ({ scale }: SpaceProps) => {
             <td>
               <pre>{value}</pre>
             </td>
-            <td>
+            <td style={styles.boxCell}>
               <div style={{ ...styles.box, width: value }} />
             </td>
           </tr>

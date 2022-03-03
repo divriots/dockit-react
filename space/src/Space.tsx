@@ -8,6 +8,9 @@ const styles = {
   table: {
     tableLayout: 'auto',
   },
+  boxCell: {
+    verticalAlign: 'middle',
+  },
 };
 
 interface SpaceProps {
@@ -48,7 +51,7 @@ export const Space = ({ scale }: SpaceProps) => {
             <td>
               <pre>{value}</pre>
             </td>
-            <td>
+            <td style={styles.boxCell}>
               <div style={{ ...styles.box, width: value }} />
             </td>
           </tr>

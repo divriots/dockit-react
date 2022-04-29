@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { CoreLayout, StylesheetSwitch, ColorScheme } from '~/mdx-layout-core';
 import styles from './common-styles';

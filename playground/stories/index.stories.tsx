@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Playground, ShadowPlayground } from '../index';
 import { Button } from '../test';
 import styles from '../test/styles.css';

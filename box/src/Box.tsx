@@ -1,4 +1,5 @@
-import React, { CSSProperties, ReactNode } from 'react';
+import * as React from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 const styles = {
   checkered: {
@@ -30,7 +31,7 @@ interface BoxProps {
   checkeredBackground?: boolean;
   className?: string;
   style?: Record<string, any>;
-  children: ReactNode | ReactNode[];
+  children?: ReactNode | ReactNode[];
 }
 
 export const Box = ({

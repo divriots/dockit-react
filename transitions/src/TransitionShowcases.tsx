@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Caption } from '~/caption';
+import * as React from 'react';
+import { useState } from 'react';
+import { Clipboard } from '~/clipboard';
 
 const styles = {
   transitionsWrapper: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as 'column',
   },
   transitionsBox: {
     cursor: 'pointer',
@@ -12,7 +13,7 @@ const styles = {
     width: '13rem',
     padding: '.5rem',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as 'column',
     justifyContent: 'center',
     alignItems: 'center',
     border: '1px solid #FFF',
@@ -33,10 +34,9 @@ const TransitionBox = ({ value }: { value: string; key: any }) => {
         marginLeft: `${pressed ? 20 : 0}rem`,
       }}
     >
-      <Caption
-        text={`${value}`.trim().replace(/var\(|\)/gi, '')}
-        style={{ color: '#fff' }}
-      />
+      <Clipboard style={{ color: '#fff' }}>
+        {`${value}`.trim().replace(/var\(|\)/gi, '')}
+      </Clipboard>
     </div>
   );
 };

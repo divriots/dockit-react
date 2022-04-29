@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Props } from '../index';
 import { JSCard, TSCard, NoPropCard } from '../doc';
 

@@ -1,4 +1,5 @@
-import React, { CSSProperties } from 'react';
+import * as React from 'react';
+import { CSSProperties } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Showcases } from '~/showcases';
 import { extractClassSuffixes } from './theme-helpers';
 import resolveConfig from 'tailwindcss/resolveConfig';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { error as errorComponent } from './error';
 import { useDocgenInfo } from './docgen';
 import type { ComponentWithDocGenInfo, Prop } from './types';

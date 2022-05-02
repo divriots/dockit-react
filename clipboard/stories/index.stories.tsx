@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Clipboard } from '../index';
 
 export default {
@@ -7,4 +7,8 @@ export default {
   },
 };
 
-export const clipboard = () => <Clipboard>test clipboard</Clipboard>;
+export const clipboard = () => (
+  <Clipboard>
+    <pre>test clipboard</pre>
+  </Clipboard>
+);

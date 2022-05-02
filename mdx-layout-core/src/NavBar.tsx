@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { ReactElement, CSSProperties } from 'react';
+import React, { ReactElement, CSSProperties } from 'react';
 import { NavGroup } from './NavGroup';
 import { PageGraph } from './PageGraph';
 import { DefaultLogo } from './DefaultLogo';

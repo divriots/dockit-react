@@ -1,8 +1,7 @@
 import type { Context } from '@divriots/studio-doc-compiler';
 import { PageGraph, buildGraph } from './PageGraph';
 import { NavBar } from './NavBar';
-import * as React from 'react';
-import { CSSProperties, ReactNode } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 // @ts-ignore
 import prismcss from 'prismjs/themes/prism-tomorrow.css?raw';
 

@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import { NavLink } from './NavLink';
 import { PageGraph } from './PageGraph';
 

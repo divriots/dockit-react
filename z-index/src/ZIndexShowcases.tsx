@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Clipboard } from '~/clipboard';
 import styled from 'styled-components';
 import { position } from 'styled-system';

@@ -1,5 +1,5 @@
 import type { Page } from '@divriots/studio-doc-compiler';
-import * as React from 'react';
+import React from 'react';
 import { styles } from './NavGroup';
 
 export const NavLink = ({ base, page }: { base: string; page: Page }) => {

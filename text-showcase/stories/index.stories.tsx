@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { TextShowcase } from '../index';
 
 export const text_showcase_class = () => (

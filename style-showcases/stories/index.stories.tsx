@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './tokens.scss';
 import { StyleShowcases } from '../index';
 import './style-showcases.css';

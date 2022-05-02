@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
@@ -27,6 +26,7 @@ const styles = {
     height: 'auto',
     width: 'max-content',
     minWidth: '100%',
+    borderRadius: '0px',
   } as CSSProperties,
   error: {
     padding: '0.5rem',

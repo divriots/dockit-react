@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { SystemUIShowcases, showcaseKeys } from '~/systemui-showcases';
 import { primerTheme as theme } from './primer-theme';
 

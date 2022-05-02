@@ -1,7 +1,6 @@
 import { findPreviousNext, PageGraph } from './PageGraph';
 import { NavLink } from './NavLink';
-import * as React from 'react';
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 
 const styles = {
   footer: {

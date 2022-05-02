@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 const styles = {
   box: {
@@ -6,7 +6,7 @@ const styles = {
     backgroundColor: '#718096',
   },
   table: {
-    tableLayout: 'auto',
+    tableLayout: 'auto' as 'auto',
   },
   boxCell: {
     verticalAlign: 'middle',

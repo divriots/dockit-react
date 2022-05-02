@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 type ButtonProps = {
   /**
@@ -26,5 +26,5 @@ export const Button = ({
   type = 'primary',
   text,
   disabled = false,
-  onPress = () => {},
+  onPress = () => ({}),
 }: ButtonProps) => <div />;

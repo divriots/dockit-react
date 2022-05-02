@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { CSSProperties, ReactNode } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import { Box } from '~/box';
 import { Text } from '~/text';
 import { Clipboard } from '~/clipboard';

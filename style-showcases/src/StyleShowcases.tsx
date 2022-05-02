@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Showcases } from '~/showcases';
 import { getCssCustomProps } from './css-props';
 import { ZIndexShowcases } from '~/z-index';

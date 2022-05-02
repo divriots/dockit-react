@@ -1,1 +1,1 @@
-export * from './src/index';
+export { Clipboard } from './src/Clipboard';

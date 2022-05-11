@@ -1,8 +1,8 @@
 import type { Clipboard } from '@divriots/dockit-core/clipboard/src/Clipboard';
 import type { Box } from '@divriots/dockit-core/box/src/Box';
-import { DOMAttributes } from 'react';
+import { DOMAttributes, Key } from 'react';
 
-type CustomElement<T> = Partial<T & DOMAttributes<T> & { children: any }>;
+type CustomElement<T> = Partial<T & DOMAttributes<T> & JSX.IntrinsicAttributes>;
 
 declare global {
   namespace JSX {

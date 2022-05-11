@@ -14,6 +14,14 @@ export const box_background = () => (
   <Box className="boxStory boxStoryBackground" checkeredBackground />
 );
 
-export const box_background_opacity = () => (
+export const box_opacity_by_class = () => (
   <Box className="boxStory boxStoryBackground opacity" checkeredBackground />
+);
+
+export const box_opacity_by_style = () => (
+  <Box
+    className="boxStory"
+    showcaseStyle="background-color: #2f855a; opacity: 0.7;"
+    checkeredBackground
+  />
 );

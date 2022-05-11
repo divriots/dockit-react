@@ -9,7 +9,7 @@
     "serve": "npx backlight@latest serve wzPn6NO54tDJlBxCtjGx --open"
   },
   "dependencies": {
-    "@divriots/dockit-core": "^0.9.0",
+    "@divriots/dockit-core": "^0.9.3",
     "@mdx-js/react": "^2.1.1",
     "dependency-graph": "^0.11.0",
     "lodash": "^4.17.21",

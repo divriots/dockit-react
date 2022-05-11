@@ -26,6 +26,7 @@ const styles = {
     height: 'auto',
     width: 'max-content',
     minWidth: '100%',
+    borderRadius: '0px',
   } as CSSProperties,
   error: {
     padding: '0.5rem',

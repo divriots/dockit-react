@@ -1,6 +1,6 @@
 import React from 'react';
 
-type CardProps = {};
+type CardProps = { title: string; paragraph: string };
 
 export const NoPropCard = ({ title, paragraph }: CardProps) => (
   <div>

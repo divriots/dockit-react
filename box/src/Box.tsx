@@ -1,56 +1,24 @@
-import React, { CSSProperties, ReactNode } from 'react';
+import '@divriots/dockit-core/box/dockit-box.define.js';
+import '@divriots/dockit-core/style.css';
+import React from 'react';
 
-const styles = {
-  checkered: {
-    opacity: 1,
-    backgroundColor: '#000000',
-    backgroundImage: `linear-gradient(45deg, #999 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #999 75%),
-      linear-gradient(45deg, transparent 75%, #999  75%),
-      linear-gradient(45deg, #999 25%, #fff 25%)`,
-    backgroundSize: `1rem 1rem`,
-    backgroundPosition: `0 0, 0 0, -0.5rem -0.5rem, 0.5rem 0.5rem`,
-    position: 'absolute',
-    top: 0,
-    zIndex: -1,
-    boxShadow: 'none',
-  },
-  wrapper: {
-    position: 'relative',
-    zIndex: 0,
-  },
-  content: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-};
-
-interface BoxProps {
+type BoxProps = {
   checkeredBackground?: boolean;
   className?: string;
-  style?: Record<string, any>;
-  children: ReactNode | ReactNode[];
-}
+  showcaseStyle?: string;
+} & JSX.IntrinsicAttributes &
+  Partial<any>;
 
 export const Box = ({
-  checkeredBackground = true,
+  checkeredBackground,
   className,
-  style = {},
-  children,
+  showcaseStyle,
+  ...rest
 }: BoxProps) => (
-  <div style={styles.wrapper as CSSProperties}>
-    {checkeredBackground && (
-      <div
-        className={className}
-        style={{ ...style, ...styles.checkered } as CSSProperties}
-      />
-    )}
-    <div
-      className={className}
-      style={{ ...styles.content, ...style } as CSSProperties}
-    >
-      {children}
-    </div>
-  </div>
+  <dockit-box
+    class-name={className}
+    checkered-background={checkeredBackground}
+    showcase-style={showcaseStyle}
+    {...rest}
+  />
 );

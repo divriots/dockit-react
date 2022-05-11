@@ -1,5 +1,5 @@
 import React from 'react';
-import { Caption } from '~/caption';
+import { Clipboard } from '~/clipboard';
 import styled from 'styled-components';
 import { position } from 'styled-system';
 
@@ -22,10 +22,9 @@ const Box = ({ className, showcaseStyle, showcaseClass, showcase, index }) => (
     }}
     className={`${className} ${showcaseClass}`}
   >
-    <Caption
-      text={`${showcase}`.trim().replace(/var\(|\)/gi, '')}
-      style={{ color: '#fff' }}
-    />
+    <Clipboard style={{ color: '#fff' }}>
+      {`${showcase}`.trim().replace(/var\(|\)/gi, '')}
+    </Clipboard>
   </div>
 );
 

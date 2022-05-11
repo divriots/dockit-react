@@ -1,7 +1,7 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import { Box } from '~/box';
 import { Text } from '~/text';
-import { Caption } from '~/caption';
+import { Clipboard } from '~/clipboard';
 
 const styles = {
   rowContainer: {
@@ -60,6 +60,7 @@ type CaptionedComponentProps = {
   type: 'box' | 'text';
   captionWidth: string;
   key?: any;
+  children?: ReactNode | ReactNode[];
 };
 
 const CaptionedComponent = ({
@@ -89,7 +90,7 @@ const CaptionedComponent = ({
       }
     >
       <Component className={className} {...otherProps} />
-      <Caption text={caption} width={captionWidth} />
+      <Clipboard style={{ width: captionWidth }}>{caption}</Clipboard>
     </div>
   );
 };

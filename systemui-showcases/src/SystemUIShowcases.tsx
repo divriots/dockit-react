@@ -8,7 +8,7 @@ import {
   shadow,
   typography,
 } from 'styled-system';
-import { Caption } from '~/caption';
+import { Clipboard } from '~/clipboard';
 import { shortText, longText } from '~/text';
 import { getVariations } from './theme-helper';
 import { ZIndexShowcases } from '~/z-index';
@@ -131,7 +131,7 @@ const ShowcaseComponent = ({
           {checkeredBackground && <CheckeredBackground {...props} />}
         </div>
       )}
-      <Caption text={caption} width={minWidth} />
+      <Clipboard style={{ width: minWidth }}>{caption}</Clipboard>
     </ComponentContainer>
   );
 };

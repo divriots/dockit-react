@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text } from '~/text';
-import { Caption } from '~/caption';
+import { Clipboard } from '~/clipboard';
 
 const styles = {
   container: {
     display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: 'row' as 'row',
+    flexWrap: 'wrap' as 'wrap',
   },
 };
 
@@ -16,7 +16,7 @@ type TextShowcaseProps = {
    */
   showcaseClass?: string;
   /**
-   * Style to showcase. 
+   * Style to showcase.
    */
   showcaseStyle?: { [key: string]: any };
   /**
@@ -38,27 +38,34 @@ export const TextShowcase = ({
   useLongText = false,
   componentProps,
 }: TextShowcaseProps) => {
-
   const { className, style, ...otherProps } = componentProps || {};
   const fixedClassName = className || '';
 
   const { componentClass, componentStyle, caption } = showcaseClass
     ? {
-      componentClass: `${fixedClassName} ${showcaseClass}`,
-      componentStyle: style,
-      caption: showcaseClass
-    }
+        componentClass: `${fixedClassName} ${showcaseClass}`,
+        componentStyle: style,
+        caption: showcaseClass,
+      }
     : {
-      componentClass: fixedClassName,
-      componentStyle: { ...style, ...showcaseStyle },
-      caption: JSON.stringify(showcaseStyle, null, ' ').replaceAll(/{|}|"/g, '').trim(),
-    };
+        componentClass: fixedClassName,
+        componentStyle: { ...style, ...showcaseStyle },
+        caption: JSON.stringify(showcaseStyle, null, ' ')
+          .replaceAll(/{|}|"/g, '')
+          .trim(),
+      };
 
   const captionWidth = `${caption.length / 1.8}rem`;
 
   return (
-    <div style={styles.container} >
-      <Caption text={caption} width={captionWidth} />
-      <Text className={componentClass} style={componentStyle} useLongText={useLongText} {...otherProps} />
-    </div>)
+    <div style={styles.container}>
+      <Clipboard style={{ width: captionWidth }}>{caption}</Clipboard>
+      <Text
+        className={componentClass}
+        style={componentStyle}
+        useLongText={useLongText}
+        {...otherProps}
+      />
+    </div>
+  );
 };

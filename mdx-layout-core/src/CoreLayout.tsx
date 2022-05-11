@@ -1,7 +1,8 @@
 import type { Context } from '@divriots/studio-doc-compiler';
 import { PageGraph, buildGraph } from './PageGraph';
 import { NavBar } from './NavBar';
-import React, { ReactChildren, ReactChild, CSSProperties } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
+// @ts-ignore
 import prismcss from 'prismjs/themes/prism-tomorrow.css?raw';
 
 const styles = {
@@ -32,7 +33,7 @@ export const CoreLayout = ({
   ...props // MDX exports
 }: {
   __context: Context; // Layout Context
-  children: ReactChild | ReactChildren; // MDX Content
+  children: ReactNode | ReactNode[];
   articleClassName: string; // class to apply to <article>
 }) => {
   const graph: PageGraph = buildGraph(__context);

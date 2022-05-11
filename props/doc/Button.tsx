@@ -26,5 +26,5 @@ export const Button = ({
   type = 'primary',
   text,
   disabled = false,
-  onPress = () => {},
+  onPress = () => ({}),
 }: ButtonProps) => <div />;

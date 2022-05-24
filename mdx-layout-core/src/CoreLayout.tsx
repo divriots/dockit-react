@@ -1,4 +1,5 @@
 import type { Context } from '@divriots/studio-doc-compiler';
+import { setupSpeedyLinks } from '@divriots/dockit-core/speedy-links';
 import { PageGraph, buildGraph } from './PageGraph';
 import { NavBar } from './NavBar';
 import React, { CSSProperties, ReactNode } from 'react';
@@ -30,12 +31,22 @@ export const CoreLayout = ({
   __context,
   children,
   articleClassName,
+  disableSpeedyLinks,
   ...props // MDX exports
 }: {
   __context: Context; // Layout Context
   children: ReactNode | ReactNode[];
   articleClassName: string; // class to apply to <article>
+  disableSpeedyLinks: boolean; // if you want to disable fast links loading or set up your own
 }) => {
+  if (!disableSpeedyLinks) {
+    setupSpeedyLinks({
+      mapLinkUrlToModuleUrl: (url) => {
+        return __context.mapPageUrlToRenderModuleUrl(url);
+      },
+    });
+  }
+
   const graph: PageGraph = buildGraph(__context);
 
   const mediaMatch = window.matchMedia('only screen and (min-width: 1024px)');

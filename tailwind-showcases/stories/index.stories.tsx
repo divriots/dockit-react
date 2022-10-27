@@ -1,11 +1,11 @@
 import React from 'react';
-import 'twind/shim';
-import twTheme from 'tailwindcss/defaultTheme.js';
+import '../styles.css';
+import config from '../../tailwind.config.js';
 import { TailwindShowcases } from '../index';
 
 export const bg_color = () => (
   <TailwindShowcases
-    theme={twTheme}
+    {...config}
     showcaseKey="backgroundColor"
     componentProps={{
       className: 'shadow-xl h-32 w-32',
@@ -16,7 +16,7 @@ export const bg_color = () => (
 
 export const bg_image = () => (
   <TailwindShowcases
-    theme={twTheme}
+    {...config}
     showcaseKey="backgroundImage"
     componentProps={{
       className: 'shadow-xl h-32 w-32 from-yellow-400 via-red-500 to-pink-500',
@@ -27,7 +27,7 @@ export const bg_image = () => (
 
 export const opacity = () => (
   <TailwindShowcases
-    theme={twTheme}
+    {...config}
     showcaseKey="opacity"
     componentProps={{
       className: 'shadow-xl h-32 w-32 bg-blue-700',
@@ -37,7 +37,7 @@ export const opacity = () => (
 
 export const shadow = () => (
   <TailwindShowcases
-    theme={twTheme}
+    {...config}
     showcaseKey="shadow"
     componentProps={{
       className: 'h-32 w-32 bg-white',
@@ -47,7 +47,7 @@ export const shadow = () => (
 
 export const border_radius = () => (
   <TailwindShowcases
-    theme={twTheme}
+    {...config}
     showcaseKey="borderRadius"
     componentProps={{
       className: 'shadow-2xl h-32 w-32 bg-blue-400',
@@ -57,7 +57,7 @@ export const border_radius = () => (
 
 export const border_width = () => (
   <TailwindShowcases
-    theme={twTheme}
+    {...config}
     showcaseKey="borderWidth"
     componentProps={{
       className: 'h-32 w-32 bg-gray-50',
@@ -67,7 +67,7 @@ export const border_width = () => (
 
 export const border_color = () => (
   <TailwindShowcases
-    theme={twTheme}
+    {...config}
     showcaseKey="borderColor"
     componentProps={{
       className: 'h-32 w-32 bg-gray-50 border-4 rounded',
@@ -76,37 +76,37 @@ export const border_color = () => (
 );
 
 export const font_family = () => (
-  <TailwindShowcases theme={twTheme} showcaseKey="fontFamily" />
+  <TailwindShowcases {...config} showcaseKey="fontFamily" />
 );
 
 export const font_size = () => (
-  <TailwindShowcases theme={twTheme} showcaseKey="fontSize" />
+  <TailwindShowcases {...config} showcaseKey="fontSize" />
 );
 
 export const font_weight = () => (
-  <TailwindShowcases theme={twTheme} showcaseKey="fontWeight" />
+  <TailwindShowcases {...config} showcaseKey="fontWeight" />
 );
 
 export const letter_spacing = () => (
-  <TailwindShowcases theme={twTheme} showcaseKey="letterSpacing" />
+  <TailwindShowcases {...config} showcaseKey="letterSpacing" />
 );
 
 export const line_height = () => (
   <TailwindShowcases
-    theme={twTheme}
+    {...config}
     showcaseKey="lineHeight"
     componentProps={{ useLongText: true }}
   />
 );
 
 export const text_color = () => (
-  <TailwindShowcases theme={twTheme} showcaseKey="textColor" />
+  <TailwindShowcases {...config} showcaseKey="textColor" />
 );
 
 export const z_index = () => (
-  <TailwindShowcases theme={twTheme} showcaseKey="zIndex" />
+  <TailwindShowcases {...config} showcaseKey="zIndex" />
 );
 
 export const space = () => (
-  <TailwindShowcases theme={twTheme} showcaseKey="space" />
+  <TailwindShowcases {...config} showcaseKey="space" />
 );

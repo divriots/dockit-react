@@ -21,8 +21,7 @@
     "react-live": "^2.4.1",
     "styled-components": "^5.3.5",
     "styled-system": "^5.1.5",
-    "tailwindcss": "^3.0.24",
-    "twind": "^0.16.17"
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
     "@divriots/studio-doc-compiler": "^0.0.32",

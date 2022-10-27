@@ -1,8 +1,9 @@
 import { mdx } from '@mdx-js/react';
 import { Props, Description } from '~/props/src/index';
-import { TailwindShowcases, showcaseKeys } from '~/tailwind-showcases';
-import 'https://unpkg.com/tailwindcss@2.0.3/dist/tailwind.min.css';
+import { TailwindShowcases, buildShowcaseDetails } from '~/tailwind-showcases';
+import config from '../../tailwind.config';
 import { CssLayout } from '~/mdx-layout-css';
+import '../styles.css';
 export default CssLayout;
 
 # TailwindShowcases Component
@@ -12,7 +13,7 @@ export default CssLayout;
 ### Supported Keys
 
 <code>
-  {showcaseKeys.map((k) => (
+  {Object.keys(buildShowcaseDetails(prefix)).map((k) => (
     <span key={k}>{`${k}, `}</span>
   ))}
 </code>
